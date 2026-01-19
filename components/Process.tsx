@@ -62,16 +62,16 @@ export default function Process() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-6"
+                        className="tag-label"
                     >
                         <Zap className="w-4 h-4 text-wl-accent" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">Execution Framework</span>
+                        Execution Framework
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-5xl md:text-7xl font-black mb-8"
+                        className="heading-lg mb-8"
                     >
                         The <span className="heading-gradient text-wl-accent">WLOPER</span> Journey
                     </motion.h2>
@@ -80,7 +80,7 @@ export default function Process() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-wl-muted-dark max-w-2xl mx-auto font-medium"
+                        className="subtitle-lg mx-auto"
                     >
                         A battle-tested methodology designed to launch industry-leading AI products.
                     </motion.p>
@@ -109,7 +109,7 @@ export default function Process() {
                                 >
                                     <div className="group relative">
                                         {/* Floating Badge */}
-                                        <div className="absolute -top-6 left-0 px-4 py-1 rounded-lg bg-wl-accent/10 border border-wl-accent/20 text-[10px] font-black uppercase tracking-widest text-wl-accent">
+                                        <div className="absolute -top-6 left-0 px-4 py-1 rounded-lg bg-wl-accent/10 border border-wl-accent/20 text-[10px] font-bold uppercase tracking-widest text-wl-accent">
                                             Stage 0{index + 1} • {step.tag}
                                         </div>
 
@@ -118,10 +118,10 @@ export default function Process() {
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-wl-accent/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                                             <div className="relative z-10">
-                                                <h3 className="text-3xl font-black mb-6 group-hover:text-wl-accent transition-colors">
+                                                <h3 className="heading-sm mb-6 group-hover:text-wl-accent transition-colors">
                                                     {step.title}
                                                 </h3>
-                                                <p className="text-lg text-wl-muted-dark leading-relaxed font-medium">
+                                                <p className="subtitle-md">
                                                     {step.desc}
                                                 </p>
                                             </div>
@@ -163,7 +163,7 @@ export default function Process() {
                     className="mt-48 text-center"
                 >
                     <div className="inline-block p-1 rounded-full bg-white/5 border border-white/10 scale-110">
-                        <div className="px-10 py-4 rounded-full bg-wl-dark text-wl-accent font-black uppercase tracking-widest text-sm">
+                        <div className="px-10 py-4 rounded-full bg-wl-dark text-wl-accent font-bold uppercase tracking-widest text-xs">
                             Ready to begin?
                         </div>
                     </div>

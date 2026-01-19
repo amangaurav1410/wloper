@@ -7,8 +7,11 @@ import {
     Cpu, Database, Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useDemo } from '@/context/DemoContext';
 
 export default function InterviewScreeningPage() {
+    const { openDemoModal } = useDemo();
     const featureGroups = [
         {
             title: "Assessment Intelligence",
@@ -38,8 +41,19 @@ export default function InterviewScreeningPage() {
         <div className="bg-wl-dark min-h-screen text-white selection:bg-wl-accent selection:text-black pb-32">
 
             {/* Hero Section */}
-            <section className="relative pt-32 lg:pt-48 pb-20 overflow-hidden">
-                <div className="absolute top-0 right-1/2 translate-x-1/2 w-[60%] h-[60%] bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <section className="relative pt-40 lg:pt-64 pb-20 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+                        alt="Interview Screening Background"
+                        fill
+                        sizes="100vw"
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                </div>
 
                 <div className="container-custom relative z-10 text-center">
                     <motion.div
@@ -54,18 +68,18 @@ export default function InterviewScreeningPage() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-8xl font-black leading-tight mb-8"
+                        className="heading-xl mb-8"
                     >
-                        AI <span className="heading-gradient">Interview</span> Screening
+                        AI Interview <span className="heading-gradient">Screening Platform</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-wl-muted-dark max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
+                        className="subtitle-lg mx-auto mb-12 h-auto"
                     >
-                        Rank talent 10x faster with our multimodal AI engine. Automate screening, eliminate bias, and unlock top-tier human potential.
+                        Automate your technical and behavioral assessments. An intelligent AI platform that conducts live interviews and evaluates responses in real-time.
                     </motion.p>
 
                     <motion.div
@@ -74,10 +88,10 @@ export default function InterviewScreeningPage() {
                         transition={{ delay: 0.2 }}
                         className="flex flex-wrap justify-center gap-6"
                     >
-                        <Link href="/contact" className="btn-primary group h-16 px-10">
-                            Book Technical Demo
+                        <button onClick={openDemoModal} className="btn-primary group h-16 px-10">
+                            Request Live Demo
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        </button>
                         <div className="flex items-center gap-4 text-wl-muted-dark border border-white/10 px-6 py-4 rounded-full glass">
                             <ShieldCheck className="w-5 h-5 text-wl-accent" />
                             <span className="text-xs font-bold uppercase tracking-widest">Enterprise Ready</span>
@@ -185,9 +199,9 @@ export default function InterviewScreeningPage() {
                         <Sparkles className="w-12 h-12 text-wl-accent mx-auto mb-10" />
                         <h2 className="text-3xl md:text-5xl font-black mb-10 leading-tight">Transform Your Hiring Pipeline Today</h2>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Link href="/contact" className="btn-primary h-16 px-12">
-                                Request a Trial
-                            </Link>
+                            <button onClick={openDemoModal} className="btn-primary h-16 px-12">
+                                Contact Sales Pod
+                            </button>
                             <Link href="/about" className="btn-secondary h-16 px-12">
                                 View Case Studies
                             </Link>

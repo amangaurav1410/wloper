@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
 interface CTAButtonProps {
-    href: string;
+    href?: string;
+    onClick?: () => void;
     children: React.ReactNode;
     variant?: 'primary' | 'secondary';
     className?: string;
@@ -9,27 +10,24 @@ interface CTAButtonProps {
 
 export default function CTAButton({
     href,
+    onClick,
     children,
     variant = 'primary',
     className = '',
 }: CTAButtonProps) {
-    if (variant === 'primary') {
+    const baseClass = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
+    const combinedClass = `${baseClass} ${className}`;
+
+    if (onClick) {
         return (
-            <Link
-                href={href}
-                className={`btn-primary ${className}`}
-            >
+            <button onClick={onClick} className={combinedClass}>
                 {children}
-            </Link>
+            </button>
         );
     }
 
-    // Secondary variant
     return (
-        <Link
-            href={href}
-            className={`btn-secondary ${className}`}
-        >
+        <Link href={href || '#'} className={combinedClass}>
             {children}
         </Link>
     );

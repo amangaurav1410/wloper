@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NewsletterPopup from "@/components/NewsletterPopup";
+import { DemoProvider } from "@/context/DemoContext";
 
 export const metadata: Metadata = {
     title: "Wloper – We Are Next-Gen Developers",
@@ -22,12 +24,15 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>
-                <Header />
-                <main className="min-h-screen">
-                    {children}
-                </main>
-                <Footer />
+            <body className="antialiased">
+                <DemoProvider>
+                    <Header />
+                    <NewsletterPopup />
+                    <main className="min-h-screen">
+                        {children}
+                    </main>
+                    <Footer />
+                </DemoProvider>
             </body>
         </html>
     );

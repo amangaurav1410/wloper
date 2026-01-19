@@ -16,51 +16,51 @@ export default function Footer() {
         {
             title: "Products",
             links: [
-                { name: "Interview Screening", href: "/products/interview-screening" },
-                { name: "AI Chatbot", href: "/products/ai-chatbot" },
-                { name: "HCM System", href: "/products/hcm-system" },
-                { name: "Recruitment Automation", href: "/products/interview-screening" },
-                { name: "AI Customer Support", href: "/products/ai-chatbot" }
+                { name: "Screening AI", href: "/products/interview-screening" },
+                { name: "Neural Chat", href: "/products/ai-chatbot" },
+                { name: "HCM Cloud", href: "/products/hcm-system" },
+                { name: "Automation Hub", href: "/products" },
+                { name: "Support Agent", href: "/products/ai-chatbot" }
             ]
         },
         {
             title: "Services",
             links: [
-                { name: "AI Strategy", href: "/services/ai-strategy" },
-                { name: "AI Integration", href: "/services/ai-integration" },
-                { name: "Software Engineering", href: "/services/software-engineering" },
-                { name: "Digital Growth", href: "/services/digital-growth" },
-                { name: "Blockchain Development", href: "/services/digital-growth" } // Mapping to nearest for now
+                { name: "Neural Strategy", href: "/services/ai-strategy" },
+                { name: "System Sync", href: "/services/ai-integration" },
+                { name: "Core Engineering", href: "/services/software-engineering" },
+                { name: "Performance SEO", href: "/services/digital-growth" },
+                { name: "Blockchain Ops", href: "/services/software-engineering" }
             ]
         },
         {
             title: "Industries",
             links: [
-                { name: "E-commerce", href: "/industries" },
-                { name: "SaaS & Tech", href: "/industries" },
                 { name: "Fintech", href: "/industries" },
-                { name: "Real Estate", href: "/industries" },
-                { name: "Healthcare AI", href: "/industries" }
+                { name: "HealthTech AI", href: "/industries" },
+                { name: "Enterprise SaaS", href: "/industries" },
+                { name: "Education", href: "/industries" },
+                { name: "E-commerce", href: "/industries" }
             ]
         },
         {
             title: "Resources",
             links: [
-                { name: "Our Blog", href: "/blog" },
-                { name: "Case Studies", href: "/about" },
-                { name: "Tech Stack", href: "/services/software-engineering" },
-                { name: "Developer Docs", href: "/contact" },
-                { name: "API Reference", href: "/contact" }
+                { name: "The Alpha Blog", href: "/blog" },
+                { name: "Success Stories", href: "/about" },
+                { name: "Market Insights", href: "/blog" },
+                { name: "Developer Hub", href: "/contact" },
+                { name: "API Docs", href: "/contact" }
             ]
         },
         {
             title: "Company",
             links: [
-                { name: "About Wloper", href: "/about" },
-                { name: "Our Process", href: "/about" },
+                { name: "Our Identity", href: "/about" },
+                { name: "Brand Assets", href: "/contact" },
                 { name: "Global Offices", href: "/contact" },
-                { name: "Careers", href: "/contact" },
-                { name: "Press Kit", href: "/contact" }
+                { name: "Career Openings", href: "/contact" },
+                { name: "Media Center", href: "/contact" }
             ]
         }
     ];

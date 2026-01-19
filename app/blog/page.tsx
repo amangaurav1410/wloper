@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
     Search, Clock, Calendar, ArrowRight, Rss,
     ChevronLeft, ChevronRight, Hash, Filter, Sparkles
@@ -39,8 +40,19 @@ export default function BlogPage() {
     return (
         <div className="bg-wl-dark text-white overflow-hidden pb-32">
             {/* Hero Section */}
-            <section className="section-padding relative pt-32 lg:pt-48 pb-20">
-                <div className="absolute top-0 right-1/2 translate-x-1/2 w-[60%] h-[60%] bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <section className="section-padding relative pt-40 lg:pt-64 pb-20 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+                        alt="Blog Background"
+                        fill
+                        sizes="100vw"
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                </div>
 
                 <div className="container-custom relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
@@ -164,39 +176,40 @@ export default function BlogPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                         <AnimatePresence mode='popLayout'>
                             {currentPosts.map((post, idx) => (
-                                <motion.article
-                                    key={post.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="glass rounded-[2.5rem] p-8 border border-white/5 hover:border-wl-accent/20 transition-all flex flex-col group h-full cursor-pointer"
-                                >
-                                    <div className="flex items-center justify-between mb-8">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-wl-accent group-hover:text-black transition-all">
-                                            <post.icon className="w-7 h-7" />
+                                <Link href={`/blog/${post.slug}`} key={post.id} className="block h-full group">
+                                    <motion.article
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="glass rounded-[2.5rem] p-8 border border-white/5 hover:border-wl-accent/20 transition-all flex flex-col h-full cursor-pointer"
+                                    >
+                                        <div className="flex items-center justify-between mb-8">
+                                            <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-wl-accent group-hover:text-black transition-all">
+                                                <post.icon className="w-7 h-7" />
+                                            </div>
+                                            <div className="text-[10px] font-black uppercase tracking-widest text-wl-muted-dark">
+                                                {post.category}
+                                            </div>
                                         </div>
-                                        <div className="text-[10px] font-black uppercase tracking-widest text-wl-muted-dark">
-                                            {post.category}
+                                        <h3 className="text-2xl font-bold mb-4 group-hover:text-wl-accent transition-colors">
+                                            {post.title}
+                                        </h3>
+                                        <p className="subtitle-md mb-8 flex-1">
+                                            {post.excerpt}
+                                        </p>
+                                        <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                                            <div className="flex items-center gap-3 text-xs font-bold text-wl-muted-dark">
+                                                <Calendar className="w-4 h-4" />
+                                                {post.date}
+                                            </div>
+                                            <div className="flex items-center gap-1 text-wl-accent font-black text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                                View Post <ChevronRight className="w-4 h-4" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-4 group-hover:text-wl-accent transition-colors">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-wl-muted-dark font-medium leading-relaxed mb-8 flex-1">
-                                        {post.excerpt}
-                                    </p>
-                                    <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                                        <div className="flex items-center gap-3 text-xs font-bold text-wl-muted-dark">
-                                            <Calendar className="w-4 h-4" />
-                                            {post.date}
-                                        </div>
-                                        <div className="flex items-center gap-1 text-wl-accent font-black text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                                            View Post <ChevronRight className="w-4 h-4" />
-                                        </div>
-                                    </div>
-                                </motion.article>
+                                    </motion.article>
+                                </Link>
                             ))}
                         </AnimatePresence>
                     </div>

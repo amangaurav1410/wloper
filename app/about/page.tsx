@@ -4,246 +4,287 @@ import { motion } from 'framer-motion';
 import {
     Target, Users, Zap, Sparkles, Heart, Globe, TrendingUp,
     Code2, Rocket, ShieldCheck, Cpu, Database, Cloud, Layers,
-    Lock, Smartphone, Layout
+    Lock, Smartphone, Layout, ArrowRight, Quote
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useDemo } from '@/context/DemoContext';
 
 export default function AboutPage() {
+    const { openDemoModal } = useDemo();
     const stats = [
-        { label: 'Projects Completed', value: '6K+' },
-        { label: 'Happy Clients', value: '2K+' },
-        { label: 'Client Rating', value: '4.7' },
-        { label: 'Years of Experience', value: '8+' },
+        { label: 'Cloud Solutions', value: '450+' },
+        { label: 'AI Models Deployed', value: '1.2K' },
+        { label: 'Global Clients', value: '850+' },
+        { label: 'Team Experts', value: '120+' },
     ];
 
-    const techStack = [
-        { name: "OpenAI", icon: Cpu, category: "AI Logic" },
-        { name: "Next.js", icon: Code2, category: "Architecture" },
-        { name: "AWS", icon: Cloud, category: "Infrastructure" },
-        { name: "Etherium", icon: Database, category: "Blockchain" },
-        { name: "Motion", icon: Layout, category: "Experience" }
+    const values = [
+        {
+            icon: Target,
+            title: "Strategic Precision",
+            desc: "We don't just build; we architect for long-term scalability and market dominance."
+        },
+        {
+            icon: Zap,
+            title: "Rapid Innovation",
+            desc: "Our agile pods deliver enterprise-grade solutions at the speed of the AI era."
+        },
+        {
+            icon: Heart,
+            title: "Human-Centric AI",
+            desc: "We believe technology should empower people, not replace the human touch."
+        }
+    ];
+
+    const team = [
+        {
+            name: "Alex Rivet",
+            role: "Chief Architect",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+        },
+        {
+            name: "Sarah Chen",
+            role: "AI Lead",
+            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
+        },
+        {
+            name: "Marcus Thorne",
+            role: "Strategy Director",
+            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop"
+        }
     ];
 
     const timeline = [
-        { year: "2018", event: "The Genesis", desc: "Wloper starts in a small studio with 3 engineers." },
-        { year: "2020", event: "Enterprise Shift", desc: "First major enterprise SaaS platform launch." },
-        { year: "2023", event: "AI Foundation", desc: "Pivoted core engine to LLM-driven architectures." },
-        { year: "2026", event: "Global Dominance", desc: "Leading the Punjab-to-Global AI revolution." }
+        { year: "2018", event: "The Genesis", desc: "Wloper starts in a small studio with 3 engineers focusing on cloud infrastructure." },
+        { year: "2020", event: "Enterprise Shift", desc: "Global expansion begins with our first major enterprise SaaS platform launch." },
+        { year: "2023", event: "AI Foundation", desc: "Pivoted core engine to LLM-driven architectures and neural networks." },
+        { year: "2026", event: "AI Supremacy", desc: "Leading the global AI revolution with autonomous systems and predictive analytics." }
     ];
 
     return (
         <div className="bg-wl-dark text-white overflow-hidden pb-40">
             {/* Hero Section */}
-            <section className="section-padding relative pt-32 lg:pt-48">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <section className="section-padding relative pt-40 lg:pt-64 min-h-[90vh] flex items-center overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop"
+                        alt="About Us Background"
+                        fill
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                </div>
 
                 <div className="container-custom relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
+                    <div className="max-w-6xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-8"
+                            className="tag-label"
                         >
                             <Sparkles className="w-4 h-4 text-wl-accent" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">Empowering Innovation</span>
+                            Architecting the Future
                         </motion.div>
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-5xl md:text-8xl font-black leading-[1.1] mb-8"
+                            className="heading-xl mb-12"
                         >
-                            Empowering Brands <br /><span className="heading-gradient">with AI & Strategy</span>
+                            We are <br /><span className="heading-gradient">the AI Engine</span><br /> of Progress.
                         </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-xl md:text-2xl text-wl-muted-dark leading-relaxed max-w-2xl mx-auto font-medium"
-                        >
-                            We help businesses build, launch, and scale digital products that don’t just function — they win in the market.
-                        </motion.p>
-                    </div>
-
-                    {/* Hero Image */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="max-w-5xl mx-auto mt-16"
-                    >
-                        <div className="glass-strong rounded-[4rem] overflow-hidden border border-white/10 relative h-[500px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1522071823991-b397dd51a196?q=80&w=2070&auto=format&fit=crop"
-                                alt="WLOPER Team Culture"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-wl-dark/60 to-transparent"></div>
+                        <div className="grid md:grid-cols-2 gap-16 items-end">
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="subtitle-lg"
+                            >
+                                Wloper is a global technology powerhouse specializing in AI-driven digital transformation. We bridge the gap between complex engineering and human experience.
+                            </motion.p>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="flex gap-4"
+                            >
+                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 flex-1">
+                                    <div className="text-4xl font-black text-wl-accent mb-2">99%</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-wl-muted-dark">Success Rate</div>
+                                </div>
+                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 flex-1 bg-wl-accent text-black shadow-[0_0_30px_rgba(202,246,72,0.2)]">
+                                    <div className="text-4xl font-black mb-2">120+</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest opacity-70 font-black">AI Specialists</div>
+                                </div>
+                            </motion.div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
-            {/* Cultural Core Section */}
+            {/* Visionary Section */}
             <section className="section-padding bg-wl-dark relative">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
+                            className="relative"
                         >
-                            <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight">
-                                Builders Who Think Like <span className="text-wl-accent">Marketers</span>
-                            </h2>
-                            <div className="space-y-6 text-xl text-wl-muted-dark leading-relaxed font-medium">
-                                <p>
-                                    We’re Wloper — a new generation of technologists who think beyond code. We blend creative engineering, AI innovation, and strategic digital thinking to build products that are designed for real-world success.
-                                </p>
-                                <p>
-                                    Whether it’s an AI platform, a mobile application, or a scalable web system, we build with bold ideas and take products all the way from concept to market impact.
-                                </p>
+                            <div className="glass-strong rounded-[4rem] overflow-hidden border border-white/10 relative h-[600px]">
+                                <img
+                                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"
+                                    alt="Deep Strategy Session"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-wl-dark via-transparent to-transparent"></div>
+                                <div className="absolute bottom-12 left-12 right-12 glass p-8 rounded-3xl border border-white/10">
+                                    <Quote className="w-8 h-8 text-wl-accent mb-4" />
+                                    <p className="subtitle-lg mb-4 italic">"Our mission is to democratize intelligence, making powerful AI accessible to every ambitious enterprise."</p>
+                                    <div className="mt-4 font-bold uppercase tracking-widest text-[10px] text-wl-accent">— The Wloper Vision</div>
+                                </div>
                             </div>
                         </motion.div>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-4">
-                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 aspect-square flex flex-col justify-end">
-                                    <Zap className="w-10 h-10 text-wl-accent mb-4" />
-                                    <h3 className="font-black text-xl mb-1">Agility</h3>
-                                    <p className="text-xs text-wl-muted-dark font-bold uppercase tracking-widest">Sprint-First Flow</p>
-                                </div>
-                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 aspect-square bg-wl-accent text-black flex flex-col justify-end">
-                                    <Users className="w-10 h-10 mb-4" />
-                                    <h3 className="font-black text-xl mb-1">Humanity</h3>
-                                    <p className="text-xs font-bold uppercase tracking-widest opacity-60">Heart-Driven Code</p>
-                                </div>
-                            </div>
-                            <div className="space-y-4 mt-12">
-                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 aspect-square flex flex-col justify-end">
-                                    <ShieldCheck className="w-10 h-10 text-wl-accent mb-4" />
-                                    <h3 className="font-black text-xl mb-1">Trust</h3>
-                                    <p className="text-xs text-wl-muted-dark font-bold uppercase tracking-widest">Compliance Ready</p>
-                                </div>
-                                <div className="glass-strong p-8 rounded-[2rem] border border-white/5 aspect-square flex flex-col justify-end">
-                                    <Lock className="w-10 h-10 text-wl-accent mb-4" />
-                                    <h3 className="font-black text-xl mb-1">Security</h3>
-                                    <p className="text-xs text-wl-muted-dark font-bold uppercase tracking-widest">Enterprise Guard</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Evolution Timeline Section */}
-            <section className="section-padding bg-wl-dark relative overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[1px] bg-white/5 md:block hidden"></div>
-
-                <div className="container-custom relative z-10">
-                    <div className="text-center mb-24">
-                        <h2 className="heading-lg">Our Journey from <span className="text-wl-accent">2018 to 2026</span></h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-4 gap-8">
-                        {timeline.map((item, idx) => (
-                            <motion.div
-                                key={idx}
+                        <div className="space-y-12">
+                            <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="glass p-8 rounded-[2.5rem] border border-white/10 relative group hover:border-wl-accent/30 transition-all text-center"
+                                className="heading-lg mb-10 text-balance"
                             >
-                                <div className="text-5xl font-black text-wl-accent mb-6 group-hover:scale-110 transition-transform">{item.year}</div>
-                                <h3 className="text-xl font-bold mb-3">{item.event}</h3>
-                                <p className="text-sm text-wl-muted-dark font-medium leading-relaxed">{item.desc}</p>
-                                <div className="absolute -bottom-2 lg:-bottom-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-wl-accent rounded-full hidden md:block"></div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Strategic Partners Section */}
-            <section className="section-padding bg-wl-dark/50 border-y border-white/5">
-                <div className="container-custom">
-                    <div className="text-center mb-16">
-                        <p className="text-xs font-black uppercase tracking-widest text-wl-muted-dark mb-4">The Strategic Stack</p>
-                        <h3 className="text-3xl font-black">Technologies That Power <span className="text-wl-accent">Our Solutions</span></h3>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-                        {techStack.map((tech, idx) => (
-                            <motion.div
-                                key={idx}
-                                whileHover={{ y: -5 }}
-                                className="flex flex-col items-center gap-4 group"
-                            >
-                                <div className="w-20 h-20 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-wl-accent group-hover:text-black transition-all">
-                                    <tech.icon className="w-10 h-10" />
-                                </div>
-                                <div className="text-center">
-                                    <p className="text-sm font-bold text-white mb-1">{tech.name}</p>
-                                    <p className="text-[10px] uppercase font-bold tracking-widest text-wl-muted-dark">{tech.category}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Impact Stats Section */}
-            <section className="section-padding bg-wl-dark relative">
-                <div className="container-custom relative z-10">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-                        {stats.map((stat, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="text-center"
-                            >
-                                <div className="text-6xl md:text-8xl font-black text-wl-accent mb-4 tabular-nums">
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs md:text-sm font-bold uppercase tracking-[0.4em] text-wl-muted-dark">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Values Section */}
-            <section className="section-padding bg-wl-dark relative">
-                <div className="container-custom relative z-10">
-                    <div className="max-w-4xl mx-auto glass-strong p-12 md:p-24 rounded-[4rem] border border-white/10 relative overflow-hidden group">
-                        <div className="absolute -top-24 -right-24 w-64 h-64 bg-wl-accent/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
-                        <div className="text-center relative z-10">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-8"
-                            >
-                                <Heart className="w-4 h-4 text-wl-accent" />
-                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">Our Core Values</span>
-                            </motion.div>
-                            <h2 className="heading-lg mb-10">
-                                Driven by Purpose. <br />United by Vision.
-                            </h2>
-                            <p className="text-xl md:text-2xl text-wl-muted-dark leading-relaxed font-medium">
-                                At Wloper, we believe in collaboration, creativity, and compassion. Every idea starts with belief. Every solution starts with helping. And every success is built through teamwork.
-                            </p>
-                            <div className="mt-12">
-                                <Link href="/contact" className="btn-primary">
-                                    Join Our Journey
-                                </Link>
+                                Built by Innovators, <br /><span className="text-wl-accent">For Game Changers.</span>
+                            </motion.h2>
+                            <div className="grid gap-8">
+                                {values.map((v, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="flex gap-6 items-start group"
+                                    >
+                                        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-wl-accent group-hover:text-black transition-all">
+                                            <v.icon className="w-8 h-8" />
+                                        </div>
+                                        <div>
+                                            <h3 className="heading-sm mb-2">{v.title}</h3>
+                                            <p className="subtitle-md">{v.desc}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Stats Experience */}
+            <section className="section-padding">
+                <div className="container-custom">
+                    <div className="glass-strong border border-white/5 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-[50%] h-full bg-wl-accent/5 blur-[120px] pointer-events-none"></div>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 relative z-10">
+                            {stats.map((s, i) => (
+                                <div key={i} className="text-center group">
+                                    <div className="text-5xl md:text-7xl font-black text-wl-accent mb-4 tabular-nums group-hover:scale-110 transition-transform">{s.value}</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-[0.4em] text-wl-muted-dark">{s.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Section */}
+            <section className="section-padding">
+                <div className="container-custom">
+                    <div className="text-center mb-24">
+                        <h2 className="heading-lg">Minds Behind <span className="text-wl-accent">The Magic</span></h2>
+                        <p className="text-xl text-wl-muted-dark mt-4">World-class talent from around the globe.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-12">
+                        {team.map((member, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group"
+                            >
+                                <div className="relative h-[450px] rounded-[3rem] overflow-hidden mb-8 border border-white/5">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-wl-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                                <h3 className="heading-sm mb-2">{member.name}</h3>
+                                <p className="text-wl-accent font-bold uppercase tracking-widest text-[10px]">{member.role}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* History Section */}
+            <section className="section-padding overflow-hidden">
+                <div className="container-custom">
+                    <div className="mb-24">
+                        <h2 className="heading-lg">Our <span className="text-wl-accent">Evolution</span></h2>
+                    </div>
+
+                    <div className="relative">
+                        <div className="absolute left-0 right-0 top-1/2 h-[2px] bg-white/5 md:block hidden"></div>
+                        <div className="grid md:grid-cols-4 gap-8">
+                            {timeline.map((item, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="glass-strong p-8 rounded-[2.5rem] border border-white/10 relative group hover:border-wl-accent/30 transition-all"
+                                >
+                                    <div className="text-4xl font-black text-wl-accent mb-6">{item.year}</div>
+                                    <h3 className="text-xl font-bold mb-3">{item.event}</h3>
+                                    <p className="text-sm text-wl-muted-dark font-medium leading-relaxed">{item.desc}</p>
+                                    <div className="absolute -bottom-2 md:bottom-auto md:top-1/2 md:translate-y-[-50%] left-1/2 -translate-x-1/2 w-4 h-4 bg-wl-accent rounded-full hidden md:block border-4 border-wl-dark group-hover:scale-150 transition-transform"></div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="section-padding">
+                <div className="container-custom">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="glass-strong p-12 md:p-32 rounded-[4rem] border border-wl-accent/20 text-center relative overflow-hidden"
+                    >
+                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+                        <div className="relative z-10">
+                            <h2 className="text-4xl md:text-7xl font-black mb-10 leading-tight">Ready to build the <br /><span className="text-wl-accent">Unimaginable?</span></h2>
+                            <div className="flex flex-wrap justify-center gap-6">
+                                <button onClick={openDemoModal} className="btn-primary flex items-center gap-3">
+                                    Start Your Project <ArrowRight className="w-5 h-5" />
+                                </button>
+                                <Link href="/portfolio" className="px-10 h-16 rounded-full border border-white/10 flex items-center justify-center font-bold hover:bg-white/5 transition-all">
+                                    View Our Work
+                                </Link>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
         </div>

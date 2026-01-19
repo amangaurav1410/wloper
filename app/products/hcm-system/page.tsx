@@ -7,8 +7,11 @@ import {
     Search, Sparkles, Network, Fingerprint
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useDemo } from '@/context/DemoContext';
 
 export default function HCMSystemPage() {
+    const { openDemoModal } = useDemo();
     const coreFeatures = [
         {
             title: "Talent Orchestration",
@@ -36,8 +39,19 @@ export default function HCMSystemPage() {
         <div className="bg-wl-dark min-h-screen text-white selection:bg-wl-accent selection:text-black pb-32">
 
             {/* Hero Section */}
-            <section className="relative pt-32 lg:pt-48 pb-20 overflow-hidden">
-                <div className="absolute top-0 right-1/2 translate-x-1/2 w-[60%] h-[60%] bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <section className="relative pt-40 lg:pt-64 pb-20 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop"
+                        alt="HCM System Background"
+                        fill
+                        sizes="100vw"
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                </div>
 
                 <div className="container-custom relative z-10 text-center">
                     <motion.div
@@ -52,16 +66,16 @@ export default function HCMSystemPage() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-8xl font-black leading-tight mb-8"
+                        className="heading-xl mb-8"
                     >
-                        AI-Based <span className="heading-gradient text-wl-accent">HCM System</span>
+                        AI-Based <span className="heading-gradient">HCM System</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-wl-muted-dark max-w-4xl mx-auto mb-12 leading-relaxed font-medium"
+                        className="subtitle-lg mx-auto mb-12 h-auto"
                     >
                         Redefining talent management with predictive intelligence. Evaluate, hire, and scale your human capital with a system designed for the 2026 enterprise landscape.
                     </motion.p>
@@ -72,10 +86,10 @@ export default function HCMSystemPage() {
                         transition={{ delay: 0.2 }}
                         className="flex flex-wrap justify-center gap-6"
                     >
-                        <Link href="/contact" className="btn-primary group h-16 px-10">
+                        <button onClick={openDemoModal} className="btn-primary group h-16 px-10">
                             Request Enterprise Demo
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        </button>
                         <div className="flex items-center gap-4 text-wl-muted-dark border border-white/10 px-6 py-4 rounded-full glass">
                             <Layers className="w-5 h-5 text-wl-accent" />
                             <span className="text-xs font-bold uppercase tracking-widest">Scalable to 100k+ Users</span>
@@ -152,9 +166,9 @@ export default function HCMSystemPage() {
                 <div className="p-12 md:p-24 rounded-[4rem] bg-white/[0.02] border border-white/10 text-center relative overflow-hidden">
                     <h2 className="text-3xl md:text-5xl font-black mb-10">Optimized for Enterprise. <br />Powered by <span className="text-wl-accent">WLOPER.</span></h2>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link href="/contact" className="btn-primary h-16 px-12">
+                        <button onClick={openDemoModal} className="btn-primary h-16 px-12">
                             Contact Sales
-                        </Link>
+                        </button>
                         <Link href="/products/interview-screening" className="btn-secondary h-16 px-12">
                             Explore Screening Integration
                         </Link>

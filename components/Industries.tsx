@@ -36,6 +36,7 @@ export default function Industries() {
                                     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
                                     alt="Industries Served by WLOPER"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-wl-dark/80 via-transparent to-transparent"></div>
@@ -51,14 +52,14 @@ export default function Industries() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="flex items-center gap-2 text-wl-accent mb-6">
+                            <div className="tag-label">
                                 <Globe className="w-5 h-5" />
-                                <span className="text-xs font-bold uppercase tracking-[0.2em]">Global Impact</span>
+                                Global Impact
                             </div>
-                            <h2 className="heading-lg mb-8">
+                            <h2 className="heading-lg mb-10">
                                 AI Solutions Built for <span className="heading-gradient">Every Industry</span>
                             </h2>
-                            <p className="text-lg text-wl-muted-dark mb-12 leading-relaxed max-w-xl font-medium">
+                            <p className="subtitle-lg mb-12">
                                 We bridge the gap between complex AI technology and real-world business applications, helping diverse sectors scale with speed and intelligence.
                             </p>
 

@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Sparkles, Brain, Zap, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Sparkles, Brain, Zap, ShieldCheck, ArrowRight, MessageSquare, Users } from 'lucide-react';
 import Link from 'next/link';
+import { useDemo } from '@/context/DemoContext';
 
 export default function AIProductShowcase() {
+    const { openDemoModal } = useDemo();
     const products = [
         {
             title: 'AI Interview Screening Platform',
@@ -38,25 +40,25 @@ export default function AIProductShowcase() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+                        className="tag-label"
                     >
                         <Sparkles className="w-4 h-4 text-wl-accent" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-wl-muted-dark">The WLOPER Ecosystem</span>
+                        The WLOPER Ecosystem
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="heading-lg mb-8"
+                        className="heading-lg mb-10"
                     >
-                        Intelligent Solutions for a <span className="heading-gradient">Future-First</span> World
+                        Intelligent Solutions for a <br /><span className="heading-gradient">Future-First</span> World
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-wl-muted-dark max-w-2xl mx-auto leading-relaxed"
+                        className="subtitle-lg mx-auto"
                     >
                         We build integrated AI products that solve real business problems, from automated hiring to intelligent customer engagement and human capital management.
                     </motion.p>
@@ -75,9 +77,10 @@ export default function AIProductShowcase() {
                         <div className="absolute inset-0 bg-wl-accent/10 blur-[60px] rounded-[4rem] group-hover:bg-wl-accent/20 transition-all"></div>
                         <div className="relative z-10 aspect-[4/3] rounded-[4rem] overflow-hidden border border-white/10 glass-strong">
                             <Image
-                                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
                                 alt="WLOPER AI Product Ecosystem"
                                 fill
+                                sizes="100vw"
                                 className="object-cover"
                             />
                             {/* Floating labels logic would go here if needed, keeping it clean for now */}
@@ -120,14 +123,11 @@ export default function AIProductShowcase() {
                     viewport={{ once: true }}
                     className="mt-24"
                 >
-                    <Link href="/contact" className="btn-primary">
+                    <button onClick={openDemoModal} className="btn-primary">
                         Transform Your Business with AI
-                    </Link>
+                    </button>
                 </motion.div>
             </div>
         </section>
     );
 }
-
-// Helper icons that were missing in import but needed
-import { MessageSquare, Users } from 'lucide-react';

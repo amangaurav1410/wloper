@@ -1,10 +1,13 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import CTAButton from '@/components/CTAButton';
 import { Smartphone, RotateCcw, Globe, BarChart3, LayoutDashboard, Video, Users, Building, Rocket, GraduationCap, Check } from 'lucide-react';
+import { useDemo } from '@/context/DemoContext';
 
 export default function ProductsPage() {
+    const { openDemoModal } = useDemo();
     const features = [
         {
             title: 'Live AI Interviewer',
@@ -59,35 +62,44 @@ export default function ProductsPage() {
     return (
         <div className="bg-wl-dark text-white overflow-hidden">
             {/* Hero Section */}
-            <section className="section-padding relative pt-32 lg:pt-48">
-                {/* Background Glow */}
-                <div className="absolute top-0 right-1/2 translate-x-1/2 w-[60%] h-[60%] bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <section className="section-padding relative pt-40 lg:pt-64 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"
+                        alt="Products Background"
+                        fill
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                </div>
 
-                <div className="container-custom relative z-10">
+                <div className="container-custom relative z-10 h-auto">
                     <div className="text-center max-w-4xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-8"
+                            className="tag-label mx-auto"
                         >
                             <Rocket className="w-4 h-4 text-wl-accent" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">AI-Powered Product</span>
+                            AI-Powered Product
                         </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="heading-xl mb-6"
+                            className="heading-xl mb-12"
                         >
-                            Wloper AI <span className="heading-gradient">Interview Platform</span>
+                            Wloper AI <br /><span className="heading-gradient">Interview Platform</span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-xl text-wl-muted-dark mb-10 leading-relaxed max-w-2xl mx-auto"
+                            className="subtitle-lg mx-auto mb-16 h-auto"
                         >
                             An AI-powered platform that conducts live interviews for technical and non-technical
                             roles using intelligent questioning and real-time evaluation.
@@ -98,7 +110,7 @@ export default function ProductsPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
                         >
-                            <CTAButton href="/contact" variant="primary">
+                            <CTAButton onClick={openDemoModal} variant="primary">
                                 Book a Live Demo
                             </CTAButton>
                         </motion.div>
@@ -107,13 +119,13 @@ export default function ProductsPage() {
             </section>
 
             {/* Product Visual Showcase */}
-            <section className="pb-24 bg-wl-dark">
-                <div className="container-custom">
+            <section className="section-padding pt-0 bg-wl-dark">
+                <div className="container-custom px-4 lg:px-20">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="glass-strong rounded-[4rem] overflow-hidden border border-white/10 aspect-[16/9] relative group"
+                        className="glass-strong rounded-[4rem] overflow-hidden border border-white/10 aspect-[16/9] relative group shadow-[0_0_80px_rgba(202,246,72,0.05)]"
                     >
                         <img
                             src="https://images.unsplash.com/photo-1551288049-bbbda51658f7?q=80&w=2070&auto=format&fit=crop"
@@ -239,7 +251,7 @@ export default function ProductsPage() {
                         <p className="text-xl text-wl-muted-dark mb-10 max-w-2xl mx-auto font-medium">
                             See how our AI Interview Platform can revolutionize your recruitment process
                         </p>
-                        <CTAButton href="/contact" variant="primary">
+                        <CTAButton onClick={openDemoModal} variant="primary">
                             Schedule Your Demo Today
                         </CTAButton>
                     </motion.div>

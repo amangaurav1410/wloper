@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import CTAButton from '@/components/CTAButton';
 import { Check } from 'lucide-react';
+import { useDemo } from '@/context/DemoContext';
 
 export default function PricingPage() {
+    const { openDemoModal } = useDemo();
     const websitePackages = [
         {
             name: 'Starter',
@@ -151,7 +153,7 @@ export default function PricingPage() {
                                         </li>
                                     ))}
                                 </ul>
-                                <CTAButton href="/contact" variant={pkg.popular ? 'primary' : 'secondary'} className="w-full">
+                                <CTAButton onClick={openDemoModal} variant={pkg.popular ? 'primary' : 'secondary'} className="w-full">
                                     Get Started
                                 </CTAButton>
 
@@ -198,7 +200,7 @@ export default function PricingPage() {
                                         </li>
                                     ))}
                                 </ul>
-                                <CTAButton href="/contact" variant={plan.popular ? 'primary' : 'secondary'} className="w-full">
+                                <CTAButton onClick={openDemoModal} variant={plan.popular ? 'primary' : 'secondary'} className="w-full">
                                     Get Started
                                 </CTAButton>
                             </motion.div>
@@ -273,7 +275,7 @@ export default function PricingPage() {
                                     Contact us for a personalized quote and live demo.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                                    <CTAButton href="/contact" variant="primary">
+                                    <CTAButton onClick={openDemoModal} variant="primary">
                                         Request Demo & Pricing
                                     </CTAButton>
                                     <CTAButton href="/products" variant="secondary">

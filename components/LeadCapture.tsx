@@ -37,10 +37,10 @@ export default function LeadCapture() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-8"
+                                className="tag-label"
                             >
                                 <Zap className="w-4 h-4 text-wl-accent" />
-                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">limited availability</span>
+                                Limited Availability
                             </motion.div>
 
                             <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">

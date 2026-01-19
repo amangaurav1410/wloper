@@ -9,7 +9,10 @@ import {
     ChevronDown, Compass, Cpu, Code2, TrendingUp
 } from 'lucide-react';
 
+import { useDemo } from '@/context/DemoContext';
+
 export default function Header() {
+    const { openDemoModal } = useDemo();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -161,15 +164,15 @@ export default function Header() {
 
                     {/* Action Button */}
                     <div className="hidden lg:flex shrink-0">
-                        <Link
-                            href="/contact"
+                        <button
+                            onClick={openDemoModal}
                             className="group relative px-7 py-3 bg-wl-accent text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(202,246,72,0.4)] whitespace-nowrap"
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 Get a Demo
                                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
-                        </Link>
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -225,13 +228,15 @@ export default function Header() {
                                         </div>
                                     ))}
                                     <div className="pt-4 mt-2 border-t border-white/10">
-                                        <Link
-                                            href="/contact"
-                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        <button
+                                            onClick={() => {
+                                                openDemoModal();
+                                                setIsMobileMenuOpen(false);
+                                            }}
                                             className="w-full flex items-center justify-center p-4 bg-wl-accent text-black font-bold rounded-xl shadow-[0_0_20px_rgba(202,246,72,0.2)]"
                                         >
                                             Get a Demo
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

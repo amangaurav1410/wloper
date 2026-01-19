@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Stethoscope, Landmark, GraduationCap, ShoppingBag, Building2, Car, Utensils, Cpu, ArrowRight, Briefcase } from 'lucide-react';
+import { useDemo } from '@/context/DemoContext';
 
 export default function IndustriesPage() {
+    const { openDemoModal } = useDemo();
     const industries = [
         {
             icon: Stethoscope,
@@ -204,12 +206,12 @@ export default function IndustriesPage() {
                         <p className="text-xl text-wl-muted-dark mb-10 max-w-2xl mx-auto font-medium">
                             We work with businesses across all sectors. Contact us to discuss your specific needs.
                         </p>
-                        <a
-                            href="/contact"
+                        <button
+                            onClick={openDemoModal}
                             className="inline-flex items-center justify-center h-14 px-8 rounded-full font-bold bg-wl-accent text-black hover:scale-105 transition-all duration-300"
                         >
                             Get In Touch
-                        </a>
+                        </button>
                     </motion.div>
                 </div>
             </section>

@@ -6,9 +6,12 @@ import Image from 'next/image';
 import CTAButton from './CTAButton';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
+import { useDemo } from '@/context/DemoContext';
+
 export default function Hero() {
+    const { openDemoModal } = useDemo();
     const [index, setIndex] = useState(0);
-    const words = ["AI Products", "Digital Marketing", "Web Development"];
+    const words = ["AI Products", "Blockchain Solutions", "Web Ecosystems"];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -50,6 +53,7 @@ export default function Hero() {
                         src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop"
                         alt="AI Technology Background"
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-20"
                         priority
                     />
@@ -57,7 +61,7 @@ export default function Hero() {
                 </div>
 
                 {/* Gradient Background & Noise */}
-                <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2232&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
                 {/* Ambient Glows */}
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-wl-accent/10 rounded-full blur-[120px] animate-pulse-slow"></div>
@@ -76,22 +80,20 @@ export default function Hero() {
                     {/* Badge */}
                     <motion.div
                         variants={itemVariants}
-                        className="glass px-5 py-2 rounded-full mb-10 border-white/10 shadow-[0_0_30px_rgba(202,246,72,0.1)] flex items-center gap-2"
+                        className="tag-label"
                     >
                         <Sparkles className="w-4 h-4 text-wl-accent" />
-                        <span className="text-wl-accent text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
-                            AI-First Product Hub
-                        </span>
+                        AI-First Product Hub
                     </motion.div>
 
                     {/* Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight mb-8 max-w-6xl text-balance"
+                        className="heading-xl mb-10 max-w-6xl text-balance"
                     >
                         <span className="heading-gradient">Building the Future of</span>
                         <br />
-                        <div className="relative h-[1.2em] inline-block w-full">
+                        <div className="relative h-[1.1em] inline-block w-full">
                             <AnimatePresence mode="wait">
                                 <motion.span
                                     key={words[index]}
@@ -110,7 +112,7 @@ export default function Hero() {
                     {/* Subheadline */}
                     <motion.p
                         variants={itemVariants}
-                        className="text-lg md:text-2xl text-wl-muted-dark max-w-3xl mb-14 leading-relaxed font-medium"
+                        className="subtitle-lg mb-14 text-white/60"
                     >
                         We are developers and marketers crafting high-growth
                         <span className="text-white"> AI products </span>
@@ -122,9 +124,9 @@ export default function Hero() {
                         variants={itemVariants}
                         className="flex flex-col sm:flex-row gap-6"
                     >
-                        <CTAButton href="/contact" variant="primary">
+                        <CTAButton onClick={openDemoModal} variant="primary">
                             <span className="flex items-center gap-2">
-                                Start Your Project <ArrowRight className="w-5 h-5" />
+                                Get a Demo <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </span>
                         </CTAButton>
                         <CTAButton href="/services" variant="secondary">

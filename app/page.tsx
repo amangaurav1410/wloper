@@ -13,7 +13,10 @@ import LeadCapture from '@/components/LeadCapture';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
+import { useDemo } from '@/context/DemoContext';
+
 export default function Home() {
+    const { openDemoModal } = useDemo();
     return (
         <div className="bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
             <Hero />
@@ -50,10 +53,10 @@ export default function Home() {
                             Ready to Craft Your <span className="text-wl-accent">AI Future</span> with WLOPER?
                         </h2>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Link href="/contact" className="btn-primary group h-14">
-                                Get Started with AI
+                            <button onClick={openDemoModal} className="btn-primary group h-14">
+                                Get a Demo
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
+                            </button>
                             <Link href="/contact" className="btn-secondary h-14">
                                 Talk to an Expert
                             </Link>

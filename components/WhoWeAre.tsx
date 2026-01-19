@@ -43,7 +43,7 @@ export default function WhoWeAre() {
                         {/* Main Image Container */}
                         <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 group">
                             <Image
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
                                 alt="WLOPER Philosophy"
                                 fill
                                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
@@ -85,17 +85,17 @@ export default function WhoWeAre() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="inline-flex items-center gap-2 text-wl-accent mb-6">
-                                <div className="w-8 h-[1px] bg-wl-accent"></div>
-                                <span className="text-xs font-bold uppercase tracking-[0.2em]">The WLOPER Mindset</span>
+                            <div className="tag-label">
+                                <Sparkles className="w-4 h-4 text-wl-accent" />
+                                The WLOPER Mindset
                             </div>
 
-                            <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight">
+                            <h2 className="heading-lg mb-10">
                                 Developers Who Think Like <br />
                                 <span className="heading-gradient">Marketers</span> and Build with <span className="text-wl-accent">AI</span>
                             </h2>
 
-                            <p className="text-xl text-wl-muted-dark mb-12 font-medium leading-relaxed max-w-2xl">
+                            <p className="subtitle-lg mb-12">
                                 Traditional agencies build to spec. We build to win. Wloper integrates strategic growth engineering into every line of code, ensuring your product doesn't just launch—it dominates.
                             </p>
 

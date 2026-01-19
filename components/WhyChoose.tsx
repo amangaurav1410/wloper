@@ -48,10 +48,10 @@ export default function WhyChoose() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 mb-6"
+                        className="tag-label"
                     >
                         <Sparkles className="w-4 h-4 text-wl-accent" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-wl-accent">The Wloper Edge</span>
+                        The Wloper Edge
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}

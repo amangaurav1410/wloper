@@ -102,7 +102,7 @@ export default function SoftwareEngineeringPage() {
                 <div className="container-custom">
                     <div className="glass-strong border border-white/5 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
                         {/* Background Image Overlay */}
-                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-10 pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-[url('/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg')] bg-cover bg-center opacity-10 pointer-events-none"></div>
 
                         <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
                             <div className="relative order-2 lg:order-1">

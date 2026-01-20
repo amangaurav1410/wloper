@@ -10,14 +10,12 @@ import BlogPreview from '@/components/BlogPreview';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useDemo } from '@/context/DemoContext';
-import LogoMarquee from '@/components/LogoMarquee';
 
 export default function Home() {
     const { openDemoModal } = useDemo();
     return (
         <div className="bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
             <Hero />
-            <LogoMarquee />
 
             <AIProductShowcase />
 

@@ -127,7 +127,7 @@ export default function AIStrategyPage() {
                         <div className="relative">
                             <div className="glass-strong rounded-[4rem] overflow-hidden border border-white/10 h-[600px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2070&auto=format&fit=crop"
+                                    src="/images/envato-labs-ai-cc98af26-6a98-45ef-9c86-a4618f68b6e2.jpg"
                                     alt="Data Strategy"
                                     className="w-full h-full object-cover grayscale opacity-30"
                                 />

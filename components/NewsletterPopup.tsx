@@ -60,7 +60,7 @@ export default function NewsletterPopup() {
                         {/* Visual Side */}
                         <div className="relative aspect-video lg:aspect-auto bg-wl-dark overflow-hidden group">
                             <Image
-                                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2232&auto=format&fit=crop"
+                                src="/images/envato-labs-ai-8c704ec1-bca5-4f0e-9049-c06414cf0508.jpg"
                                 alt="AI Intelligence"
                                 fill
                                 className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-[3s]"

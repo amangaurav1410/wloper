@@ -45,7 +45,7 @@ export default function InterviewScreeningPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+                        src="/images/ai-interview.png"
                         alt="Interview Screening Background"
                         fill
                         sizes="100vw"

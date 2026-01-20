@@ -43,7 +43,7 @@ export default function HCMSystemPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop"
+                        src="/images/envato-labs-ai-a5ed5fd0-3d06-4a07-b41a-7920becd0527.jpg"
                         alt="HCM System Background"
                         fill
                         sizes="100vw"

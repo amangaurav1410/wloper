@@ -54,7 +54,7 @@ export default function ProductsPage() {
             {/* Technical Specs */}
             <section className="section-padding pt-0">
                 <div className="container-custom">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {technicalSpecs.map((spec, i) => (
                             <motion.div
                                 key={i}
@@ -105,7 +105,7 @@ export default function ProductsPage() {
                             className="glass-strong rounded-[4rem] border border-white/5 overflow-hidden aspect-square p-2 group"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1551288049-bbbda51658f7?q=80&w=2070&auto=format&fit=crop"
+                                src="/images/envato-labs-ai-b7fc9d9b-9c99-40aa-ab36-c7dfe95fac5a.jpg"
                                 alt="System Architecture"
                                 className="w-full h-full object-cover rounded-[3.8rem] grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
                             />

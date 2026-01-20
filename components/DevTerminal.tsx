@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal as TerminalIcon, X, ChevronRight } from 'lucide-react';
+import { useInterface } from '@/context/InterfaceContext';
 
 export default function DevTerminal() {
-    const [isOpen, setIsOpen] = useState(false);
+    const { isTerminalOpen, setTerminalOpen } = useInterface();
     const [input, setInput] = useState('');
     const [history, setHistory] = useState<Array<{ cmd: string; result: string | React.ReactNode; isTyping?: boolean }>>([
         { cmd: 'system', result: 'WLOPER Core OS v1.0.4 initialized. Type /help for commands.' }
@@ -16,13 +17,13 @@ export default function DevTerminal() {
         const handleKeyDown = (e: KeyboardEvent) => {
             if ((e.ctrlKey || e.metaKey) && e.key === '`') {
                 e.preventDefault();
-                setIsOpen(prev => !prev);
+                setTerminalOpen(!isTerminalOpen);
             }
-            if (e.key === 'Escape') setIsOpen(false);
+            if (e.key === 'Escape' && isTerminalOpen) setTerminalOpen(false);
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
+    }, [isTerminalOpen, setTerminalOpen]);
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -84,7 +85,7 @@ export default function DevTerminal() {
 
     return (
         <AnimatePresence>
-            {isOpen && (
+            {isTerminalOpen && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -104,7 +105,7 @@ export default function DevTerminal() {
                                 <span className="text-[10px] font-bold text-wl-accent/70 uppercase tracking-widest">WLO_CORE_SHEL_v2.1</span>
                             </div>
                         </div>
-                        <button onClick={() => setIsOpen(false)} className="p-1 hover:bg-white/10 rounded-full transition-colors group">
+                        <button onClick={() => setTerminalOpen(false)} className="p-1 hover:bg-white/10 rounded-full transition-colors group">
                             <X className="w-5 h-5 text-white/30 group-hover:text-white" />
                         </button>
                     </div>

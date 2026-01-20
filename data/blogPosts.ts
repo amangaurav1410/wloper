@@ -12,7 +12,7 @@ export const blogPosts = [
         readTime: '12 min read',
         icon: Brain,
         slug: 'building-ai-saas-products-2026',
-        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop',
+        image: '/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg',
         content: `
 Building an AI-powered SaaS in 2026 requires a shift from simple API wrapping to deep integration of agentic workflows. In this guide, we explore the core pillars of modern AI SaaS architecture.
 
@@ -38,7 +38,7 @@ Conclusion: The future belongs to those who build products that don't just proce
         readTime: '10 min read',
         icon: Cpu,
         slug: 'gpt4-vs-gpt5-business-impact',
-        image: 'https://images.unsplash.com/photo-1620712943543-bcc4628c6bb5?q=80&w=1928&auto=format&fit=crop',
+        image: '/images/envato-labs-ai-a4698812-b585-46ab-b841-f3ece58a93a5.jpg',
         content: `
 The transition from GPT-4 to GPT-5 marks a fundamental leap in reasoning capabilities rather than just a parameter increase.
 
@@ -62,7 +62,7 @@ With increased intelligence comes the question of cost. GPT-5's inference costs 
         readTime: '8 min read',
         icon: Bot,
         slug: 'ai-interview-platforms-recruitment',
-        image: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=2071&auto=format&fit=crop',
+        image: '/images/ai-interview.png',
         content: `
 Recruitment has always been a bottleneck for growth. AI-powered interview platforms like Wloper are fundamentally changing how talent is discovered and vetted.
 

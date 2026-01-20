@@ -62,7 +62,7 @@ export default function BlogPreview() {
                             {/* Post Image Container */}
                             <div className="relative h-64 overflow-hidden">
                                 <img
-                                    src={post.image || "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2064&auto=format&fit=crop"}
+                                    src={post.image || "/images/envato-labs-ai-8c704ec1-bca5-4f0e-9049-c06414cf0508.jpg"}
                                     alt={post.title}
                                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                                 />

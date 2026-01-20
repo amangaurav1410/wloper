@@ -48,7 +48,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wl-dark pt-32 pb-20">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wl-dark pt-32 pb-32 md:pb-20">
             {/* 3D Neural Background */}
             <NeuralBackground />
 

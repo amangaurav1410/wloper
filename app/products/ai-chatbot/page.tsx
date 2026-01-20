@@ -43,7 +43,7 @@ export default function AIChatbotPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2012&auto=format&fit=crop"
+                        src="/images/envato-labs-ai-bce5f816-6df6-4577-a0b5-b11da7c85d69.jpg"
                         alt="AI Chatbot Background"
                         fill
                         sizes="100vw"

@@ -4,15 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useInterface } from '@/context/InterfaceContext';
+import { useDemo } from '@/context/DemoContext';
 import {
     Menu, X, ChevronRight, Layout, MessageSquare, Users, Sparkles,
-    ChevronDown, Compass, Cpu, Code2, TrendingUp
+    ChevronDown, Compass, Cpu, Code2, TrendingUp, Terminal as TerminalIcon
 } from 'lucide-react';
-
-import { useDemo } from '@/context/DemoContext';
 
 export default function Header() {
     const { openDemoModal } = useDemo();
+    const { isHUDActive, toggleHUD, isTerminalOpen, toggleTerminal } = useInterface();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -162,8 +163,24 @@ export default function Header() {
                         ))}
                     </div>
 
-                    {/* Action Button */}
-                    <div className="hidden lg:flex shrink-0">
+                    {/* Action Buttons */}
+                    <div className="hidden lg:flex items-center gap-4 shrink-0">
+                        <div className="flex items-center gap-2 mr-2 border-r border-white/10 pr-4">
+                            <button
+                                onClick={toggleHUD}
+                                className={`p-2 rounded-xl transition-all duration-300 border ${isHUDActive ? 'bg-wl-accent text-black border-wl-accent' : 'text-white/40 border-white/10 hover:text-wl-accent hover:border-wl-accent/50 hover:bg-white/5'}`}
+                                title="Toggle HUD (Alt+H)"
+                            >
+                                <Layout className="w-4 h-4" />
+                            </button>
+                            <button
+                                onClick={toggleTerminal}
+                                className={`p-2 rounded-xl transition-all duration-300 border ${isTerminalOpen ? 'bg-wl-accent text-black border-wl-accent' : 'text-white/40 border-white/10 hover:text-wl-accent hover:border-wl-accent/50 hover:bg-white/5'}`}
+                                title="Toggle Terminal (Ctrl+`)"
+                            >
+                                <TerminalIcon className="w-4 h-4" />
+                            </button>
+                        </div>
                         <button
                             onClick={openDemoModal}
                             className="group relative px-7 py-3 bg-wl-accent text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(202,246,72,0.4)] whitespace-nowrap"

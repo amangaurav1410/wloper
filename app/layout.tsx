@@ -7,11 +7,14 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import dynamic from 'next/dynamic';
 
+import { AnimatePresence } from 'framer-motion';
+import { InterfaceProvider } from "@/context/InterfaceContext";
+
 const DevTerminal = dynamic(() => import('@/components/DevTerminal'), { ssr: false });
 const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false });
 const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup'), { ssr: false });
 const DNATransition = dynamic(() => import('@/components/DNATransition'), { ssr: false });
-import { AnimatePresence } from 'framer-motion';
+const CommandHUD = dynamic(() => import('@/components/CommandHUD'), { ssr: false });
 
 export const metadata: Metadata = {
     title: "Wloper – We Are Next-Gen Developers",
@@ -33,22 +36,25 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="antialiased lg:cursor-none">
-                <DemoProvider>
-                    <CustomCursor />
-                    <DevTerminal />
-                    <ScrollProgress />
-                    <Header />
-                    <AIAssistant />
-                    <NewsletterPopup />
-                    <main className="min-h-screen">
-                        <AnimatePresence mode="wait">
-                            <DNATransition>
-                                {children}
-                            </DNATransition>
-                        </AnimatePresence>
-                    </main>
-                    <Footer />
-                </DemoProvider>
+                <InterfaceProvider>
+                    <DemoProvider>
+                        <CustomCursor />
+                        <DevTerminal />
+                        <ScrollProgress />
+                        <Header />
+                        <CommandHUD />
+                        <AIAssistant />
+                        <NewsletterPopup />
+                        <main className="min-h-screen">
+                            <AnimatePresence mode="wait">
+                                <DNATransition>
+                                    {children}
+                                </DNATransition>
+                            </AnimatePresence>
+                        </main>
+                        <Footer />
+                    </DemoProvider>
+                </InterfaceProvider>
             </body>
         </html>
     );

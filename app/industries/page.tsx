@@ -107,7 +107,7 @@ export default function IndustriesPage() {
                 {/* Hero Background Image */}
                 <div className="absolute inset-0 z-0 opacity-10">
                     <img
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
+                        src="/images/envato-labs-ai-fccc6df9-0659-4f2e-9c05-9c652f034c3f.jpg"
                         alt="Industries Hero Background"
                         className="w-full h-full object-cover"
                     />

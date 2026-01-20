@@ -77,7 +77,7 @@ export default function AIProductShowcase() {
                         <div className="absolute inset-0 bg-wl-accent/10 blur-[60px] rounded-[4rem] group-hover:bg-wl-accent/20 transition-all"></div>
                         <div className="relative z-10 aspect-[4/3] rounded-[4rem] overflow-hidden border border-white/10 glass-strong">
                             <Image
-                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+                                src="/images/envato-labs-ai-6c11c598-851f-40f7-9155-eb9146bff990.jpg"
                                 alt="WLOPER AI Product Ecosystem"
                                 fill
                                 sizes="100vw"

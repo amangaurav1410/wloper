@@ -35,7 +35,7 @@ export default function Industries() {
                         <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 glass-strong p-2">
                             <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                                    src="/images/envato-labs-ai-7c142eb8-7887-44d9-8de5-3d14c8bbab75.jpg"
                                     alt="Industries Served by WLOPER"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"

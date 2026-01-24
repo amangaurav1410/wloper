@@ -34,7 +34,7 @@ export default function Footer() {
                 { name: "Interview AI", href: "/products/interview-screening" },
                 { name: "Neural Chat", href: "/products/ai-chatbot" },
                 { name: "HCM Cloud", href: "/products/hcm-system" },
-                { name: "Automation", href: "/products" }
+                { name: "Calling Agent", href: "/products/ai-calling-agent" }
             ]
         },
         {

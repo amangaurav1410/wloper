@@ -9,7 +9,7 @@ import { useDemo } from '@/context/DemoContext';
 import {
     Menu, X, ChevronRight, Layout, MessageSquare, Users, Sparkles,
     ChevronDown, Compass, Cpu, Code2, TrendingUp, Terminal as TerminalIcon,
-    Blocks, Smartphone as MobileIcon, ArrowRight
+    Blocks, Smartphone as MobileIcon, ArrowRight, Phone
 } from 'lucide-react';
 
 export default function Header() {
@@ -63,6 +63,13 @@ export default function Header() {
                     icon: Users,
                     href: '/products/hcm-system',
                     cta: 'Request Demo'
+                },
+                {
+                    title: 'AI Calling Agent for Data & Analysis',
+                    desc: 'Autonomous voice agents for large-scale data collection and real-time analysis.',
+                    icon: Phone,
+                    href: '/products/ai-calling-agent',
+                    cta: 'Launch Agent'
                 }
             ]
         },

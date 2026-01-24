@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Sparkles, Brain, Zap, ShieldCheck, ArrowRight, MessageSquare, Users } from 'lucide-react';
+import { Sparkles, Brain, Zap, ShieldCheck, ArrowRight, MessageSquare, Users, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useDemo } from '@/context/DemoContext';
 
@@ -26,6 +26,12 @@ export default function AIProductShowcase() {
             desc: 'Skills evaluation and institution-wide talent management.',
             icon: Users,
             color: 'text-wl-accent'
+        },
+        {
+            title: 'AI Calling Agent for Data & Analysis',
+            desc: 'Autonomous voice agents for large-scale data collection and real-time analysis.',
+            icon: Phone,
+            color: 'text-blue-500'
         }
     ];
 

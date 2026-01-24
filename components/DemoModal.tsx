@@ -174,9 +174,26 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                                         <Bot className="w-10 h-10 text-black" />
                                     </div>
                                     <h3 className="text-3xl font-black mb-4">Alignment Confirmed</h3>
-                                    <p className="subtitle-md mx-auto">
-                                        Our strategy pod is reviewing your request. Expect a briefing document within 24 hours.
+                                    <p className="subtitle-md mx-auto mb-10">
+                                        Our strategy pod is reviewing your request. To accelerate initialization, you can book your session directly below.
                                     </p>
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <a
+                                            href="https://calendly.com/wlopersinc/30min"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-primary h-16 px-10 flex items-center justify-center gap-2 group"
+                                        >
+                                            <Calendar className="w-5 h-5" />
+                                            Select Time Slot
+                                        </a>
+                                        <button
+                                            onClick={onClose}
+                                            className="btn-secondary h-16 px-10"
+                                        >
+                                            I'll Wait for Briefing
+                                        </button>
+                                    </div>
                                 </motion.div>
                             )}
                         </div>

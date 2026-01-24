@@ -16,16 +16,34 @@ export async function POST(request: Request) {
             );
         }
 
+        const recipients = ['wlopersinc@gmail.com', 'sales@wloper.com'];
+
+        // Note: If using onboarding@resend.dev, you can only send to the email 
+        // address associated with your Resend account.
         const { data, error } = await resend.emails.send({
-            from: 'WLOPER Contact Form <onboarding@resend.dev>', // Resend default for unverified domains
-            to: ['wlopersinc@gmail.com', 'sales@wloper.com'],
-            subject: `New Contact: ${subject || 'No Subject'}`,
+            from: 'WLOPER Contact <onboarding@resend.dev>',
+            to: recipients,
+            subject: `New Lead: ${subject || 'No Subject'}`,
             react: ContactFormEmail({ name, email, subject, message }),
         });
 
         if (error) {
-            console.error('Resend error:', error);
-            return NextResponse.json({ error }, { status: 500 });
+            console.error('Resend error details:', {
+                name: error.name,
+                message: error.message,
+            });
+            // If it fails with multiple recipients, try sending only to the primary
+            if (recipients.length > 1) {
+                console.log('Attempting fallback to primary recipient...');
+                const fallback = await resend.emails.send({
+                    from: 'WLOPER Contact <onboarding@resend.dev>',
+                    to: recipients[0],
+                    subject: `New Lead (Fallback): ${subject || 'No Subject'}`,
+                    react: ContactFormEmail({ name, email, subject, message }),
+                });
+                if (!fallback.error) return NextResponse.json({ success: true, data: fallback.data });
+            }
+            return NextResponse.json({ error: error.message }, { status: 500 });
         }
 
         return NextResponse.json({ success: true, data });

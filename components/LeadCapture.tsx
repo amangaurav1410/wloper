@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, CheckCircle2, BarChart3, Zap, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Sparkles, CheckCircle2, BarChart3, Zap, ShieldCheck, ArrowRight, Calendar } from 'lucide-react';
 
 export default function LeadCapture() {
     const benefits = [
@@ -130,14 +130,27 @@ export default function LeadCapture() {
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    className="h-full flex flex-col items-center justify-center text-center space-y-6"
+                                    className="h-full flex flex-col items-center justify-center text-center space-y-8"
                                 >
                                     <div className="w-20 h-20 bg-wl-accent rounded-full flex items-center justify-center">
                                         <CheckCircle2 className="w-10 h-10 text-black" />
                                     </div>
-                                    <h3 className="text-3xl font-black">Audit Protocol Initiated</h3>
-                                    <p className="text-wl-muted-dark">Our analysts are now scrubbing your digital footprint. Expect a briefing within 48 hours.</p>
-                                    <button onClick={() => setStatus('idle')} className="text-wl-accent text-xs font-black uppercase tracking-widest hover:underline">Send Another Request</button>
+                                    <div className="space-y-4">
+                                        <h3 className="text-3xl font-black">Audit Protocol Initiated</h3>
+                                        <p className="text-wl-muted-dark max-w-sm">Our analysts are now scrubbing your digital footprint. To get instant insights, book your briefing below.</p>
+                                    </div>
+                                    <div className="flex flex-col w-full gap-4">
+                                        <a
+                                            href="https://calendly.com/wlopersinc/30min"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-primary w-full h-16 flex items-center justify-center gap-2"
+                                        >
+                                            <Calendar className="w-5 h-5 text-black" />
+                                            Book Strategy Briefing
+                                        </a>
+                                        <button onClick={() => setStatus('idle')} className="text-wl-accent text-[10px] font-black uppercase tracking-widest hover:underline">Or send another request</button>
+                                    </div>
                                 </motion.div>
                             ) : (
                                 <form

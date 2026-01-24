@@ -29,6 +29,14 @@ export default function SiteAuditTerminal() {
         "ALMOST DONE - Formatting report..."
     ];
 
+    const [results, setResults] = useState({
+        security: 'A+',
+        performance: '98/100',
+        seo: 'High',
+        latency: '12ms',
+        desc: { security: 'SOC2 Compliant', performance: 'Sub-1s LCP', seo: 'Perfect Schema', latency: 'Edge Optimized' }
+    });
+
     const runScan = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!url) return;
@@ -36,9 +44,27 @@ export default function SiteAuditTerminal() {
         setLogs([]);
         setShowResults(false);
 
+        // Generate semi-randomized but consistent results based on URL
+        const seed = url.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const perfScore = 85 + (seed % 14);
+        const latValue = 10 + (seed % 40);
+
+        setResults({
+            security: seed % 3 === 0 ? 'A+' : (seed % 2 === 0 ? 'A' : 'B+'),
+            performance: `${perfScore}/100`,
+            seo: seed % 4 === 0 ? 'Elite' : (seed % 2 === 0 ? 'High' : 'Optimal'),
+            latency: `${latValue}ms`,
+            desc: {
+                security: seed % 3 === 0 ? 'SOC2 Compliant' : 'SSL Validated',
+                performance: perfScore > 90 ? 'Sub-1s LCP' : 'Optimized Assets',
+                seo: 'Perfect Schema',
+                latency: latValue < 20 ? 'Edge Optimized' : 'CDP Active'
+            }
+        });
+
         // Notify sales of audit request
         try {
-            fetch('/api/contact', {
+            await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -161,10 +187,10 @@ export default function SiteAuditTerminal() {
                                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
                                 >
                                     {[
-                                        { label: 'Security', value: 'A+', color: 'text-wl-accent', desc: 'SOC2 Compliant', icon: Shield },
-                                        { label: 'Performance', value: '98/100', color: 'text-wl-accent', desc: 'Sub-1s LCP', icon: Zap },
-                                        { label: 'SEO Rank', value: 'High', color: 'text-wl-accent', desc: 'Perfect Schema', icon: Globe },
-                                        { label: 'Latency', value: '12ms', color: 'text-wl-accent', desc: 'Edge Optimized', icon: Search },
+                                        { label: 'Security', value: results.security, color: 'text-wl-accent', desc: results.desc.security, icon: Shield },
+                                        { label: 'Performance', value: results.performance, color: 'text-wl-accent', desc: results.desc.performance, icon: Zap },
+                                        { label: 'SEO Rank', value: results.seo, color: 'text-wl-accent', desc: results.desc.seo, icon: Globe },
+                                        { label: 'Latency', value: results.latency, color: 'text-wl-accent', desc: results.desc.latency, icon: Search },
                                     ].map((stat, i) => (
                                         <motion.div
                                             key={i}

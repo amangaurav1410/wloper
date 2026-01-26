@@ -1,28 +1,41 @@
 import { MetadataRoute } from 'next'
+import { blogPosts } from '@/data/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://wloper.com'
 
-    const routes = [
+    // Static routes
+    const staticRoutes = [
         '',
         '/about',
         '/contact',
         '/services',
         '/services/ai-strategy',
+        '/services/blockchain-solutions',
+        '/services/digital-growth',
+        '/services/software-engineering',
         '/services/distributed-systems',
         '/services/growth-protocol',
         '/services/mobile-app-development',
-        '/services/blockchain-solutions',
+        '/products',
         '/products/interview-screening',
         '/products/hcm-system',
+        '/products/neural-chat',
         '/blog',
         '/portfolio',
+        '/pricing',
+        '/industries',
+        '/faq',
     ]
 
-    return routes.map((route) => ({
+    const blogRoutes = blogPosts.map((post) => `/blog/${post.slug}`)
+
+    const allRoutes = [...staticRoutes, ...blogRoutes]
+
+    return allRoutes.map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: route === '' ? 1 : 0.8,
+        changeFrequency: route.startsWith('/blog/') ? 'monthly' : 'weekly',
+        priority: route === '' ? 1 : route.startsWith('/services/') || route.startsWith('/products/') ? 0.9 : 0.7,
     }))
 }

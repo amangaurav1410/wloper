@@ -64,8 +64,9 @@ export default function BlogPreview() {
                             <div className="relative h-64 overflow-hidden bg-white/5">
                                 <Image
                                     src={post.image || "/images/envato-labs-ai-8c704ec1-bca5-4f0e-9049-c06414cf0508.jpg"}
-                                    alt={post.title}
+                                    alt={`Insight: ${post.title}`}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 30vw"
                                     className="object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-wl-dark via-transparent to-transparent opacity-60"></div>

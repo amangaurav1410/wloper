@@ -44,8 +44,9 @@ export default function WhoWeAre() {
                         <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 group">
                             <Image
                                 src="/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg"
-                                alt="WLOPER Philosophy"
+                                alt="WLOPER Philosophy - Engineering and AI Strategy Focus"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 40vw"
                                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                             />
                             {/* Gradient Overlay */}

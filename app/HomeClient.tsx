@@ -23,7 +23,9 @@ export default function HomeClient() {
                 <WloperForge />
             </div>
 
-            <SiteAuditTerminal />
+            <div className="hidden md:block">
+                <SiteAuditTerminal />
+            </div>
 
             <div className="hidden md:block">
                 <PerformanceOracle />

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { DemoProvider } from "@/context/DemoContext";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
+import DesktopOnly from "@/components/DesktopOnly";
 import dynamic from 'next/dynamic';
 import { Space_Grotesk, Manrope } from 'next/font/google';
 
@@ -35,11 +36,24 @@ const PersonaSwitcher = dynamic(() => import('@/components/PersonaSwitcher'), { 
 export const metadata: Metadata = {
     metadataBase: new URL('https://wloper.com'),
     title: {
-        default: "Wloper – Next-Gen AI, Blockchain & Marketing Engineering",
+        default: "Wloper – Next-Gen AI, Blockchain & Marketing Engineering Hub",
         template: "%s | Wloper"
     },
-    description: "Wloper is a high-end engineering hub specializing in AI products, blockchain solutions, and conversion-first digital marketing. We build scalable Web3 ecosystems and technical assets for global enterprises.",
-    keywords: ["web development", "digital marketing", "AI products", "blockchain solutions", "Web3 development", "Next.js experts", "conversion optimization"],
+    description: "Wloper is a premier engineering powerhouse specializing in AI-driven products, enterprise blockchain solutions, and data-backed digital marketing. We build scalable Web3 ecosystems and high-performance technical assets for global innovative brands.",
+    keywords: [
+        "Website Developement company",
+        "Custom Mobile developement Website",
+        "Digital Marketing Services",
+        "AI product",
+        "AI development agency",
+        "blockchain engineering",
+        "Web3 solutions",
+        "advanced web development",
+        "digital marketing automation",
+        "AI SaaS development",
+        "enterprise software engineering",
+        "next-gen technology hub"
+    ],
     authors: [{ name: "Wloper Team" }],
     creator: "Wloper",
     publisher: "Wloper",
@@ -48,11 +62,22 @@ export const metadata: Metadata = {
         address: false,
         telephone: false,
     },
+    verification: {
+        google: "3gJpAY7ADAe7HSKJy9DuH_VouiJxFGut3pdveJh7I10",
+    },
     openGraph: {
-        title: "Wloper – Build the Future of Tech & Marketing",
-        description: "Specialized engineering for AI, Blockchain, and Growth. Scalable solutions from zero to institutional grade.",
+        title: "Wloper – Engineering the Future of AI & Blockchain",
+        description: "Scale your vision with Wloper's specialized engineering for AI, Blockchain, and Growth. Institutional-grade solutions built for the future.",
         url: 'https://wloper.com',
         siteName: 'Wloper',
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Wloper - Next-Gen Engineering Hub',
+            },
+        ],
         locale: 'en_US',
         type: 'website',
     },
@@ -69,8 +94,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Wloper – Next-Gen Tech Hub',
-        description: 'Engineering the future of AI and Marketing.',
+        title: 'Wloper – Next-Gen Tech Hub | AI & Blockchain',
+        description: 'Building the infrastructure of the future. Specialized engineering for AI and Web3.',
+        images: ['/og-image.png'],
     },
 };
 
@@ -85,9 +111,9 @@ export default function RootLayout({
                 {/* Google Analytics */}
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-BPJND5P97V`}
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                 />
-                <Script id="google-analytics" strategy="afterInteractive">
+                <Script id="google-analytics" strategy="lazyOnload">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
@@ -111,6 +137,10 @@ export default function RootLayout({
                             ],
                             "description": "High-end engineering hub for AI, Blockchain, and Digital Marketing.",
                             "services": [
+                                "Website Developement company",
+                                "Custom Mobile developement Website",
+                                "Digital Marketing Services",
+                                "AI product",
                                 "AI Strategy",
                                 "Blockchain Solutions",
                                 "Mobile App Development",
@@ -120,16 +150,18 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className="antialiased lg:cursor-none bg-wl-dark">
+            <body className="antialiased lg:cursor-none bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
                 <InterfaceProvider>
                     <PersonaProvider>
                         <DemoProvider>
-                            <CustomCursor />
-                            <DevTerminal />
+                            <DesktopOnly>
+                                <CustomCursor />
+                                <DevTerminal />
+                                <PersonaSwitcher />
+                                <CommandHUD />
+                            </DesktopOnly>
                             <ScrollProgress />
                             <Header />
-                            <PersonaSwitcher />
-                            <CommandHUD />
                             <AIAssistant />
                             <NewsletterPopup />
                             <main className="min-h-screen">

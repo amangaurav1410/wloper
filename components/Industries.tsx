@@ -36,7 +36,7 @@ export default function Industries() {
                             <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden">
                                 <Image
                                     src="/images/envato-labs-ai-7c142eb8-7887-44d9-8de5-3d14c8bbab75.jpg"
-                                    alt="Industries Served by WLOPER"
+                                    alt="Industries served by Wloper - Healthcare, Finance, and Retail Tech Solutions"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover"

@@ -1,7 +1,8 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import {
     ArrowLeft, Calendar, Clock, Share2,
     MessageSquare, Twitter, Linkedin, Copy, CheckCircle2,
@@ -11,11 +12,13 @@ import Link from 'next/link';
 import { blogPosts } from '@/data/blogPosts';
 import Image from 'next/image';
 import { useDemo } from '@/context/DemoContext';
+import ReadingMode from '@/components/ReadingMode';
 
 export default function BlogPost() {
     const { openDemoModal } = useDemo();
     const { slug } = useParams();
     const router = useRouter();
+    const [isReadingMode, setIsReadingMode] = useState(false);
 
     const post = blogPosts.find(p => p.slug === slug);
 
@@ -32,94 +35,101 @@ export default function BlogPost() {
     }
 
     return (
-        <article className="bg-wl-dark text-white min-h-screen pb-32">
+        <article className={`bg-wl-dark text-white min-h-screen pb-32 ${isReadingMode ? 'pt-10' : ''}`}>
+            {/* Reading Mode Control */}
+            <ReadingMode isActive={isReadingMode} onToggle={() => setIsReadingMode(!isReadingMode)} />
+
             {/* Reading Progress Bar */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-1 bg-wl-accent z-[60] origin-left"
                 style={{ scaleX: 0 }} // Simplified for now
             />
 
-            {/* Post Hero */}
-            <section className="relative pt-40 lg:pt-64 pb-20 overflow-hidden">
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/envato-labs-ai-ff99b861-f73a-4b32-8972-7e241b722b3b.jpg"
-                        alt="Blog Post Background"
-                        fill
-                        sizes="100vw"
-                        className="object-cover opacity-20"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
-                </div>
+            {!isReadingMode && (
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    {/* Post Hero */}
+                    <section className="relative pt-40 lg:pt-64 pb-20 overflow-hidden">
+                        {/* Background Image */}
+                        <div className="absolute inset-0 z-0">
+                            <Image
+                                src="/images/envato-labs-ai-ff99b861-f73a-4b32-8972-7e241b722b3b.jpg"
+                                alt="Blog Post Background"
+                                fill
+                                sizes="100vw"
+                                className="object-cover opacity-20"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-b from-wl-dark/95 via-wl-dark/80 to-wl-dark"></div>
+                        </div>
 
-                <div className="container-custom relative z-10">
-                    <button
-                        onClick={() => router.back()}
-                        className="inline-flex items-center gap-2 text-wl-muted-dark hover:text-white transition-colors mb-12 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                        Back to Library
-                    </button>
+                        <div className="container-custom relative z-10">
+                            <button
+                                onClick={() => router.back()}
+                                className="inline-flex items-center gap-2 text-wl-muted-dark hover:text-white transition-colors mb-12 group"
+                            >
+                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                Back to Library
+                            </button>
 
-                    <div className="max-w-4xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="flex items-center gap-3 mb-8"
-                        >
-                            <span className="tag-label mb-0">
-                                {post.category}
-                            </span>
-                            <div className="h-[1px] w-8 bg-white/20"></div>
-                            <span className="text-xs font-bold text-wl-muted-dark uppercase tracking-widest">
-                                {post.readTime}
-                            </span>
-                        </motion.div>
+                            <div className="max-w-4xl mx-auto">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="flex items-center gap-3 mb-8"
+                                >
+                                    <span className="tag-label mb-0">
+                                        {post.category}
+                                    </span>
+                                    <div className="h-[1px] w-8 bg-white/20"></div>
+                                    <span className="text-xs font-bold text-wl-muted-dark uppercase tracking-widest">
+                                        {post.readTime}
+                                    </span>
+                                </motion.div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="heading-xl mb-12"
-                        >
-                            {post.title}
-                        </motion.h1>
+                                <motion.h1
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="heading-xl mb-12"
+                                >
+                                    {post.title}
+                                </motion.h1>
 
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            className="flex flex-wrap items-center justify-between gap-8 pt-12 border-t border-white/10"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="w-14 h-14 rounded-full bg-wl-accent/20 flex items-center justify-center font-black text-xl text-wl-accent">
-                                    {post.author[0]}
-                                </div>
-                                <div>
-                                    <div className="font-bold text-white">{post.author}</div>
-                                    <div className="text-xs text-wl-muted-dark flex items-center gap-2">
-                                        <Calendar className="w-3 h-3" />
-                                        {post.date}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.2 }}
+                                    className="flex flex-wrap items-center justify-between gap-8 pt-12 border-t border-white/10"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-14 h-14 rounded-full bg-wl-accent/20 flex items-center justify-center font-black text-xl text-wl-accent">
+                                            {post.author[0]}
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-white">{post.author}</div>
+                                            <div className="text-xs text-wl-muted-dark flex items-center gap-2">
+                                                <Calendar className="w-3 h-3" />
+                                                {post.date}
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div className="flex items-center gap-4">
-                                <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
-                                    <Twitter className="w-4 h-4" />
-                                </button>
-                                <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
-                                    <Linkedin className="w-4 h-4" />
-                                </button>
-                                <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
-                                    <Copy className="w-4 h-4" />
-                                </button>
+                                    <div className="flex items-center gap-4">
+                                        <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
+                                            <Twitter className="w-4 h-4" />
+                                        </button>
+                                        <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
+                                            <Linkedin className="w-4 h-4" />
+                                        </button>
+                                        <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-wl-accent hover:text-black transition-all">
+                                            <Copy className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                </motion.div>
                             </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
+                        </div>
+                    </section>
+                </motion.div>
+            )}
 
             {/* Content Body */}
             <section className="section-padding py-20">
@@ -128,13 +138,26 @@ export default function BlogPost() {
 
                         {/* Main Text */}
                         <div className="lg:col-span-8 space-y-12">
-                            <div className="glass-strong p-8 md:p-12 rounded-[3.5rem] border border-white/5 relative overflow-hidden mb-12">
-                                <p className="text-2xl text-white font-medium leading-relaxed">
+                            {isReadingMode && (
+                                <motion.div 
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mb-12"
+                                >
+                                    <h1 className="text-4xl md:text-5xl font-black mb-4">{post.title}</h1>
+                                    <div className="text-sm font-bold opacity-40 uppercase tracking-[0.2em]">
+                                        {post.author} • {post.date}
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            <div className={`reading-content ${isReadingMode ? '' : 'glass-strong p-8 md:p-12 rounded-[3.5rem] border border-white/5'} relative overflow-hidden mb-12`}>
+                                <p className={`${isReadingMode ? 'reading-text' : 'text-2xl'} text-white font-medium leading-relaxed`}>
                                     {post.excerpt}
                                 </p>
                             </div>
 
-                            <div className="prose prose-invert prose-lg max-w-none text-wl-muted-dark font-medium leading-[1.8] space-y-8">
+                            <div className={`reading-text prose prose-invert prose-lg max-w-none text-wl-muted-dark font-medium leading-[1.8] space-y-8`}>
                                 {(post as any).content ? (
                                     <div className="whitespace-pre-wrap">
                                         {(post as any).content.split('\n').map((line: string, i: number) => {
@@ -157,7 +180,7 @@ export default function BlogPost() {
                                             The core challenge of {post.title} lies not just in its execution, but in its strategic alignment with business objectives. Too often, organizations treat technological shifts as isolated events rather than systemic evolutions. Our approach involves a multi-dimensional analysis of how {post.category} impacts every touchpoint of the customer journey, ensuring that performance benchmarks are not just met, but exceeded.
                                         </p>
 
-                                        <div className="grid md:grid-cols-2 gap-8 my-16">
+                                        <div className={`grid md:grid-cols-2 gap-8 my-16 ${isReadingMode ? 'hidden' : ''}`}>
                                             <div className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-wl-accent/20 transition-all">
                                                 <Zap className="w-10 h-10 text-wl-accent mb-6" />
                                                 <h3 className="text-2xl font-bold text-white mb-4">Neural Architecture</h3>
@@ -178,7 +201,7 @@ export default function BlogPost() {
                                             Our software engineering team utilizes a combination of edge-computing and centralized AI clusters to manage the high computational demands typical of modern {post.category} projects. This hybrid architecture allows for localized performance while maintaining global data integrity—a critical requirement for multinational corporations operating in highly regulated environments.
                                         </p>
 
-                                        <div className="my-16 p-12 bg-wl-accent/5 border border-wl-accent/20 rounded-[4rem] relative">
+                                        <div className={`my-16 p-12 bg-wl-accent/5 border border-wl-accent/20 rounded-[4rem] relative ${isReadingMode ? 'hidden' : ''}`}>
                                             <h3 className="text-2xl font-black text-white mb-8 flex items-center gap-4">
                                                 <Sparkles className="w-8 h-8 text-wl-accent" />
                                                 Key Technical Metrics
@@ -213,7 +236,7 @@ export default function BlogPost() {
                                 )}
 
 
-                                <div className="mt-20 p-12 glass-strong rounded-[3rem] border border-white/10 space-y-8">
+                                <div className={`mt-20 p-12 glass-strong rounded-[3rem] border border-white/10 space-y-8 ${isReadingMode ? 'hidden' : ''}`}>
                                     <h3 className="text-2xl font-black text-white">Summary Conclusion</h3>
                                     <ul className="grid md:grid-cols-2 gap-6 list-none p-0">
                                         <li className="flex gap-4 items-start">
@@ -246,7 +269,7 @@ export default function BlogPost() {
                         </div>
 
                         {/* Sidebar: Related / Newsletter */}
-                        <div className="lg:col-span-4 space-y-12">
+                        <div className="lg:col-span-4 space-y-12 sidebar-container">
                             <div className="sticky top-32">
                                 <div className="glass-strong p-10 rounded-[3rem] border border-wl-accent/10 mb-12">
                                     <h4 className="text-xl font-black mb-6">Need a similar solution?</h4>

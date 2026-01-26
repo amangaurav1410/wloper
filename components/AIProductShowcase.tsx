@@ -84,7 +84,7 @@ export default function AIProductShowcase() {
                         <div className="relative z-10 aspect-[4/3] rounded-[4rem] overflow-hidden border border-white/10 glass-strong">
                             <Image
                                 src="/images/envato-labs-ai-6c11c598-851f-40f7-9155-eb9146bff990.jpg"
-                                alt="WLOPER AI Product Ecosystem"
+                                alt="WLOPER AI Product Ecosystem - Automated Hiring and HCM Systems"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-cover"

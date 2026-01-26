@@ -64,7 +64,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-wl-dark pt-32 pb-12 border-t border-white/5 relative overflow-hidden">
+        <footer id="main-footer" className="bg-wl-dark pt-32 pb-12 border-t border-white/5 relative overflow-hidden">
             {/* Ambient Background Glows */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-wl-accent/5 rounded-full blur-[120px] pointer-events-none -mr-64 -mt-64"></div>
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-wl-accent/5 rounded-full blur-[100px] pointer-events-none -ml-32 -mb-32"></div>
@@ -104,7 +104,7 @@ export default function Footer() {
                             <Link href="/" className="inline-block group">
                                 <Image
                                     src="/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png"
-                                    alt="Wloper Logo"
+                                    alt="Wloper Systems - Expert AI Product and Website Development Company"
                                     width={160}
                                     height={50}
                                     className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-all"
@@ -201,6 +201,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-wrap md:justify-end gap-x-10 gap-y-4">
+                        <Link href="/faq" className="text-[10px] font-bold text-wl-accent hover:text-white transition-colors uppercase tracking-widest">FAQ Protocol</Link>
                         <Link href="/privacy" className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Privacy Protocol</Link>
                         <Link href="/terms" className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Service Terms</Link>
                     </div>

@@ -128,7 +128,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 pt-4 md:pt-6 px-4 md:px-6">
+        <header id="main-header" className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 pt-4 md:pt-6 px-4 md:px-6">
             <nav className={`container-custom mx-auto transition-all duration-500 rounded-2xl relative ${isScrolled
                 ? 'glass py-2 px-6 shadow-2xl border-white/10 bg-black/40 backdrop-blur-xl'
                 : 'bg-transparent py-4 px-6'
@@ -139,7 +139,7 @@ export default function Header() {
                         <div className="absolute -inset-2 bg-wl-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <Image
                             src="/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png"
-                            alt="Wloper Logo"
+                            alt="Wloper Systems - Premier Website Development and AI Product Company"
                             width={160}
                             height={50}
                             className="h-8 md:h-10 w-auto relative z-10 transition-all duration-300 group-hover:scale-105 brightness-0 invert"

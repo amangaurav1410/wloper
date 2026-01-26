@@ -2,10 +2,11 @@ import { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-    title: "About | The WLOPER Protocol & Engineering DNA",
-    description: "Learn about the mission, team, and specialized technical clusters behind Wloper. We architect the future of intelligent systems through elite engineering and autonomous AI.",
+    title: "About Wloper | A Leading Website Development company & AI Hub",
+    description: "Wloper is an elite engineering DNA hub specializing in Custom Mobile development Websites and high-impact AI products. We architect the future of intelligent systems.",
+    keywords: ["Wloper mission", "engineering team", "technical excellence", "AI innovation hub", "custom build protocols"],
     openGraph: {
-        title: "About | The WLOPER Protocol & Engineering DNA",
+        title: "About Wloper | Engineering DNA & Future Protocols",
         description: "Specialized production hub where elite engineering meets autonomous artificial intelligence.",
         images: [{ url: '/images/envato-labs-ai-fccc6df9-0659-4f2e-9c05-9c652f034c3f.jpg' }]
     }

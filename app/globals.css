@@ -208,3 +208,37 @@ h6,
     @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-wl-accent/10 border border-wl-accent/20 text-[10px] font-bold uppercase tracking-[0.3em] text-wl-accent mb-8;
   }
 }
+
+/* Reading Mode Custom Styles */
+body.reading-mode-active {
+  background-color: var(--rm-bg);
+  color: var(--rm-text);
+  overflow-y: scroll !important;
+}
+
+body.reading-mode-active #main-header,
+body.reading-mode-active #main-footer,
+body.reading-mode-active .sidebar-container {
+  display: none !important;
+}
+
+body.reading-mode-active .reading-content {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body.reading-mode-active .reading-text {
+  font-size: var(--rm-font-size) !important;
+  color: var(--rm-text) !important;
+  line-height: 1.8 !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.reading-mode-active h1,
+body.reading-mode-active h2,
+body.reading-mode-active h3 {
+  color: var(--rm-text) !important;
+}

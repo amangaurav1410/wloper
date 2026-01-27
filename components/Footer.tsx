@@ -43,15 +43,15 @@ export default function Footer() {
                 { name: "AI Strategy", href: "/services/ai-strategy" },
                 { name: "Engineering", href: "/services/software-engineering" },
                 { name: "Growth", href: "/services/digital-growth" },
-                { name: "Innovation", href: "/about" }
+                { name: "Innovation", href: "/about-us" }
             ]
         },
         {
             title: "Ecosystem",
             links: [
                 { name: "Insights", href: "/blog" },
-                { name: "Company", href: "/about" },
-                { name: "Partners", href: "/about" },
+                { name: "Company", href: "/about-us" },
+                { name: "Partners", href: "/about-us" },
                 { name: "Connect", href: "/contact" }
             ]
         }

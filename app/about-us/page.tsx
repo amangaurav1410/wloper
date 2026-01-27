@@ -1,18 +1,18 @@
 import { Metadata } from 'next';
-import ContactClient from './ContactClient';
+import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-    title: "Contact Wloper | Get Custom Mobile development Website & AI Solutions",
-    description: "Connect with the WLOPER engineering center. Ready to start your next Website Development project or AI protocol? Initialize your project protocol here.",
-    keywords: ["hire website developers", "AI consultation", "mobile app estimate", "contact wloper", "project initialization"],
+    title: "About Wloper | A Leading Website Development company & AI Hub",
+    description: "Wloper is an elite engineering DNA hub specializing in Custom Mobile development Websites and high-impact AI products. We architect the future of intelligent systems.",
+    keywords: ["Wloper mission", "engineering team", "technical excellence", "AI innovation hub", "custom build protocols"],
     openGraph: {
-        title: "Contact Wloper | Initialize Project Protocol",
-        description: "Direct link to the WLOPER engineering command center. Start your digital dominance today.",
-        images: [{ url: '/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg' }]
+        title: "About Wloper | Engineering DNA & Future Protocols",
+        description: "Specialized production hub where elite engineering meets autonomous artificial intelligence.",
+        images: [{ url: '/images/envato-labs-ai-fccc6df9-0659-4f2e-9c05-9c652f034c3f.jpg' }]
     }
 };
 
-export default function ContactPage() {
+export default function AboutPage() {
     return (
         <>
             <script
@@ -31,14 +31,14 @@ export default function ContactPage() {
                             {
                                 "@type": "ListItem",
                                 "position": 2,
-                                "name": "Contact",
-                                "item": "https://wloper.com/contact"
+                                "name": "About Us",
+                                "item": "https://wloper.com/about-us"
                             }
                         ]
                     })
                 }}
             />
-            <ContactClient />
+            <AboutClient />
         </>
     );
 }

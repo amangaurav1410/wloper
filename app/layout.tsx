@@ -125,28 +125,74 @@ export default function RootLayout({
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Wloper",
-                            "url": "https://wloper.com",
-                            "logo": "https://wloper.com/logo.png",
-                            "sameAs": [
-                                "https://linkedin.com/company/wloper",
-                                "https://twitter.com/wloper"
-                            ],
-                            "description": "High-end engineering hub for AI, Blockchain, and Digital Marketing.",
-                            "services": [
-                                "Website Developement company",
-                                "Custom Mobile developement Website",
-                                "Digital Marketing Services",
-                                "AI product",
-                                "AI Strategy",
-                                "Blockchain Solutions",
-                                "Mobile App Development",
-                                "Growth & SEO"
-                            ]
-                        })
+                        __html: JSON.stringify([
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "Organization",
+                                "name": "Wloper Systems",
+                                "alternateName": "Wloper",
+                                "url": "https://wloper.com",
+                                "logo": "https://wloper.com/logo.png",
+                                "contactPoint": {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+91-8433462546",
+                                    "contactType": "sales",
+                                    "areaServed": "IN",
+                                    "availableLanguage": ["en", "Hindi"]
+                                },
+                                "sameAs": [
+                                    "https://linkedin.com/company/wloper",
+                                    "https://twitter.com/wloper",
+                                    "https://github.com/wloper"
+                                ],
+                                "description": "Wloper is a premier engineering powerhouse specializing in AI-driven products, enterprise blockchain solutions, and data-backed digital marketing."
+                            },
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "WebSite",
+                                "name": "Wloper Systems",
+                                "url": "https://wloper.com",
+                                "potentialAction": {
+                                    "@type": "SearchAction",
+                                    "target": "https://wloper.com/search?q={search_term_string}",
+                                    "query-input": "required name=search_term_string"
+                                }
+                            },
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "LocalBusiness",
+                                "name": "Wloper Systems",
+                                "image": "https://wloper.com/logo.png",
+                                "@id": "https://wloper.com",
+                                "url": "https://wloper.com",
+                                "telephone": "+91-8433462546",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "Phase 8B, Industrial Area",
+                                    "addressLocality": "Mohali",
+                                    "addressRegion": "Punjab",
+                                    "postalCode": "160055",
+                                    "addressCountry": "IN"
+                                },
+                                "geo": {
+                                    "@type": "GeoCoordinates",
+                                    "latitude": 30.7046,
+                                    "longitude": 76.7179
+                                },
+                                "openingHoursSpecification": {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                        "Monday",
+                                        "Tuesday",
+                                        "Wednesday",
+                                        "Thursday",
+                                        "Friday"
+                                    ],
+                                    "opens": "09:00",
+                                    "closes": "18:00"
+                                }
+                            }
+                        ])
                     }}
                 />
             </head>

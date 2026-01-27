@@ -119,7 +119,7 @@ export default function WhoWeAre() {
                             </div>
 
                             <div className="flex flex-wrap gap-6 items-center">
-                                <Link href="/about" className="btn-primary group h-14">
+                                <Link href="/about-us" className="btn-primary group h-14">
                                     Explore Our Culture
                                     <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </Link>

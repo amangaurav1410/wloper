@@ -36,6 +36,53 @@ export default function BlogPost() {
 
     return (
         <article className={`bg-wl-dark text-white min-h-screen pb-32 ${isReadingMode ? 'pt-10' : ''}`}>
+            {/* Schema.org for SEO */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BlogPosting",
+                            "headline": post.title,
+                            "image": [
+                                post.image || "https://wloper.com/og-image.png"
+                            ],
+                            "datePublished": new Date(post.date).toISOString() || new Date().toISOString(),
+                            "dateModified": new Date().toISOString(),
+                            "author": [{
+                                "@type": "Person",
+                                "name": post.author,
+                                "url": "https://wloper.com/about-us"
+                            }]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wloper.com"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Blog",
+                                    "item": "https://wloper.com/blog"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": post.title,
+                                    "item": `https://wloper.com/blog/${post.slug}`
+                                }
+                            ]
+                        }
+                    ])
+                }}
+            />
             {/* Reading Mode Control */}
             <ReadingMode isActive={isReadingMode} onToggle={() => setIsReadingMode(!isReadingMode)} />
 
@@ -139,7 +186,7 @@ export default function BlogPost() {
                         {/* Main Text */}
                         <div className="lg:col-span-8 space-y-12">
                             {isReadingMode && (
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className="mb-12"

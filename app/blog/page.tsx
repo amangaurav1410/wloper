@@ -32,6 +32,29 @@ export default function BlogPage() {
 
     return (
         <div className="bg-wl-dark text-white overflow-hidden pb-32">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://wloper.com"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://wloper.com/blog"
+                            }
+                        ]
+                    })
+                }}
+            />
             {/* Minimal Background Art */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-wl-accent/5 rounded-full blur-[140px] pointer-events-none -mr-96 -mt-96" />
 
@@ -89,8 +112,8 @@ export default function BlogPage() {
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
                                     className={`whitespace-nowrap px-6 py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all border ${selectedCategory === cat
-                                            ? 'bg-wl-accent text-black border-wl-accent'
-                                            : 'bg-white/5 border-transparent text-white/40 hover:bg-white/10'
+                                        ? 'bg-wl-accent text-black border-wl-accent'
+                                        : 'bg-white/5 border-transparent text-white/40 hover:bg-white/10'
                                         }`}
                                 >
                                     {cat}

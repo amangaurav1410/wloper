@@ -123,7 +123,7 @@ export default function Header() {
             ]
         },
         { name: 'Blogs', href: '/blog' },
-        { name: 'About Us', href: '/about' },
+        { name: 'About Us', href: '/about-us' },
         { name: 'Contact', href: '/contact' },
     ];
 

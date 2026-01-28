@@ -5,8 +5,10 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 interface InterfaceContextType {
     isHUDActive: boolean;
     setHUDActive: (active: boolean) => void;
+    toggleHUD: () => void;
     isTerminalOpen: boolean;
     setTerminalOpen: (open: boolean) => void;
+    toggleTerminal: () => void;
     isSearchOpen: boolean;
     setSearchOpen: (open: boolean) => void;
     toggleSearch: () => void;

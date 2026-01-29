@@ -55,7 +55,7 @@ export default function AboutClient() {
                             animate={{ opacity: 1, scale: 1 }}
                             className="heading-xl mb-10 max-w-6xl text-balance"
                         >
-                            Architecting the <br /><span className="text-wl-accent">Intelligent era.</span>
+                            The Best IT Company <br />for <span className="text-wl-accent">Intelligent era.</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,8 @@ export default function AboutClient() {
                             transition={{ delay: 0.1 }}
                             className="subtitle-lg mx-auto mb-14 text-white/50"
                         >
-                            A specialized production hub where elite engineering meets autonomous artificial intelligence.
+                            We are the premier tech company for website development and AI based web development.
+                            Our core protocol is designed to engineer modern digital dominance through innovative tech stacks.
                         </motion.p>
                     </div>
                 </div>

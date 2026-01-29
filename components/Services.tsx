@@ -33,14 +33,14 @@ export default function Services() {
             href: '/services/ai-integration'
         },
         {
-            title: 'Website Development',
-            desc: 'End-to-end scalable web and app development focused on performance and security.',
+            title: 'AI Based Web Development',
+            desc: 'End-to-end scalable web and app development focused on performance, security, and AI-driven features.',
             icon: Code2,
             href: '/services/software-engineering'
         },
         {
-            title: 'Digital Growth & SEO',
-            desc: 'Boost your visibility and organic traffic through data-driven digital growth strategies.',
+            title: 'Best Digital Marketing & SEO',
+            desc: 'Boost your visibility and organic traffic through our best digital marketing strategies and algorithmic SEO.',
             icon: TrendingUp,
             href: '/services/digital-growth'
         }

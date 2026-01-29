@@ -38,10 +38,10 @@ const SystemGlobalEffects = dynamic(() => import('@/components/SystemGlobalEffec
 export const metadata: Metadata = {
     metadataBase: new URL('https://wloper.com'),
     title: {
-        default: "Wloper – AI Development Agency, Blockchain & Website Development Company",
+        default: "Wloper | Best IT Company & AI Based Web Development Company",
         template: "%s | Wloper"
     },
-    description: "Wloper is a top-rated AI development agency and website development company. We deliver custom mobile app development, enterprise blockchain engineering, and premium digital marketing services worldwide.",
+    description: "Wloper is the best IT company specialized in AI based web development and custom software solutions. We are a leading tech company for website development and premium digital marketing services.",
     icons: {
         icon: [
             { url: '/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png', sizes: '32x32', type: 'image/png' },
@@ -51,13 +51,19 @@ export const metadata: Metadata = {
         ],
     },
     keywords: [
-        "Website Developement company",
-        "Custom Mobile developement Website",
+        "Best IT Company",
+        "Tech Company for website Development",
+        "AI based Web Development Company",
+        "Best Digital Marketing company",
+        "Website Development company",
+        "Custom Mobile development Website",
         "Digital Marketing Services",
         "AI product",
         "AI development agency",
         "blockchain engineering",
         "Web3 solutions",
+        "Software Engineering",
+        "IT consulting services",
         "advanced web development",
         "digital marketing automation",
         "AI SaaS development",

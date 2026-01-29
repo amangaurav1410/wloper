@@ -6,20 +6,20 @@ import { useState } from 'react';
 
 const faqs = [
     {
-        question: "What makes Wloper the leading Website Development company?",
-        answer: "Wloper stands out by combining high-end engineering with conversion-first design. Unlike traditional agencies, we treat every website as a performance engine, focusing on sub-millisecond response times, scalable cloud architecture, and intuitive user experiences that drive actual business growth."
+        question: "What makes Wloper the Best IT Company for web development?",
+        answer: "Wloper is the best IT company because we combine high-end engineering with conversion-first design. We treat every website as a performance engine, focusing on sub-millisecond response times, scalable cloud architecture, and intuitive user experiences that drive actual business growth."
     },
     {
-        question: "Do you offer Custom Mobile development Website services?",
-        answer: "Yes, we specialize in high-performance custom mobile development. Our approach ensures that your mobile presence is not just a responsive version of your site, but a dedicated, high-speed ecosystem designed for touch interfaces, low-latency interactions, and full integration with your backend systems."
+        question: "How does Wloper lead as an AI based Web Development Company?",
+        answer: "As a leading AI based web development company, we integrate advanced artificial intelligence directly into our web architectures. This allows us to build self-optimizing platforms, intelligent chatbots, and predictive user interfaces that traditional tech companies for website development cannot match."
     },
     {
-        question: "How do your Digital Marketing Services differ from others?",
-        answer: "Our digital marketing is lead by data and engineering. We don't just 'run ads'; we build intelligent growth protocols. This includes automated lead capture systems, deep-funnel tracking, and AI-driven content distribution that ensures your brand dominates the market with technical precision."
+        question: "Why should I choose your Best Digital Marketing company services?",
+        answer: "Our best digital marketing services are driven by engineering and data. We build intelligent growth protocols including automated lead capture systems and AI-driven content distribution, ensuring your brand dominates the market with technical precision."
     },
     {
-        question: "What is an AI product and how can it help my business?",
-        answer: "An AI product is a specialized software tool designed to automate complex reasoning and tasks. For businesses, this means deploying intelligent chatbots, automated recruitment screening (like our Interview AI), or predictive analytics engines that reduce operational costs and increase decision-making speed."
+        question: "Is Wloper a reliable Tech Company for website Development?",
+        answer: "Yes, Wloper is a premier tech company for website development known for its 'SEO-First' architecture and Rapid Deployment Protocol. We specialize in high-performance, custom-built websites that are scalable, secure, and built for modern business scale."
     },
     {
         question: "How long does a typical Website Development project take?",

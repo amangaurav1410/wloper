@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-    title: "Contact Wloper | Get Custom Mobile development Website & AI Solutions",
-    description: "Connect with the WLOPER engineering center. Ready to start your next Website Development project or AI protocol? Initialize your project protocol here.",
-    keywords: ["hire website developers", "AI consultation", "mobile app estimate", "contact wloper", "project initialization"],
+    title: "Contact Us | Best IT Company & Best Digital Marketing Company",
+    description: "Connect with the best IT company for your next project. We are a leading tech company for website development and AI based web development specialized in scaling businesses.",
+    keywords: ["Best IT Company contact", "Best Digital Marketing company experts", "AI based web development consultation", "tech company for website development"],
     openGraph: {
-        title: "Contact Wloper | Initialize Project Protocol",
-        description: "Direct link to the WLOPER engineering command center. Start your digital dominance today.",
+        title: "Contact Wloper | Best IT Company & Digital Marketing experts",
+        description: "Connect with the best IT company specialized in AI and website development. Start your project with Wloper experts today.",
         images: [{ url: '/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg' }]
     }
 };

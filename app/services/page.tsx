@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import ServicesClient from './ServicesClient';
 
 export const metadata: Metadata = {
-    title: "Digital Marketing Services & Custom Engineering | Wloper",
-    description: "Explore our elite build protocols for AI Strategy, Blockchain Engineering, and Digital Marketing Services. We architect scalable infrastructure for global leaders.",
-    keywords: ["digital marketing agency", "custom engineering services", "AI strategy consulting", "blockchain-as-a-service", "growth engineering"],
+    title: "Our Services | Tech Company for Website Development | Wloper",
+    description: "Explore elite services from the best IT company. From AI based web development to the best digital marketing services, we architect your digital transformation with high-performance tech.",
+    keywords: ["best digital marketing services", "tech company for website development", "AI based web development services", "custom software engineering"],
     openGraph: {
-        title: "Services | Professional Engineering Hub & Digital Growth",
-        description: "Institutional-grade tech for AI, Web3, and market dominance.",
+        title: "Services | Best IT Company & Digital Growth Hub",
+        description: "Institutional-grade tech for AI, Web3, and the best digital marketing strategies.",
     }
 };
 

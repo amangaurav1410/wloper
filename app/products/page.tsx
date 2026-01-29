@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import ProductsClient from './ProductsClient';
 
 export const metadata: Metadata = {
-    title: "AI products & Enterprise Solutions | Wloper",
-    description: "Discover our suite of performance-driven AI products, including interview screening and HCM systems. Custom Mobile development Website solutions built for scale.",
-    keywords: ["AI interview software", "HCM systems", "AI chatbot product", "enterprise AI solutions", "technical asset library"],
+    title: "AI Products | AI Based Web Development Company | Wloper",
+    description: "Discover powerful AI products from Wloper. As a premier tech company for website development and AI based web development, we build autonomous systems for enterprise efficiency.",
+    keywords: ["AI based web development products", "tech company for website development", "enterprise AI solutions", "AI chatbot development", "autonomous AI agents"],
     openGraph: {
-        title: "AI products | The WLOPER Build Engines",
-        description: "Deploy autonomous AI assets at global enterprise scale.",
+        title: "AI Products | AI Based Web Development Experts",
+        description: "Deploy autonomous AI assets built by the best IT company for global enterprise scale.",
     }
 };
 

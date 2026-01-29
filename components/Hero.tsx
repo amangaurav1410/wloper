@@ -122,7 +122,7 @@ export default function Hero() {
                         variants={itemVariants}
                         className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-10 max-w-6xl text-balance tracking-tighter leading-tight"
                     >
-                        <span className="sr-only">Wloper: Leading AI Development Agency & Website Development Company. </span>
+                        <span className="sr-only">Wloper: The Best IT Company, Leading Tech Company for website Development & AI based Web Development Company. </span>
                         <span className="heading-gradient">Building the Future of</span>
                         <br />
                         <div className="relative h-[1.2em] inline-block w-full overflow-hidden">

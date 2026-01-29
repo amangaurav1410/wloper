@@ -19,18 +19,18 @@ export default function HomeClient() {
         <div className="bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
             <Hero />
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <WloperForge />
             </div>
 
             <AIProductShowcase />
             <Services />
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <SiteAuditTerminal />
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <PerformanceOracle />
                 <ArchitecturePreviewer />
             </div>

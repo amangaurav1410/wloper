@@ -120,7 +120,7 @@ export default function Hero() {
                     {/* Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-10 max-w-6xl text-balance tracking-tighter leading-tight"
+                        className="heading-xl mb-10 max-w-6xl text-balance tracking-tighter leading-tight"
                     >
                         <span className="sr-only">Wloper: The Best IT Company, Leading Tech Company for website Development & AI based Web Development Company. </span>
                         <span className="heading-gradient">Building the Future of</span>

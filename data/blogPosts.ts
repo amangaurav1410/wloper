@@ -11,7 +11,7 @@ export const blogPosts = [
         readTime: '15 min read',
         icon: Rocket,
         slug: 'autonomous-ai-agents-enterprise-frontier',
-        image: '/images/hero-bg.png',
+        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
         content: `
 The age of the 'Chatbot' is evolving into the era of 'Agents'. In 2026, the focus has shifted from generating text to executing tasks.
 
@@ -35,7 +35,7 @@ With great autonomy comes the need for 'Guardrails'. At Wloper, we are pioneerin
         readTime: '12 min read',
         icon: ShieldCheck,
         slug: 'zero-knowledge-blockchain-privacy-revolution',
-        image: '/images/hero-bg.png',
+        image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80',
         content: `
 Privacy has long been the 'Achilles heel' of public blockchains. Zero-Knowledge Proofs (ZKPs) are changing that narrative fundamentally.
 
@@ -59,7 +59,7 @@ With ZK technologies, banks can now participate in DeFi protocols while maintain
         readTime: '10 min read',
         icon: Zap,
         slug: 'web-engineering-2026-monolith-transition',
-        image: '/images/hero-bg.png',
+        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
         content: `
 The web has moved from the server to the browser, and now, to the 'Edge'. 
 

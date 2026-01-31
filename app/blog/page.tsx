@@ -162,7 +162,18 @@ export default function BlogPage() {
                                             {/* Media Box */}
                                             <div className={`relative overflow-hidden bg-white/5 ${viewMode === 'list' ? 'w-48 h-32 rounded-2xl flex-shrink-0' : 'aspect-[16/10]'}`}>
                                                 <Image
-                                                    src={post.image || '/images/hero-bg.png'}
+                                                    src={
+                                                        post.image && post.image !== '/images/hero-bg.png'
+                                                            ? post.image
+                                                            : `https://images.unsplash.com/photo-${[
+                                                                '1677442136019-21780ecad995', // AI
+                                                                '1639762681485-074b7f938ba0', // Blockchain
+                                                                '1451187580459-43490279c0fa', // Tech
+                                                                '1460925895917-afdab827c52f', // Marketing
+                                                                '1498050108023-c5249f4df085', // Web
+                                                                '1551288049-bbda48652ad8'  // Analytics
+                                                            ][post.id % 6]}?auto=format&fit=crop&w=800&q=80`
+                                                    }
                                                     alt={post.title}
                                                     fill
                                                     className="object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700"

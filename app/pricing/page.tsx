@@ -379,7 +379,7 @@ export default function PricingPage() {
                         >
                             <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">
                                 <div className="text-left">
-                                    <h2 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none">
+                                    <h2 className="heading-xl mb-8 tracking-tighter leading-none">
                                         {products[activeTab].title}
                                     </h2>
                                     <p className="text-2xl text-wl-accent font-bold mb-8 uppercase tracking-[0.2em]">
@@ -623,7 +623,7 @@ export default function PricingPage() {
                         <Image src="/images/envato-labs-ai-cc98af26-6a98-45ef-9c86-a4618f68b6e2.jpg" alt="Final CTA" fill className="absolute inset-0 object-cover opacity-[0.03] group-hover:scale-105 transition-transform duration-1000" />
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-wl-accent/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
                         <div className="relative z-10">
-                            <h2 className="text-6xl md:text-8xl font-black mb-12 tracking-tighter leading-tight">
+                            <h2 className="heading-xl mb-12 tracking-tighter leading-tight">
                                 Ready to Upgrade Your <br /><span className="text-wl-accent text-glow-accent">Business Intelligence?</span>
                             </h2>
                             <p className="text-3xl text-white/40 mb-16 max-w-3xl mx-auto font-medium">

@@ -30,7 +30,7 @@ export default function BlogPreview() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-black leading-tight"
+                            className="heading-lg mb-4"
                         >
                             Insights from India's <br />
                             <span className="heading-gradient">Hardcore Tech Team</span>

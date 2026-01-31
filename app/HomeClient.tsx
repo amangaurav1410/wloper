@@ -59,7 +59,7 @@ export default function HomeClient() {
                         className="max-w-6xl mx-auto glass-strong p-16 md:p-32 rounded-[4rem] border border-white/5 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-wl-accent/10 blur-[100px]" />
-                        <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none">
+                        <h2 className="heading-xl mb-8 tracking-tighter leading-none">
                             Ready to Craft Your <br /><span className="text-wl-accent">Build Protocol?</span>
                         </h2>
                         <p className="text-white/40 text-lg md:text-xl font-bold mb-12 max-w-3xl mx-auto uppercase tracking-widest">

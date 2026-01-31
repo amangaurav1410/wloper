@@ -42,6 +42,7 @@ export default function PricingPage() {
             title: 'AI Interview Screening',
             subtitle: 'Hire Faster Without Expanding Your HR Team',
             desc: 'Automate first-round interviews, evaluate candidates consistently, and shortlist top talent in minutes.',
+            image: '/images/ai-interview.png',
             plans: [
                 {
                     name: 'Starter Plan',
@@ -92,6 +93,7 @@ export default function PricingPage() {
             title: 'Customised AI Chatbots',
             subtitle: 'Convert More Conversations Automatically',
             desc: 'Capture leads, automate support, and book appointments 24/7 on website and WhatsApp.',
+            image: '/images/envato-labs-ai-bce5f816-6df6-4577-a0b5-b11da7c85d69.jpg',
             plans: [
                 {
                     name: 'Basic Plan',
@@ -143,6 +145,7 @@ export default function PricingPage() {
             title: 'AI Calling Agent',
             subtitle: 'Automated Voice Calls at Scale',
             desc: 'Make outbound calls, collect responses, and generate insights — without human agents.',
+            image: '/images/envato-labs-ai-60bf7079-9412-429a-89f0-19949dc9ecc1.jpg',
             plans: [
                 {
                     name: 'Pay As You Go',
@@ -178,6 +181,7 @@ export default function PricingPage() {
             title: 'AI-Based HCM System',
             subtitle: 'Enterprise Workforce Intelligence',
             desc: 'Designed for large organizations managing complex hiring, skills evaluation, and workforce planning.',
+            image: '/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg',
             plans: [
                 {
                     name: 'Enterprise Plan',
@@ -233,76 +237,99 @@ export default function PricingPage() {
     return (
         <div className="bg-wl-dark text-white min-h-screen">
             {/* 1️⃣ HERO SECTION */}
-            <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden">
+            <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
                 {/* Background Design */}
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-wl-accent/5 rounded-full blur-[160px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-wl-accent/5 rounded-full blur-[140px] pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
                 <div className="container-custom relative z-10">
-                    <div className="grid lg:grid-cols-12 gap-16 items-center">
-                        <div className="lg:col-span-7">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
                             <motion.div
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="tag-label mb-8"
                             >
                                 <Sparkles className="w-4 h-4 text-wl-accent" />
-                                Scalable AI Infrastructure
+                                Premium AI Infrastructure
                             </motion.div>
                             <motion.h1
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
                                 className="heading-xl mb-10 tracking-tighter"
                             >
                                 Simple, Transparent <br />
-                                <span className="text-wl-accent text-glow-accent">Pricing</span> for Growth.
+                                <span className="text-wl-accent text-glow-accent italic">Pricing</span> for Scale.
                             </motion.h1>
                             <motion.p
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-2xl text-white/50 mb-14 leading-relaxed max-w-2xl font-medium"
+                                className="text-2xl text-white/50 mb-14 leading-relaxed max-w-xl font-medium"
                             >
-                                Choose the right AI solution to automate hiring, customer conversations, and data collection — with plans that scale as your business grows.
+                                Choose the perfect AI blueprint to automate your growth engine. From hiring to customer engagement, we scale with you.
                             </motion.p>
                             <motion.div
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
                                 className="flex flex-wrap gap-6"
                             >
-                                <button onClick={openDemoModal} className="btn-primary h-20 px-12 text-lg">
+                                <button onClick={openDemoModal} className="btn-primary h-20 px-12 text-lg group">
                                     Start Free Trial
-                                    <ArrowRight className="ml-3 w-6 h-6" />
+                                    <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button onClick={openDemoModal} className="btn-secondary h-20 px-12 text-lg">
                                     Talk to Sales
                                 </button>
                             </motion.div>
-                        </div>
 
-                        <div className="lg:col-span-5">
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.4 }}
-                                className="glass-strong p-12 rounded-[4rem] border border-white/10 space-y-10"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="mt-16 flex items-center gap-8 border-t border-white/5 pt-12"
                             >
-                                {[
-                                    { icon: Globe, text: "Used by startups & agencies worldwide" },
-                                    { icon: ShieldCheck, text: "Secure & compliant infrastructure" },
-                                    { icon: Zap, text: "Cancel anytime, no hidden fees" }
-                                ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-6 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-wl-accent/10 flex items-center justify-center text-wl-accent group-hover:bg-wl-accent group-hover:text-black transition-all">
-                                            <item.icon className="w-6 h-6" />
+                                <div className="flex -space-x-4">
+                                    {[1, 2, 3, 4].map(i => (
+                                        <div key={i} className="w-12 h-12 rounded-full border-2 border-wl-dark bg-white/10 flex items-center justify-center overflow-hidden">
+                                            <Image src={`/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg`} alt="Client" width={48} height={48} className="object-cover" />
                                         </div>
-                                        <p className="text-lg font-bold text-white/80">{item.text}</p>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
+                                <p className="text-sm text-white/40 font-bold uppercase tracking-widest">Trusted by 500+ Innovators</p>
                             </motion.div>
-                        </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                            className="relative"
+                        >
+                            <div className="absolute -inset-4 bg-wl-accent/20 rounded-[4rem] blur-3xl opacity-20 animate-pulse" />
+                            <div className="relative glass-strong p-4 rounded-[4rem] border border-white/10 overflow-hidden group">
+                                <Image
+                                    src="/images/envato-labs-ai-cc98af26-6a98-45ef-9c86-a4618f68b6e2.jpg"
+                                    alt="AI Infrastructure"
+                                    width={800}
+                                    height={1000}
+                                    className="rounded-[3.5rem] object-cover aspect-[4/5] opacity-80 group-hover:scale-105 transition-transform duration-1000"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                <div className="absolute bottom-12 left-12 right-12">
+                                    <div className="glass-strong p-8 rounded-3xl border border-white/10">
+                                        <p className="text-xl font-bold mb-2">"Wloper's AI reduced our operational costs by 45% in just 3 months."</p>
+                                        <p className="text-sm text-wl-accent font-black uppercase tracking-widest">— TechLead Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -327,8 +354,8 @@ export default function PricingPage() {
                                     }
                                 }}
                                 className={`flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold whitespace-nowrap transition-all ${activeTab === tab.id
-                                        ? 'bg-wl-accent text-black shadow-[0_0_20px_rgba(202,246,72,0.4)]'
-                                        : 'text-white/40 hover:text-white hover:bg-white/5 border border-white/5'
+                                    ? 'bg-wl-accent text-black shadow-[0_0_20px_rgba(202,246,72,0.4)]'
+                                    : 'text-white/40 hover:text-white hover:bg-white/5 border border-white/5'
                                     }`}
                             >
                                 <tab.icon className="w-4 h-4" />
@@ -350,16 +377,28 @@ export default function PricingPage() {
                             exit={{ opacity: 0, y: -40 }}
                             transition={{ duration: 0.5, ease: "circOut" }}
                         >
-                            <div className="text-center max-w-4xl mx-auto mb-20">
-                                <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
-                                    {products[activeTab].title}
-                                </h2>
-                                <p className="text-2xl text-wl-accent font-bold mb-6 italic uppercase tracking-widest">
-                                    {products[activeTab].subtitle}
-                                </p>
-                                <p className="text-xl text-white/40 font-medium leading-relaxed">
-                                    {products[activeTab].desc}
-                                </p>
+                            <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">
+                                <div className="text-left">
+                                    <h2 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none">
+                                        {products[activeTab].title}
+                                    </h2>
+                                    <p className="text-2xl text-wl-accent font-bold mb-8 italic uppercase tracking-[0.2em]">
+                                        {products[activeTab].subtitle}
+                                    </p>
+                                    <p className="text-xl text-white/40 font-medium leading-relaxed max-w-xl">
+                                        {products[activeTab].desc}
+                                    </p>
+                                </div>
+                                <div className="relative group">
+                                    <div className="absolute -inset-10 bg-wl-accent/10 rounded-full blur-[100px] opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    <Image
+                                        src={products[activeTab].image}
+                                        alt={products[activeTab].title}
+                                        width={1000}
+                                        height={600}
+                                        className="rounded-[3rem] border border-white/5 object-cover aspect-video shadow-2xl relative z-10"
+                                    />
+                                </div>
                             </div>
 
                             {activeTab === 'hcm' ? (
@@ -384,26 +423,29 @@ export default function PricingPage() {
                                                 Request Demo
                                             </button>
                                         </div>
-                                        <div className="bg-wl-accent/5 p-16 lg:p-24 flex flex-col justify-center items-center text-center border-l border-white/5">
-                                            <p className="text-sm font-black uppercase tracking-[0.3em] text-wl-accent mb-6">Starting Price</p>
-                                            <div className="flex items-baseline gap-2 mb-2">
-                                                <span className="text-9xl font-black tracking-tighter">$399</span>
-                                                <span className="text-2xl text-white/40 font-bold">/月</span>
-                                            </div>
-                                            <p className="text-white/40 font-medium italic">Custom scaling for 1000+ employees</p>
-                                            <div className="mt-20 w-full h-[1px] bg-white/10 relative">
-                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] px-4 font-black text-[10px] uppercase tracking-widest text-white/20">
-                                                    Infrastructure Details
+                                        <div className="bg-wl-accent/5 p-16 lg:p-24 flex flex-col justify-center items-center text-center border-l border-white/5 relative">
+                                            <Image src="/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg" alt="HCM" fill className="absolute inset-0 object-cover opacity-10 mix-blend-overlay" />
+                                            <div className="relative z-10">
+                                                <p className="text-sm font-black uppercase tracking-[0.3em] text-wl-accent mb-6">Starting Price</p>
+                                                <div className="flex items-baseline gap-2 mb-2">
+                                                    <span className="text-9xl font-black tracking-tighter">$399</span>
+                                                    <span className="text-2xl text-white/40 font-bold">/mo</span>
                                                 </div>
-                                            </div>
-                                            <div className="grid grid-cols-2 gap-8 mt-12 w-full">
-                                                <div className="text-left">
-                                                    <p className="text-[10px] font-black uppercase tracking-widest text-wl-accent mb-2">Uptime</p>
-                                                    <p className="text-2xl font-black">99.99%</p>
+                                                <p className="text-white/40 font-medium italic">Custom scaling for 1000+ employees</p>
+                                                <div className="mt-20 w-full h-[1px] bg-white/10 relative">
+                                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] px-4 font-black text-[10px] uppercase tracking-widest text-white/20">
+                                                        Infrastructure Details
+                                                    </div>
                                                 </div>
-                                                <div className="text-left">
-                                                    <p className="text-[10px] font-black uppercase tracking-widest text-wl-accent mb-2">Support</p>
-                                                    <p className="text-2xl font-black">24/7/365</p>
+                                                <div className="grid grid-cols-2 gap-8 mt-12 w-full">
+                                                    <div className="text-left">
+                                                        <p className="text-[10px] font-black uppercase tracking-widest text-wl-accent mb-2">Uptime</p>
+                                                        <p className="text-2xl font-black">99.99%</p>
+                                                    </div>
+                                                    <div className="text-left">
+                                                        <p className="text-[10px] font-black uppercase tracking-widest text-wl-accent mb-2">Support</p>
+                                                        <p className="text-2xl font-black">24/7/365</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -417,8 +459,8 @@ export default function PricingPage() {
                                         <div
                                             key={idx}
                                             className={`relative rounded-[3.5rem] p-10 lg:p-14 border flex flex-col transition-all duration-500 hover:-translate-y-2 group overflow-hidden ${plan.highlight
-                                                    ? 'glass-strong border-wl-accent/30 shadow-[0_20px_60px_rgba(202,246,72,0.15)] bg-wl-accent/[0.03]'
-                                                    : 'glass border-white/5'
+                                                ? 'glass-strong border-wl-accent/30 shadow-[0_20px_60px_rgba(202,246,72,0.15)] bg-wl-accent/[0.03]'
+                                                : 'glass border-white/5'
                                                 }`}
                                         >
                                             {plan.highlight && (
@@ -444,7 +486,7 @@ export default function PricingPage() {
                                                 {plan.setup && <p className="mt-2 text-sm text-wl-accent font-bold italic">{plan.setup}</p>}
                                             </div>
 
-                                            <ul className="space-y-6 mb-14 flex-1">
+                                            <ul className="space-y-6 mb-14 flex-1 text-left">
                                                 {plan.features.map((feature, i) => (
                                                     <li key={i} className="flex items-start gap-4">
                                                         <Check className={`w-5 h-5 shrink-0 mt-1 ${plan.highlight ? 'text-wl-accent' : 'text-white/20'}`} />
@@ -456,8 +498,8 @@ export default function PricingPage() {
                                             <button
                                                 onClick={openDemoModal}
                                                 className={`w-full h-16 rounded-3xl font-black uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 ${plan.highlight
-                                                        ? 'bg-wl-accent text-black hover:shadow-[0_0_25px_rgba(202,246,72,0.4)] hover:scale-[1.02]'
-                                                        : 'bg-white/5 text-white hover:bg-white/10'
+                                                    ? 'bg-wl-accent text-black hover:shadow-[0_0_25px_rgba(202,246,72,0.4)] hover:scale-[1.02]'
+                                                    : 'bg-white/5 text-white hover:bg-white/10'
                                                     }`}
                                             >
                                                 {plan.cta}
@@ -473,18 +515,19 @@ export default function PricingPage() {
             </section>
 
             {/* 7️⃣ COMPARISON TABLE */}
-            <section className="section-padding py-32 bg-wl-dark/30 border-y border-white/5">
-                <div className="container-custom">
+            <section className="section-padding py-32 bg-wl-dark/30 border-y border-white/5 relative overflow-hidden">
+                <div className="absolute inset-0 bg-wl-accent/5 blur-[120px] rounded-full pointer-events-none -translate-x-1/2" />
+                <div className="container-custom relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">Compare <span className="text-wl-accent">Features.</span></h2>
-                        <p className="text-xl text-white/40 font-medium">Deep dive into our tiered functionality</p>
+                        <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">Compare <span className="text-wl-accent">Capabilities.</span></h2>
+                        <p className="text-2xl text-white/40 font-medium">Find the right protocol for your business architecture.</p>
                     </div>
 
                     <div className="max-w-5xl mx-auto overflow-hidden rounded-[3rem] border border-white/5 glass-strong shadow-2xl">
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="bg-white/5">
-                                    <th className="p-10 text-xs font-black uppercase tracking-widest text-white/40 border-b border-white/5">Feature</th>
+                                    <th className="p-10 text-xs font-black uppercase tracking-widest text-white/40 border-b border-white/5">Protocol Feature</th>
                                     <th className="p-10 text-sm font-black uppercase tracking-widest text-white border-b border-white/5">Starter</th>
                                     <th className="p-10 text-sm font-black uppercase tracking-widest text-wl-accent border-b border-white/5">Growth</th>
                                     <th className="p-10 text-sm font-black uppercase tracking-widest text-white border-b border-white/5">Enterprise</th>
@@ -516,16 +559,19 @@ export default function PricingPage() {
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-12 gap-20">
                         <div className="lg:col-span-5">
-                            <h2 className="text-5xl md:text-7xl font-black mb-10 tracking-tighter leading-tight">Got <span className="text-wl-accent">Questions?</span></h2>
+                            <h2 className="text-5xl md:text-7xl font-black mb-10 tracking-tighter leading-tight">Got <span className="text-wl-accent italic">Questions?</span></h2>
                             <p className="text-2xl text-white/40 font-medium leading-relaxed mb-12">
-                                We're here to provide clarity on our protocols and deployment models.
+                                We're here to provide technical clarity and deployment guidance.
                             </p>
-                            <div className="p-10 rounded-[3rem] bg-wl-accent/5 border border-wl-accent/10">
-                                <p className="text-sm font-black uppercase tracking-widest text-wl-accent mb-4">Dedicated Support</p>
-                                <p className="text-white/60 mb-8 font-medium italic">"Our goal is to ensure you scale without technical friction."</p>
-                                <button onClick={openDemoModal} className="flex items-center gap-3 text-white font-bold group">
-                                    Chat with an Advisor <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                                </button>
+                            <div className="p-10 rounded-[3rem] bg-wl-accent/5 border border-wl-accent/10 relative overflow-hidden group">
+                                <Image src="/images/envato-labs-ai-cc98af26-6a98-45ef-9c86-a4618f68b6e2.jpg" alt="Support" fill className="absolute inset-0 object-cover opacity-5 group-hover:scale-110 transition-transform duration-1000" />
+                                <div className="relative z-10">
+                                    <p className="text-sm font-black uppercase tracking-widest text-wl-accent mb-4">Tactical Support</p>
+                                    <p className="text-white/60 mb-8 font-medium italic text-lg leading-relaxed">"Our engineering team is dedicated to ensuring your AI transition is seamless and secure."</p>
+                                    <button onClick={openDemoModal} className="flex items-center gap-3 text-white font-black uppercase tracking-widest text-xs group/btn">
+                                        Consult with an Expert <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -533,15 +579,15 @@ export default function PricingPage() {
                             {faqs.map((faq, idx) => (
                                 <div
                                     key={idx}
-                                    className={`glass rounded-[2.5rem] border transition-all duration-500 overflow-hidden ${openFaq === idx ? 'border-wl-accent/30 bg-wl-accent/[0.02]' : 'border-white/5'
+                                    className={`glass rounded-[2.5rem] border transition-all duration-500 overflow-hidden ${openFaq === idx ? 'border-wl-accent/30 bg-wl-accent/[0.02]' : 'border-white/5 hover:border-white/10'
                                         }`}
                                 >
                                     <button
                                         onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                                        className="w-full p-10 flex items-center justify-between text-left"
+                                        className="w-full p-10 flex items-center justify-between text-left group"
                                     >
-                                        <span className="text-2xl font-bold">{faq.q}</span>
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${openFaq === idx ? 'bg-wl-accent text-black rotate-45' : 'bg-white/5 text-white'}`}>
+                                        <span className={`text-2xl font-bold transition-colors ${openFaq === idx ? 'text-wl-accent' : 'text-white/80'}`}>{faq.q}</span>
+                                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${openFaq === idx ? 'bg-wl-accent text-black rotate-45' : 'bg-white/5 text-white/40 group-hover:text-white'}`}>
                                             <Plus className="w-6 h-6" />
                                         </div>
                                     </button>
@@ -553,7 +599,7 @@ export default function PricingPage() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className="px-10 pb-10"
                                             >
-                                                <p className="text-lg text-white/50 leading-relaxed font-medium">
+                                                <p className="text-xl text-white/50 leading-relaxed font-medium">
                                                     {faq.a}
                                                 </p>
                                             </motion.div>
@@ -574,19 +620,21 @@ export default function PricingPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="glass-strong p-16 md:p-32 rounded-[4rem] border border-wl-accent/20 text-center relative overflow-hidden group"
                     >
+                        <Image src="/images/envato-labs-ai-cc98af26-6a98-45ef-9c86-a4618f68b6e2.jpg" alt="Final CTA" fill className="absolute inset-0 object-cover opacity-[0.03] group-hover:scale-105 transition-transform duration-1000" />
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-wl-accent/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
                         <div className="relative z-10">
-                            <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tighter leading-tight">
-                                Not Sure Which Plan Is <br /><span className="text-wl-accent">Right for You?</span>
+                            <h2 className="text-6xl md:text-8xl font-black mb-12 tracking-tighter leading-tight">
+                                Ready to Upgrade Your <br /><span className="text-wl-accent text-glow-accent">Business Intelligence?</span>
                             </h2>
-                            <p className="text-2xl text-white/40 mb-16 max-w-2xl mx-auto font-medium">
-                                Our team will help you choose the best solution based on your growth goals.
+                            <p className="text-3xl text-white/40 mb-16 max-w-3xl mx-auto font-medium">
+                                Let's architect a custom solution that aligns with your specific operational scale.
                             </p>
                             <div className="flex flex-wrap justify-center gap-8">
-                                <button onClick={openDemoModal} className="btn-primary h-20 px-16 text-xl">
+                                <button onClick={openDemoModal} className="btn-primary h-24 px-16 text-2xl group">
                                     Book Free Demo
+                                    <ArrowRight className="ml-3 w-8 h-8 group-hover:translate-x-2 transition-transform" />
                                 </button>
-                                <button onClick={openDemoModal} className="btn-secondary h-20 px-16 text-xl">
+                                <button onClick={openDemoModal} className="btn-secondary h-24 px-16 text-2xl">
                                     Talk to Sales
                                 </button>
                             </div>
@@ -601,6 +649,7 @@ export default function PricingPage() {
                     <p className="text-sm text-white/20 font-medium max-w-4xl mx-auto leading-relaxed italic">
                         All prices are starting estimates. Final pricing may vary based on usage, integrations, customization, and regional taxes.
                         Wloper Systems reserves the right to adjust architectural protocols per individual security audits.
+                        Wloper Systems &copy; {new Date().getFullYear()} - Redefining Intelligence.
                     </p>
                 </div>
             </footer>

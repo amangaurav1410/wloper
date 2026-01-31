@@ -104,11 +104,11 @@ export default function Footer() {
                         <div className="space-y-6">
                             <Link href="/" className="inline-block group">
                                 <Image
-                                    src="/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png"
+                                    src="/images/loper (3).png"
                                     alt="Wloper Systems - Expert AI Product and Website Development Company"
                                     width={160}
                                     height={50}
-                                    className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-all"
+                                    className="h-12 w-auto group-hover:opacity-100 transition-all scale-110"
                                 />
                             </Link>
                             <p className="text-wl-muted-dark text-lg leading-relaxed font-medium max-w-sm">

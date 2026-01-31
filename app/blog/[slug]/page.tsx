@@ -100,8 +100,19 @@ export default function BlogPost() {
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
                             <Image
-                                src="/images/envato-labs-ai-ff99b861-f73a-4b32-8972-7e241b722b3b.jpg"
-                                alt="Blog Post Background"
+                                src={
+                                    post.image && post.image !== '/images/hero-bg.png'
+                                        ? post.image
+                                        : `https://images.unsplash.com/photo-${[
+                                            '1677442136019-21780ecad995', // AI
+                                            '1639762681485-074b7f938ba0', // Blockchain
+                                            '1451187580459-43490279c0fa', // Tech
+                                            '1460925895917-afdab827c52f', // Marketing
+                                            '1498050108023-c5249f4df085', // Web
+                                            '1551288049-bbda48652ad8'  // Analytics
+                                        ][post.id % 6]}?auto=format&fit=crop&w=1200&q=80`
+                                }
+                                alt={post.title}
                                 fill
                                 sizes="100vw"
                                 className="object-cover opacity-20"

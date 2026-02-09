@@ -142,7 +142,7 @@ export default function ContactClient() {
                                         <MessageSquare className="w-6 h-6" />
                                     </div>
                                     <h4 className="font-bold text-white mb-2 uppercase tracking-widest text-xs">Direct Call</h4>
-                                    <p className="text-sm text-wl-accent font-black tracking-tight">+91-8433462546</p>
+                                    <p className="text-sm text-wl-accent font-black tracking-tight">+91 9034197787</p>
                                 </motion.div>
                             </div>
                         </div>

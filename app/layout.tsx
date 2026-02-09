@@ -155,7 +155,7 @@ export default function RootLayout({
                                 "logo": "https://wloper.com/logo.png",
                                 "contactPoint": {
                                     "@type": "ContactPoint",
-                                    "telephone": "+91-8433462546",
+                                    "telephone": "+91 9034197787",
                                     "contactType": "sales",
                                     "areaServed": "IN",
                                     "availableLanguage": ["en", "Hindi"]
@@ -185,7 +185,7 @@ export default function RootLayout({
                                 "image": "https://wloper.com/logo.png",
                                 "@id": "https://wloper.com",
                                 "url": "https://wloper.com",
-                                "telephone": "+91-8433462546",
+                                "telephone": "+91 9034197787",
                                 "address": {
                                     "@type": "PostalAddress",
                                     "streetAddress": "Phase 8B, Industrial Area",

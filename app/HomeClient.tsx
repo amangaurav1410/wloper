@@ -76,7 +76,7 @@ export default function HomeClient() {
                                 Execute Technical Audit
                                 <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                             </button>
-                            <Link href="/contact" className="text-white font-black uppercase tracking-[0.3em] text-xs hover:text-wl-accent transition-colors">
+                            <Link href="/contact" prefetch={false} className="text-white font-black uppercase tracking-[0.3em] text-xs hover:text-wl-accent transition-colors">
                                 Talk to Lead Architect
                             </Link>
                         </div>

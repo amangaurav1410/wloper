@@ -116,7 +116,7 @@ export default function AIProductShowcase() {
                                     <p className="text-wl-muted-dark leading-relaxed mb-4">
                                         {product.desc}
                                     </p>
-                                    <Link href="/products" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-wl-accent/70 hover:text-wl-accent transition-colors">
+                                    <Link href="/products" prefetch={false} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-wl-accent/70 hover:text-wl-accent transition-colors">
                                         Explore Product <ArrowRight className="w-3 h-3" />
                                     </Link>
                                 </div>

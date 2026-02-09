@@ -50,7 +50,7 @@ export default function NotFound() {
                         transition={{ delay: 0.8 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        <Link href="/" className="btn-primary group h-14">
+                        <Link href="/" prefetch={false} className="btn-primary group h-14">
                             <Home className="w-5 h-5 mr-2" />
                             Back to Home
                         </Link>

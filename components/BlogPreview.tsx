@@ -41,7 +41,7 @@ export default function BlogPreview() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <Link href="/blog" className="btn-secondary group">
+                        <Link href="/blog" prefetch={false} className="btn-secondary group">
                             View All 155 Articles
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
@@ -58,7 +58,7 @@ export default function BlogPreview() {
                             transition={{ delay: idx * 0.1 }}
                             className="glass rounded-[3rem] border border-white/5 hover:border-wl-accent/20 transition-all flex flex-col group h-full cursor-pointer relative overflow-hidden"
                         >
-                            <Link href={`/blog/${post.slug}`} className="absolute inset-0 z-20"></Link>
+                            <Link href={`/blog/${post.slug}`} prefetch={false} className="absolute inset-0 z-20"></Link>
 
                             {/* Post Image Container */}
                             <div className="relative h-64 overflow-hidden bg-white/5">

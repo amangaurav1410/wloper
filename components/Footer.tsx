@@ -102,7 +102,7 @@ export default function Footer() {
                     {/* Brand & Newsletter Section */}
                     <div className="lg:col-span-4 space-y-12">
                         <div className="space-y-6">
-                            <Link href="/" className="inline-block group">
+                            <Link href="/" prefetch={false} className="inline-block group">
                                 <Image
                                     src="/images/loper (3).png"
                                     alt="Wloper Systems - Expert AI Product and Website Development Company"
@@ -155,6 +155,7 @@ export default function Footer() {
                                         <li key={link.name}>
                                             <Link
                                                 href={link.href}
+                                                prefetch={false}
                                                 className="text-wl-muted-dark hover:text-wl-accent transition-all text-sm font-medium flex items-center gap-1 group translate-x-0 hover:translate-x-1"
                                             >
                                                 {link.name}
@@ -176,6 +177,7 @@ export default function Footer() {
                                 <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
                                     <Link
                                         href="/contact"
+                                        prefetch={false}
                                         className="text-[9px] font-black text-wl-accent uppercase tracking-[0.5em] hover:text-white transition-colors animate-pulse"
                                     >
                                         Live Global Operations
@@ -203,9 +205,9 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-wrap md:justify-end gap-x-10 gap-y-4">
-                        <Link href="/faq" className="text-[10px] font-bold text-wl-accent hover:text-white transition-colors uppercase tracking-widest">FAQ Protocol</Link>
-                        <Link href="/privacy" className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Privacy Protocol</Link>
-                        <Link href="/terms" className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Service Terms</Link>
+                        <Link href="/faq" prefetch={false} className="text-[10px] font-bold text-wl-accent hover:text-white transition-colors uppercase tracking-widest">FAQ Protocol</Link>
+                        <Link href="/privacy" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Privacy Protocol</Link>
+                        <Link href="/terms" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Service Terms</Link>
                     </div>
                 </div>
 

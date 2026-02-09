@@ -160,6 +160,7 @@ export default function Header() {
                             >
                                 <Link
                                     href={item.href}
+                                    prefetch={false}
                                     className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300"
                                 >
                                     {item.name}
@@ -175,6 +176,7 @@ export default function Header() {
                                                 <Link
                                                     key={drop.title}
                                                     href={drop.href}
+                                                    prefetch={false}
                                                     className="group/card flex flex-col p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300 h-full"
                                                 >
                                                     <div className="w-10 h-10 rounded-xl bg-wl-accent/10 flex items-center justify-center mb-3 text-wl-accent group-hover/card:scale-110 group-hover/card:bg-wl-accent group-hover/card:text-black transition-all">
@@ -302,6 +304,7 @@ export default function Header() {
                                                             <Link
                                                                 key={drop.title}
                                                                 href={drop.href}
+                                                                prefetch={false}
                                                                 onClick={() => setIsMobileMenuOpen(false)}
                                                                 className="flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 active:bg-white/10 group transition-all"
                                                             >

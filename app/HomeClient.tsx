@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useDemo } from '@/context/DemoContext';
+import WowStrip from '@/components/WowStrip';
 
 // Lazy-load below-fold sections
 const AIProductShowcase = dynamic(() => import('@/components/AIProductShowcase'), { ssr: false, loading: () => null });
@@ -19,7 +20,10 @@ export default function HomeClient() {
             {/* 1 — Hero */}
             <Hero />
 
-            {/* 2 — Who We Are (short) */}
+            {/* 2 — Stats + Marquee wow strip */}
+            <WowStrip />
+
+            {/* 3 — Who We Are (short) */}
             <WhoWeAre />
 
             {/* 3 — AI Products + SkillytTalk */}

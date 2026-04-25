@@ -2,15 +2,17 @@ import { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-    title: "Contact Us | Best IT Company & Best Digital Marketing Company",
-    description: "Connect with the best IT company for your next project. We are a leading tech company for website development and AI based web development specialized in scaling businesses.",
-    keywords: ["Best IT Company contact", "Best Digital Marketing company experts", "AI based web development consultation", "tech company for website development"],
+    title: 'Contact Wloper | Get a Free Website Development & SEO Quote',
+    description: 'Contact Wloper — India\'s best IT company in Mohali, Punjab. Get a free quote for website development, SEO, Google Ads, Meta Ads and mobile app development. Call +91-9034197787 or email sales@wloper.com.',
+    keywords: ['contact Wloper', 'website development quote', 'free SEO audit', 'IT company Mohali', 'digital marketing consultation India'],
     openGraph: {
-        title: "Contact Wloper | Best IT Company & Digital Marketing experts",
-        description: "Connect with the best IT company specialized in AI and website development. Start your project with Wloper experts today.",
-        images: [{ url: '/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg' }]
-    }
+        title: 'Contact Wloper | Free Quote for Website Development & Digital Marketing',
+        description: 'Get a free quote from Wloper. Website development, SEO, Google Ads, Meta Ads & AI solutions. Call +91-9034197787.',
+        images: [{ url: '/images/envato-labs-ai-6ff54a92-2b68-43ec-8639-abdd5b65ef00.jpg', width: 1200, height: 630 }]
+    },
+    alternates: { canonical: 'https://wloper.com/contact' }
 };
+
 
 export default function ContactPage() {
     return (

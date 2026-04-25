@@ -100,7 +100,7 @@ export default function Services() {
                             className="group/card"
                         >
                             <Link href={service.href}>
-                                <SpotlightCard className="p-8 md:p-10 h-full relative overflow-hidden">
+                                <SpotlightCard className="p-8 md:p-10 h-full relative overflow-hidden glass-card-3d card-shimmer glow-border">
                                     {service.badge && (
                                         <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-wl-accent/20 border border-wl-accent/30 text-[9px] font-black uppercase tracking-widest text-wl-accent">
                                             {service.badge}

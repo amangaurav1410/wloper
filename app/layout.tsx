@@ -26,14 +26,13 @@ const manrope = Manrope({
     display: 'swap',
 });
 
-const DevTerminal = dynamic(() => import('@/components/DevTerminal'), { ssr: false });
-const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false });
-const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup'), { ssr: false });
-const DNATransition = dynamic(() => import('@/components/DNATransition'), { ssr: false });
-const CommandHUD = dynamic(() => import('@/components/CommandHUD'), { ssr: false });
-const PersonaSwitcher = dynamic(() => import('@/components/PersonaSwitcher'), { ssr: false });
-const CommandPalette = dynamic(() => import('@/components/CommandPalette'), { ssr: false });
-const SystemGlobalEffects = dynamic(() => import('@/components/SystemGlobalEffects'), { ssr: false });
+const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false, loading: () => null });
+const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup'), { ssr: false, loading: () => null });
+const DNATransition = dynamic(() => import('@/components/DNATransition'), { ssr: false, loading: () => null });
+const CommandHUD = dynamic(() => import('@/components/CommandHUD'), { ssr: false, loading: () => null });
+const PersonaSwitcher = dynamic(() => import('@/components/PersonaSwitcher'), { ssr: false, loading: () => null });
+const CommandPalette = dynamic(() => import('@/components/CommandPalette'), { ssr: false, loading: () => null });
+const SystemGlobalEffects = dynamic(() => import('@/components/SystemGlobalEffects'), { ssr: false, loading: () => null });
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://wloper.com'),
@@ -222,7 +221,6 @@ export default function RootLayout({
                         <DemoProvider>
                             <DesktopOnly>
                                 <CustomCursor />
-                                <DevTerminal />
                                 <PersonaSwitcher />
                                 <CommandHUD />
                                 <CommandPalette />

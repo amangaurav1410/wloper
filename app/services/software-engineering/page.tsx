@@ -7,6 +7,7 @@ import {
     Terminal, GitBranch, Cpu, Rocket
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useDemo } from '@/context/DemoContext';
 
 export default function SoftwareEngineeringPage() {
@@ -102,7 +103,13 @@ export default function SoftwareEngineeringPage() {
                 <div className="container-custom">
                     <div className="glass-strong border border-white/5 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
                         {/* Background Image Overlay */}
-                        <div className="absolute inset-0 bg-[url('/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg')] bg-cover bg-center opacity-10 pointer-events-none"></div>
+                        <Image
+                            src="/images/envato-labs-ai-8d9fbd22-1b40-471e-8925-de12b0bf5533.jpg"
+                            alt=""
+                            fill
+                            aria-hidden="true"
+                            className="object-cover object-center opacity-10 pointer-events-none"
+                        />
 
                         <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
                             <div className="relative order-2 lg:order-1">

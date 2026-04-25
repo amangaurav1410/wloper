@@ -6,26 +6,14 @@ import CTAButton from './CTAButton';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useDemo } from '@/context/DemoContext';
 import { usePersona } from '@/context/PersonaContext';
-import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import MagneticWrapper from './MagneticWrapper';
-
-const NeuralBackground = dynamic(() => import('./NeuralBackground'), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 bg-wl-dark" />
-});
+import NeuralBackground from './NeuralBackground';
 
 export default function Hero() {
     const { openDemoModal } = useDemo();
     const { persona } = usePersona();
     const [index, setIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     const personaContent = {
         STRATEGY: {
@@ -79,25 +67,20 @@ export default function Hero() {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wl-dark pt-32 pb-24 md:pb-20">
-            {/* Cinematic Video Background */}
-            {!isMobile && (
-                <div className="absolute inset-0 z-0">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        poster="/images/hero-bg.png"
-                        preload="auto"
-                        className="absolute inset-0 w-full h-full object-cover opacity-60"
-                    >
-                        <source src="/images/digital-tech-green-background-2023-11-27-05-00-41-utc.mp4" type="video/mp4" />
-                    </video>
-                </div>
-            )}
-            {isMobile && <div className="absolute inset-0 z-0 bg-wl-dark/80" />}
+            {/* Static optimised hero image — replaces 36MB autoplay video */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/hero-bg.png"
+                    alt=""
+                    fill
+                    priority
+                    quality={75}
+                    aria-hidden="true"
+                    className="object-cover opacity-50"
+                />
+            </div>
 
-            {!isMobile && <NeuralBackground />}
+            <NeuralBackground />
 
             <div className="container-custom relative z-10 w-full">
                 <motion.div

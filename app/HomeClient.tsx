@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useDemo } from '@/context/DemoContext';
 import WowStrip from '@/components/WowStrip';
+import { ExternalLink } from 'lucide-react';
 
 // Lazy-load below-fold sections
 const AIProductShowcase = dynamic(() => import('@/components/AIProductShowcase'), { ssr: false, loading: () => null });

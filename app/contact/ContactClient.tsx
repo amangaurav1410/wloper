@@ -140,27 +140,29 @@ export default function ContactClient() {
                             </div>
 
                             <div className="grid sm:grid-cols-2 gap-6">
-                                <motion.div
+                                <motion.a
+                                    href="mailto:sales@wloper.com"
                                     whileHover={{ y: -5 }}
-                                    className="glass-strong p-10 rounded-[2.5rem] border border-white/5 flex flex-col items-center text-center group"
+                                    className="glass-strong p-10 rounded-[2.5rem] border border-white/5 flex flex-col items-center text-center group hover:border-wl-accent/30 transition-all"
                                 >
                                     <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-wl-accent group-hover:text-black transition-all">
                                         <Mail className="w-6 h-6" />
                                     </div>
                                     <h4 className="font-bold text-white mb-2 uppercase tracking-widest text-xs">Sales Inquiries</h4>
-                                    <p className="text-sm text-wl-accent font-black tracking-tight uppercase">sales@wloper.com</p>
-                                </motion.div>
+                                    <p className="text-sm text-wl-accent font-black tracking-tight">sales@wloper.com</p>
+                                </motion.a>
 
-                                <motion.div
+                                <motion.a
+                                    href="tel:+919034197787"
                                     whileHover={{ y: -5 }}
-                                    className="glass-strong p-10 rounded-[2.5rem] border border-white/5 flex flex-col items-center text-center group"
+                                    className="glass-strong p-10 rounded-[2.5rem] border border-white/5 flex flex-col items-center text-center group hover:border-wl-accent/30 transition-all"
                                 >
                                     <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-wl-accent group-hover:text-black transition-all">
                                         <MessageSquare className="w-6 h-6" />
                                     </div>
                                     <h4 className="font-bold text-white mb-2 uppercase tracking-widest text-xs">Direct Call</h4>
                                     <p className="text-sm text-wl-accent font-black tracking-tight">+91 9034197787</p>
-                                </motion.div>
+                                </motion.a>
                             </div>
                         </div>
 

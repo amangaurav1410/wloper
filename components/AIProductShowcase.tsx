@@ -11,27 +11,35 @@ export default function AIProductShowcase() {
     const products = [
         {
             title: 'AI Interview Screening Platform',
-            desc: 'Automate candidate evaluation with intelligent scoring.',
+            desc: 'Automate candidate evaluation with intelligent scoring. Powered by SkillytTalk.',
             icon: Brain,
-            color: 'text-blue-400'
+            color: 'text-blue-400',
+            href: 'https://www.skillytalk.com/',
+            external: true,
         },
         {
             title: 'Customised AI Chatbots',
             desc: 'Seamless customer support and workflow automation.',
             icon: MessageSquare,
-            color: 'text-purple-400'
+            color: 'text-purple-400',
+            href: '/products',
+            external: false,
         },
         {
             title: 'AI-Based HCM System',
             desc: 'Skills evaluation and institution-wide talent management.',
             icon: Users,
-            color: 'text-wl-accent'
+            color: 'text-wl-accent',
+            href: '/products',
+            external: false,
         },
         {
             title: 'AI Calling Agent for Data & Analysis',
             desc: 'Autonomous voice agents for large-scale data collection and real-time analysis.',
             icon: Phone,
-            color: 'text-blue-500'
+            color: 'text-blue-500',
+            href: '/products',
+            external: false,
         }
     ];
 
@@ -87,7 +95,7 @@ export default function AIProductShowcase() {
                                 alt="WLOPER AI Product Ecosystem - Automated Hiring and HCM Systems"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 700px, 840px"
-                                quality={85}
+                                quality={65}
                                 className="object-cover"
                                 priority
                             />
@@ -116,8 +124,14 @@ export default function AIProductShowcase() {
                                     <p className="text-wl-muted-dark leading-relaxed mb-4">
                                         {product.desc}
                                     </p>
-                                    <Link href="/products" prefetch={false} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-wl-accent/70 hover:text-wl-accent transition-colors">
-                                        Explore Product <ArrowRight className="w-3 h-3" />
+                                    <Link
+                                        href={product.href}
+                                        prefetch={false}
+                                        target={product.external ? '_blank' : undefined}
+                                        rel={product.external ? 'noopener noreferrer' : undefined}
+                                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-wl-accent/70 hover:text-wl-accent transition-colors"
+                                    >
+                                        {product.external ? 'Visit SkillytTalk' : 'Explore Product'} <ArrowRight className="w-3 h-3" />
                                     </Link>
                                 </div>
                             </motion.div>

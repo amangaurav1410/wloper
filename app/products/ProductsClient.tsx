@@ -34,6 +34,18 @@ export default function ProductsClient() {
                 {!isMobile && <NeuralBackground />}
                 <div className="container-custom relative z-10">
                     <div className="flex flex-col items-center text-center">
+            {/* SkillytTalk AI Interview Platform Promo Banner */}
+                    <a
+                        href="https://www.skillytalk.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-3 mb-8 px-6 py-3 rounded-full border border-wl-accent/30 bg-wl-accent/10 hover:bg-wl-accent/20 transition-all group"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-wl-accent animate-pulse" />
+                        <span className="text-[11px] font-black uppercase tracking-[0.2em] text-wl-accent">Live Product</span>
+                        <span className="text-[11px] font-bold text-white/60">→ Try SkillytTalk AI Interview Platform</span>
+                        <ArrowUpRight className="w-3 h-3 text-wl-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -42,13 +54,9 @@ export default function ProductsClient() {
                             <Terminal className="w-4 h-4 text-wl-accent" />
                             Core Architecture v4.0
                         </motion.div>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="heading-xl mb-10 max-w-6xl text-balance"
-                        >
+                        <h1 className="heading-xl mb-10 max-w-6xl text-balance">
                             The AI <br /><span className="text-wl-accent">Build Engine.</span>
-                        </motion.h1>
+                        </h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -57,6 +65,7 @@ export default function ProductsClient() {
                         >
                             Beyond simple tools. We provide the comprehensive neural infrastructure required to deploy autonomous interview systems at global scale.
                         </motion.p>
+
                     </div>
                 </div>
             </section>

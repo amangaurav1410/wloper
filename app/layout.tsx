@@ -4,14 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DemoProvider } from "@/context/DemoContext";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import CustomCursor from "@/components/CustomCursor";
-import DesktopOnly from "@/components/DesktopOnly";
 import dynamic from 'next/dynamic';
 import { Space_Grotesk, Manrope } from 'next/font/google';
-
-
 import { InterfaceProvider } from "@/context/InterfaceContext";
-import { PersonaProvider } from "@/context/PersonaContext";
 import Script from 'next/script';
 
 const spaceGrotesk = Space_Grotesk({
@@ -28,11 +23,6 @@ const manrope = Manrope({
 
 const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false, loading: () => null });
 const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup'), { ssr: false, loading: () => null });
-const DNATransition = dynamic(() => import('@/components/DNATransition'), { ssr: false, loading: () => null });
-const CommandHUD = dynamic(() => import('@/components/CommandHUD'), { ssr: false, loading: () => null });
-const PersonaSwitcher = dynamic(() => import('@/components/PersonaSwitcher'), { ssr: false, loading: () => null });
-const CommandPalette = dynamic(() => import('@/components/CommandPalette'), { ssr: false, loading: () => null });
-const SystemGlobalEffects = dynamic(() => import('@/components/SystemGlobalEffects'), { ssr: false, loading: () => null });
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://wloper.com'),
@@ -214,27 +204,18 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className="antialiased lg:cursor-none bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
+            <body className="antialiased bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
                 <InterfaceProvider>
-                    <PersonaProvider>
-                        <DemoProvider>
-                            <DesktopOnly>
-                                <CustomCursor />
-                                <PersonaSwitcher />
-                                <CommandHUD />
-                                <CommandPalette />
-                                <SystemGlobalEffects />
-                            </DesktopOnly>
-                            <ScrollProgress />
-                            <Header />
-                            <AIAssistant />
-                            <NewsletterPopup />
-                            <main className="min-h-screen">
-                                {children}
-                            </main>
-                            <Footer />
-                        </DemoProvider>
-                    </PersonaProvider>
+                    <DemoProvider>
+                        <ScrollProgress />
+                        <Header />
+                        <AIAssistant />
+                        <NewsletterPopup />
+                        <main className="min-h-screen">
+                            {children}
+                        </main>
+                        <Footer />
+                    </DemoProvider>
                 </InterfaceProvider>
             </body>
         </html>

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow internal/utility paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /search
+
+# Sitemap location
+Sitemap: https://wloper.com/sitemap.xml
+
+# Crawl-delay (optional, helps with server load)
+Crawl-delay: 1

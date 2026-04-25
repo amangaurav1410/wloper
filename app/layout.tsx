@@ -134,51 +134,175 @@ export default function RootLayout({
                         gtag('config', 'G-BPJND5P97V');
                     `}
                 </Script>
-                {/* Schema.org for SEO */}
+                {/* ================================================================
+                    STRUCTURED DATA — Google Knowledge Panel signals
+                    Organization + WebSite + SoftwareApplication (SkillytTalk)
+                    ================================================================ */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify([
+                            /* ── 1. ORGANIZATION (primary KP trigger) ── */
                             {
                                 "@context": "https://schema.org",
                                 "@type": "Organization",
-                                "name": "Wloper Systems",
-                                "alternateName": "Wloper",
+                                "@id": "https://wloper.com/#organization",
+                                "name": "Wloper",
+                                "legalName": "Wloper Systems Private Limited",
+                                "alternateName": ["Wloper Systems", "Wloper IT Company"],
                                 "url": "https://wloper.com",
-                                "logo": "https://wloper.com/logo.png",
-                                "contactPoint": {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+91 9034197787",
-                                    "contactType": "sales",
-                                    "areaServed": "IN",
-                                    "availableLanguage": ["en", "Hindi"]
+                                "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wloper.com/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png",
+                                    "width": 400,
+                                    "height": 400
                                 },
-                                "sameAs": [
-                                    "https://linkedin.com/company/wloper",
-                                    "https://twitter.com/wloper",
-                                    "https://github.com/wloper"
+                                "image": [
+                                    "https://wloper.com/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png",
+                                    "https://wloper.com/images/envato-labs-ai-6c11c598-851f-40f7-9155-eb9146bff990.jpg"
                                 ],
-                                "description": "Wloper is a premier engineering powerhouse specializing in AI-driven products, enterprise blockchain solutions, and data-backed digital marketing."
+                                "description": "Wloper is India's best IT company specialising in website development (WordPress, Shopify, Next.js), mobile app development, SEO, Google Ads, Meta Ads, custom web development and AI-powered digital solutions. Wloper also owns SkillytTalk, an AI-powered interview and hiring platform.",
+                                "foundingDate": "2020",
+                                "numberOfEmployees": {
+                                    "@type": "QuantitativeValue",
+                                    "minValue": 10,
+                                    "maxValue": 50
+                                },
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "Phase 8B, Industrial Area",
+                                    "addressLocality": "Mohali",
+                                    "addressRegion": "Punjab",
+                                    "postalCode": "160055",
+                                    "addressCountry": "IN"
+                                },
+                                "geo": {
+                                    "@type": "GeoCoordinates",
+                                    "latitude": 30.7046,
+                                    "longitude": 76.7179
+                                },
+                                "contactPoint": [
+                                    {
+                                        "@type": "ContactPoint",
+                                        "telephone": "+91-9034197787",
+                                        "contactType": "sales",
+                                        "email": "sales@wloper.com",
+                                        "areaServed": ["IN", "US", "GB", "AE"],
+                                        "availableLanguage": ["English", "Hindi"]
+                                    },
+                                    {
+                                        "@type": "ContactPoint",
+                                        "telephone": "+91-9034197787",
+                                        "contactType": "customer support",
+                                        "areaServed": "IN",
+                                        "availableLanguage": ["English", "Hindi"]
+                                    }
+                                ],
+                                "sameAs": [
+                                    "https://www.linkedin.com/company/wloper",
+                                    "https://twitter.com/wloper",
+                                    "https://www.instagram.com/wloper",
+                                    "https://www.facebook.com/wloper",
+                                    "https://github.com/varsha-varanasi/wloper",
+                                    "https://github.com/amangaurav1410/wloper"
+                                ],
+                                "email": "sales@wloper.com",
+                                "telephone": "+91-9034197787",
+                                "areaServed": ["India", "United States", "United Kingdom", "United Arab Emirates", "Canada", "Australia"],
+                                "knowsAbout": [
+                                    "Website Development",
+                                    "WordPress Development",
+                                    "Shopify Development",
+                                    "Next.js Development",
+                                    "Mobile App Development",
+                                    "Search Engine Optimization",
+                                    "Google Ads Management",
+                                    "Meta Ads Management",
+                                    "Custom Web Development",
+                                    "AI Development",
+                                    "Blockchain Engineering",
+                                    "Digital Marketing"
+                                ],
+                                "hasOfferCatalog": {
+                                    "@type": "OfferCatalog",
+                                    "name": "Wloper Services",
+                                    "itemListElement": [
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development", "url": "https://wloper.com/services/website-development" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development", "url": "https://wloper.com/services/mobile-app-development" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services", "url": "https://wloper.com/services/seo" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads Management", "url": "https://wloper.com/services/google-ads" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads Management", "url": "https://wloper.com/services/meta-ads" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Website Development", "url": "https://wloper.com/services/custom-website-development" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Based Web Development", "url": "https://wloper.com/services/software-engineering" } },
+                                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing & SEO", "url": "https://wloper.com/services/digital-growth" } }
+                                    ]
+                                },
+                                "owns": {
+                                    "@type": "Product",
+                                    "@id": "https://www.skillytalk.com/#product",
+                                    "name": "SkillytTalk",
+                                    "description": "SkillytTalk is an AI-powered interview screening and hiring platform by Wloper that automates candidate evaluation with intelligent scoring and unbiased assessments.",
+                                    "url": "https://www.skillytalk.com/",
+                                    "brand": { "@type": "Brand", "name": "Wloper" }
+                                },
+                                "founder": {
+                                    "@type": "Person",
+                                    "name": "Wloper Founding Team"
+                                }
                             },
+
+                            /* ── 2. WEBSITE (enables Sitelinks Searchbox) ── */
                             {
                                 "@context": "https://schema.org",
                                 "@type": "WebSite",
-                                "name": "Wloper Systems",
+                                "@id": "https://wloper.com/#website",
+                                "name": "Wloper",
                                 "url": "https://wloper.com",
+                                "publisher": { "@id": "https://wloper.com/#organization" },
+                                "inLanguage": "en-US",
                                 "potentialAction": {
                                     "@type": "SearchAction",
-                                    "target": "https://wloper.com/search?q={search_term_string}",
+                                    "target": {
+                                        "@type": "EntryPoint",
+                                        "urlTemplate": "https://wloper.com/search?q={search_term_string}"
+                                    },
                                     "query-input": "required name=search_term_string"
                                 }
                             },
+
+                            /* ── 3. SOFTWARE APPLICATION — SkillytTalk product ── */
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "SoftwareApplication",
+                                "@id": "https://www.skillytalk.com/#app",
+                                "name": "SkillytTalk",
+                                "applicationCategory": "BusinessApplication",
+                                "operatingSystem": "Web",
+                                "url": "https://www.skillytalk.com/",
+                                "description": "SkillytTalk is an AI-powered interview screening platform that automates hiring with intelligent candidate scoring, unbiased evaluation and real-time analytics. Built by Wloper.",
+                                "offers": {
+                                    "@type": "Offer",
+                                    "price": "0",
+                                    "priceCurrency": "USD",
+                                    "availability": "https://schema.org/InStock"
+                                },
+                                "image": "https://wloper.com/images/envato-labs-ai-6c11c598-851f-40f7-9155-eb9146bff990.jpg",
+                                "author": { "@id": "https://wloper.com/#organization" },
+                                "brand": { "@type": "Brand", "name": "Wloper" }
+                            },
+
+                            /* ── 4. LOCAL BUSINESS (helps local pack + map KP) ── */
                             {
                                 "@context": "https://schema.org",
                                 "@type": "LocalBusiness",
-                                "name": "Wloper Systems",
-                                "image": "https://wloper.com/logo.png",
-                                "@id": "https://wloper.com",
+                                "@id": "https://wloper.com/#localbusiness",
+                                "name": "Wloper",
+                                "image": "https://wloper.com/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png",
                                 "url": "https://wloper.com",
-                                "telephone": "+91 9034197787",
+                                "telephone": "+91-9034197787",
+                                "email": "sales@wloper.com",
+                                "priceRange": "₹₹",
+                                "servesCuisine": null,
                                 "address": {
                                     "@type": "PostalAddress",
                                     "streetAddress": "Phase 8B, Industrial Area",
@@ -194,20 +318,20 @@ export default function RootLayout({
                                 },
                                 "openingHoursSpecification": {
                                     "@type": "OpeningHoursSpecification",
-                                    "dayOfWeek": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
+                                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                                     "opens": "09:00",
-                                    "closes": "18:00"
-                                }
+                                    "closes": "19:00"
+                                },
+                                "sameAs": [
+                                    "https://www.linkedin.com/company/wloper",
+                                    "https://twitter.com/wloper",
+                                    "https://www.instagram.com/wloper"
+                                ]
                             }
                         ])
                     }}
                 />
+
             </head>
             <body className="antialiased bg-wl-dark text-white selection:bg-wl-accent selection:text-black">
                 <InterfaceProvider>

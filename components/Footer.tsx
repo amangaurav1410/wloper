@@ -59,9 +59,9 @@ export default function Footer() {
     ];
 
     const socials = [
-        { name: 'X', icon: Twitter, href: '#' },
-        { name: 'LinkedIn', icon: Linkedin, href: '#' },
-        { name: 'GitHub', icon: Github, href: '#' }
+        { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/wloper' },
+        { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/wlopertechnologies/' },
+        { name: 'GitHub', icon: Github, href: 'https://github.com/varsha-varanasi/wloper' }
     ];
 
     return (

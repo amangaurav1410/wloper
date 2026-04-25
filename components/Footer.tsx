@@ -59,6 +59,7 @@ export default function Footer() {
     ];
 
     const socials = [
+        { name: 'X', icon: Twitter, href: 'https://x.com/wlopers' },
         { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/wloper' },
         { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/wlopertechnologies/' },
         { name: 'GitHub', icon: Github, href: 'https://github.com/varsha-varanasi/wloper' }

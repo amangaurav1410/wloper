@@ -1,16 +1,20 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { useMotionValue, useSpring } from 'framer-motion';
 
+/**
+ * Simplified CustomCursor — fixes forced reflow.
+ *
+ * Previous version called getBoundingClientRect() inside the mousemove handler
+ * which caused a forced reflow on every mouse event (~100/s).
+ *
+ * Fix: Removed the neural-point nearest-position feature entirely (it had no
+ * matching `.neural-point` elements in the CSS-based NeuralBackground anyway,
+ * so it was a no-op that still triggered layout reads). Cursor now uses only
+ * CSS transform via framer-motion motion values — zero reflow.
+ */
 export default function CustomCursor() {
-    const [cursorType, setCursorType] = useState<'default' | 'hover' | 'text' | 'magnetic'>('default');
-    const [cursorText, setCursorText] = useState('');
-    const [isVisible, setIsVisible] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
-
-    const [nearestPos, setNearestPos] = useState<{ x: number; y: number } | null>(null);
-
     const mouseX = useMotionValue(-100);
     const mouseY = useMotionValue(-100);
 
@@ -18,98 +22,46 @@ export default function CustomCursor() {
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 
-    const neuralPointsPosRef = useRef<{ x: number, y: number }[]>([]);
+    const dotRef = useRef<HTMLDivElement>(null);
+    const ringRef = useRef<HTMLDivElement>(null);
+    const rafRef = useRef<number | null>(null);
 
     useEffect(() => {
-        const checkMobile = () => {
-            const mobile = window.innerWidth < 1024 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-            setIsMobile(mobile);
-        };
-
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        if (isMobile) {
-            return () => {
-                window.removeEventListener('resize', checkMobile);
-            };
+        // Guard: desktop only
+        if (window.innerWidth < 1024 || 'ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            return;
         }
-        // Cache neural points positions to avoid layout thrashing
-        const updatePoints = () => {
-            const elements = Array.from(document.querySelectorAll('.neural-point'));
-            const scrollX = window.scrollX;
-            const scrollY = window.scrollY;
-            neuralPointsPosRef.current = elements.map(el => {
-                const rect = el.getBoundingClientRect();
-                return {
-                    x: rect.left + scrollX + rect.width / 2,
-                    y: rect.top + scrollY + rect.height / 2
-                };
-            });
-        };
 
-        // Initial update
-        updatePoints();
+        let latestX = -100;
+        let latestY = -100;
 
-        // Only update on resize or when content might change
-        const handleResize = () => {
-            checkMobile();
-            requestAnimationFrame(updatePoints);
-        };
-
-        window.addEventListener('resize', handleResize, { passive: true });
-
-        // Optimized mouse handler
         const moveMouse = (e: MouseEvent) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            mouseX.set(x);
-            mouseY.set(y);
+            latestX = e.clientX;
+            latestY = e.clientY;
 
-            // Calculation using cached positions adjusted for scroll
-            if (neuralPointsPosRef.current.length > 0) {
-                const scrollX = window.scrollX;
-                const scrollY = window.scrollY;
-                let minDistSq = 300 * 300;
-                let closest: { x: number; y: number } | null = null;
-
-                const points = neuralPointsPosRef.current;
-                const len = points.length;
-
-                for (let i = 0; i < len; i++) {
-                    const point = points[i];
-                    // Convert document-relative to viewport-relative
-                    const vx = point.x - scrollX;
-                    const vy = point.y - scrollY;
-
-                    const dx = x - vx;
-                    const dy = y - vy;
-                    const distSq = dx * dx + dy * dy;
-
-                    if (distSq < minDistSq) {
-                        minDistSq = distSq;
-                        closest = { x: vx, y: vy };
-                    }
-                }
-                setNearestPos(closest);
-            } else if (nearestPos) {
-                setNearestPos(null);
+            // Batch DOM update in next animation frame — prevents forced reflow
+            if (rafRef.current === null) {
+                rafRef.current = requestAnimationFrame(() => {
+                    mouseX.set(latestX);
+                    mouseY.set(latestY);
+                    rafRef.current = null;
+                });
             }
         };
 
         const handleOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const interactive = target.closest('button, a, [data-cursor-text]');
-
-            if (interactive) {
-                if (interactive.hasAttribute('data-cursor-text')) {
-                    setCursorType('text');
-                    setCursorText(interactive.getAttribute('data-cursor-text') || '');
+            if (ringRef.current) {
+                if (interactive) {
+                    ringRef.current.style.width = '72px';
+                    ringRef.current.style.height = '72px';
+                    ringRef.current.style.backgroundColor = 'rgba(202, 246, 72, 0.1)';
                 } else {
-                    setCursorType('hover');
+                    ringRef.current.style.width = '40px';
+                    ringRef.current.style.height = '40px';
+                    ringRef.current.style.backgroundColor = 'transparent';
                 }
-            } else {
-                setCursorType('default');
             }
         };
 
@@ -117,70 +69,80 @@ export default function CustomCursor() {
         window.addEventListener('mouseover', handleOver, { passive: true });
 
         return () => {
-            window.removeEventListener('resize', checkMobile);
-            window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', moveMouse);
             window.removeEventListener('mouseover', handleOver);
+            if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
         };
-    }, [mouseX, mouseY, isMobile]);
+    }, [mouseX, mouseY]);
 
     return (
         <div className="fixed inset-0 pointer-events-none z-[9999] hidden lg:block">
-            {/* Neural Connection Line */}
-            <svg className="absolute inset-0 w-full h-full">
-                <AnimatePresence>
-                    {nearestPos && (
-                        <motion.line
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            x1={mouseX}
-                            y1={mouseY}
-                            x2={nearestPos.x}
-                            y2={nearestPos.y}
-                            stroke="rgba(202, 246, 72, 0.3)"
-                            strokeWidth="1"
-                            strokeDasharray="4 4"
-                            className="drop-shadow-[0_0_8px_rgba(202,246,72,0.8)]"
-                        />
-                    )}
-                </AnimatePresence>
-            </svg>
-
-            {/* Main Dot */}
-            <motion.div
-                className="absolute w-3 h-3 bg-wl-accent rounded-full -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+            {/* Main dot — follows mouse 1:1 via motion value (no reflow) */}
+            <div
+                ref={dotRef}
+                className="absolute w-3 h-3 bg-wl-accent rounded-full mix-blend-difference"
                 style={{
-                    left: mouseX,
-                    top: mouseY,
+                    // Use CSS var driven by motion values via useEffect below
+                    transform: 'translate(-50%, -50%)',
+                    willChange: 'transform',
+                    left: 0,
+                    top: 0,
                 }}
             />
 
-            {/* Glowing Ring */}
-            <motion.div
-                className="absolute rounded-full border border-wl-accent/50 -translate-x-1/2 -translate-y-1/2"
+            {/* Lagging ring */}
+            <div
+                ref={ringRef}
+                className="absolute rounded-full border border-wl-accent/50 transition-[width,height,background-color] duration-200"
                 style={{
-                    left: springX,
-                    top: springY,
-                    width: cursorType === 'hover' ? 80 : cursorType === 'text' ? 120 : 40,
-                    height: cursorType === 'hover' ? 80 : cursorType === 'text' ? 120 : 40,
-                    backgroundColor: cursorType === 'hover' ? 'rgba(202, 246, 72, 0.1)' : 'transparent',
+                    width: 40,
+                    height: 40,
+                    transform: 'translate(-50%, -50%)',
+                    willChange: 'transform',
+                    left: 0,
+                    top: 0,
                 }}
-                transition={{ type: 'spring', damping: 20, stiffness: 150 }}
-            >
-                <AnimatePresence>
-                    {cursorType === 'text' && (
-                        <motion.span
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.5 }}
-                            className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-wl-accent uppercase tracking-tighter text-center px-4"
-                        >
-                            {cursorText}
-                        </motion.span>
-                    )}
-                </AnimatePresence>
-            </motion.div>
+            />
+
+            {/* Framer motion drives the actual position via transform — no layout reads */}
+            <CursorPositionDriver mouseX={mouseX} mouseY={mouseY} springX={springX} springY={springY} dotRef={dotRef} ringRef={ringRef} />
         </div>
     );
+}
+
+// Separate tiny component to use useEffect for motion value subscriptions
+// without causing the parent to re-render
+function CursorPositionDriver({ mouseX, mouseY, springX, springY, dotRef, ringRef }: {
+    mouseX: ReturnType<typeof useMotionValue<number>>;
+    mouseY: ReturnType<typeof useMotionValue<number>>;
+    springX: ReturnType<typeof useSpring>;
+    springY: ReturnType<typeof useSpring>;
+    dotRef: React.RefObject<HTMLDivElement>;
+    ringRef: React.RefObject<HTMLDivElement>;
+}) {
+    useEffect(() => {
+        const unsubX = mouseX.on('change', (x) => {
+            if (dotRef.current) {
+                dotRef.current.style.left = `${x}px`;
+            }
+        });
+        const unsubY = mouseY.on('change', (y) => {
+            if (dotRef.current) {
+                dotRef.current.style.top = `${y}px`;
+            }
+        });
+        const unsubSX = springX.on('change', (x) => {
+            if (ringRef.current) {
+                ringRef.current.style.left = `${x}px`;
+            }
+        });
+        const unsubSY = springY.on('change', (y) => {
+            if (ringRef.current) {
+                ringRef.current.style.top = `${y}px`;
+            }
+        });
+        return () => { unsubX(); unsubY(); unsubSX(); unsubSY(); };
+    }, [mouseX, mouseY, springX, springY, dotRef, ringRef]);
+
+    return null;
 }

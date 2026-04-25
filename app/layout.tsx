@@ -9,7 +9,7 @@ import DesktopOnly from "@/components/DesktopOnly";
 import dynamic from 'next/dynamic';
 import { Space_Grotesk, Manrope } from 'next/font/google';
 
-import { AnimatePresence } from 'framer-motion';
+
 import { InterfaceProvider } from "@/context/InterfaceContext";
 import { PersonaProvider } from "@/context/PersonaContext";
 import Script from 'next/script';
@@ -123,8 +123,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
             <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                {/* dns-prefetch for analytics — fonts handled by next/font at build time */}
                 <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
                 {/* Google Analytics */}
@@ -231,11 +230,7 @@ export default function RootLayout({
                             <AIAssistant />
                             <NewsletterPopup />
                             <main className="min-h-screen">
-                                <AnimatePresence mode="wait">
-                                    <DNATransition>
-                                        {children}
-                                    </DNATransition>
-                                </AnimatePresence>
+                                {children}
                             </main>
                             <Footer />
                         </DemoProvider>

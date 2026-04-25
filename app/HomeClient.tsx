@@ -3,7 +3,6 @@
 import Hero from '@/components/Hero';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { ArrowRight, ExternalLink } from 'lucide-react';
 import { useDemo } from '@/context/DemoContext';
 
 // Lazy-load below-fold sections
@@ -65,34 +64,26 @@ export default function HomeClient() {
             {/* 6 — Blog Preview */}
             <BlogPreview />
 
-            {/* 7 — Final CTA */}
-            <section className="section-padding relative overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] bg-wl-accent/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="container-custom relative z-10 text-center">
-                    <div className="max-w-4xl mx-auto p-12 md:p-24 rounded-[3.5rem] border border-white/10 relative overflow-hidden"
-                        style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-                            backdropFilter: 'blur(20px)',
-                            boxShadow: '0 0 80px rgba(202,246,72,0.05), inset 0 1px 0 rgba(255,255,255,0.1)',
-                        }}>
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-wl-accent/10 blur-[80px] pointer-events-none" />
-                        <h2 className="heading-xl mb-6 tracking-tighter">
-                            Ready to Grow<br /><span className="text-wl-accent">Your Business?</span>
-                        </h2>
-                        <p className="text-white/40 text-lg mb-10 max-w-xl mx-auto">
-                            Partner with India's best IT company for website development, digital marketing and AI solutions.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button onClick={openDemoModal} className="btn-primary inline-flex items-center gap-3">
-                                Start Your Project <ArrowRight className="w-5 h-5" />
+            {/* Final CTA — compact bar */}
+            <section className="pb-20 px-4 md:px-6">
+                <div className="container-custom">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+                        <div>
+                            <p className="text-lg font-bold text-white">Ready to grow your business?</p>
+                            <p className="text-sm text-white/40">Website development, SEO, Ads & AI — all under one roof.</p>
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0">
+                            <button onClick={openDemoModal} className="btn-primary !py-3 !px-6 !text-sm">
+                                Get Free Demo
                             </button>
-                            <Link href="/contact" prefetch={false} className="border border-white/10 px-8 py-4 rounded-2xl font-bold text-sm hover:border-wl-accent/40 transition-all">
-                                Talk to an Expert
+                            <Link href="/contact" prefetch={false} className="border border-white/10 px-6 py-3 rounded-full font-bold text-sm hover:border-wl-accent/40 transition-all whitespace-nowrap">
+                                Contact Us
                             </Link>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 }

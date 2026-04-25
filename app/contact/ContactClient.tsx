@@ -10,18 +10,37 @@ import confetti from 'canvas-confetti';
 const GlobalGlobe = dynamic(() => import('@/components/GlobalGlobe'), { ssr: false });
 
 export default function ContactClient() {
-    const [interest, setInterest] = useState('AI Solution');
+    const [interest, setInterest] = useState('Website Development');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [statusMessage, setStatusMessage] = useState<string | null>(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: ''
+        phone: '',
+        message: '',
+        honeypot: '', // hidden field — bots fill this, humans don't
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Anti-spam: honeypot check
+        if (formData.honeypot) return;
+
+        // Anti-spam: minimum message length
+        if (formData.message.trim().length < 20) {
+            setStatusMessage('Please describe your project in at least 20 characters so we can help you better.');
+            return;
+        }
+
+        // Anti-spam: validate phone format (must be 10+ digits)
+        const phoneDigits = formData.phone.replace(/\D/g, '');
+        if (phoneDigits.length < 10) {
+            setStatusMessage('Please enter a valid phone number so we can contact you.');
+            return;
+        }
+
         setIsSubmitting(true);
         setStatusMessage(null);
 
@@ -30,7 +49,10 @@ export default function ContactClient() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    ...formData,
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
                     subject: `Interest in ${interest}`
                 }),
             });
@@ -39,20 +61,15 @@ export default function ContactClient() {
 
             if (response.ok) {
                 setIsSuccess(true);
-                confetti({
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#caf648', '#ffffff', '#000000']
-                });
-                setFormData({ name: '', email: '', message: '' });
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#caf648', '#ffffff', '#000000'] });
+                setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
                 setTimeout(() => setIsSuccess(false), 5000);
             } else {
-                setStatusMessage(data.error || 'Connection Protocol Failure. Please retry.');
+                setStatusMessage(data.error || 'Something went wrong. Please try again.');
             }
         } catch (error) {
             console.error('Submission error:', error);
-            setStatusMessage('Neural Link Interrupted. Check your connectivity.');
+            setStatusMessage('Connection error. Please check your internet and try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -173,16 +190,28 @@ export default function ContactClient() {
                                 </motion.div>
                             )}
 
-                            <form onSubmit={handleSubmit} className="space-y-12">
+                            <form onSubmit={handleSubmit} className="space-y-10">
+                                {/* HONEYPOT — hidden from humans, bots fill it */}
+                                <input
+                                    type="text"
+                                    name="website_url"
+                                    value={formData.honeypot}
+                                    onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    aria-hidden="true"
+                                    style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+                                />
+
                                 <div className="space-y-6">
-                                    <label className="text-[10px] font-black uppercase tracking-[0.4em] text-wl-accent">Mission Protocol</label>
+                                    <label className="text-[10px] font-black uppercase tracking-[0.4em] text-wl-accent">I am interested in</label>
                                     <div className="flex flex-wrap gap-3">
-                                        {['AI Solution', 'Enterprise Web', 'Strategy'].map((cat) => (
+                                        {['Website Development', 'SEO', 'Google Ads', 'Meta Ads', 'Mobile App', 'Custom Development', 'AI Solution'].map((cat) => (
                                             <button
                                                 key={cat}
                                                 type="button"
                                                 onClick={() => setInterest(cat)}
-                                                className={`py-4 px-8 rounded-2xl font-black text-[10px] uppercase tracking-widest border transition-all ${interest === cat
+                                                className={`py-3 px-6 rounded-2xl font-black text-[10px] uppercase tracking-widest border transition-all ${interest === cat
                                                     ? 'bg-wl-accent text-black border-wl-accent shadow-xl shadow-wl-accent/20'
                                                     : 'bg-white/5 border-white/5 text-white/30 hover:border-white/10'
                                                     }`}
@@ -193,39 +222,53 @@ export default function ContactClient() {
                                     </div>
                                 </div>
 
-                                <div className="grid gap-12">
+                                <div className="grid gap-8">
                                     <div className="space-y-2 group">
-                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Digital Identity</label>
+                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Full Name *</label>
                                         <input
                                             type="text"
                                             required
+                                            minLength={2}
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 py-6 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/5 font-bold text-2xl"
-                                            placeholder="Full Name"
+                                            className="w-full bg-transparent border-b border-white/10 py-5 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/10 font-bold text-xl"
+                                            placeholder="Your Full Name"
                                         />
                                     </div>
                                     <div className="space-y-2 group">
-                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Access Logic</label>
+                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Business Email *</label>
                                         <input
                                             type="email"
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 py-6 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/5 font-bold text-2xl"
-                                            placeholder="Email Address"
+                                            className="w-full bg-transparent border-b border-white/10 py-5 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/10 font-bold text-xl"
+                                            placeholder="your@company.com"
                                         />
                                     </div>
                                     <div className="space-y-2 group">
-                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Mission Brief</label>
-                                        <textarea
-                                            rows={3}
+                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Phone Number * (for us to call you)</label>
+                                        <input
+                                            type="tel"
                                             required
+                                            value={formData.phone}
+                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                            className="w-full bg-transparent border-b border-white/10 py-5 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/10 font-bold text-xl"
+                                            placeholder="+91 98765 43210"
+                                        />
+                                    </div>
+                                    <div className="space-y-2 group">
+                                        <label className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-wl-accent transition-colors">Tell us about your project * (min 20 chars)</label>
+                                        <textarea
+                                            rows={4}
+                                            required
+                                            minLength={20}
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                            className="w-full bg-transparent border-b border-white/10 py-6 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/5 font-bold text-2xl resize-none"
-                                            placeholder="Describe the build"
+                                            className="w-full bg-transparent border-b border-white/10 py-5 text-white focus:border-wl-accent focus:outline-none transition-all placeholder:text-white/10 font-bold text-xl resize-none"
+                                            placeholder="Describe what you need..."
                                         />
+                                        <div className="text-right text-[10px] text-white/20">{formData.message.length}/20 min</div>
                                     </div>
                                 </div>
 

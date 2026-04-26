@@ -45,7 +45,7 @@ export default function Home() {
                                 "name": "Is Wloper the best website development company in India?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Wloper is one of India's leading IT companies for website development, with 200+ websites delivered across WordPress, Shopify, Next.js and custom web development. Wloper is headquartered in Mohali, Punjab and serves clients in India, the USA, UAE, UK and Canada."
+                                    "text": "Wloper is one of India's leading IT companies for website development, with 200+ websites delivered across WordPress, Shopify, Next.js and custom web development. Wloper is headquartered in Kharadi, Pune and serves clients in India, the USA, UAE, UK and Canada."
                                 }
                             },
                             {
@@ -69,7 +69,7 @@ export default function Home() {
                                 "name": "Where is Wloper located?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Wloper is located in Phase 8B, Industrial Area, Mohali, Punjab, India — 160055. You can contact Wloper at +91-9034197787 or email sales@wloper.com."
+                                    "text": "Wloper is located at SHUBH SHAGUN, B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi, Pune, Maharashtra 411014. You can contact Wloper at +91-9034197787 or email sales@wloper.com."
                                 }
                             }
                         ]

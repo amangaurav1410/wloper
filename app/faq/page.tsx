@@ -63,7 +63,7 @@ const faqs = [
     },
     {
         question: "How does a Website Development company manage global traffic?",
-        answer: "We use Edge Computing and globally distributed CDNs. This means your website's logic and content are served from the node closest to the user, ensuring fast load times whether your customer is in New York, London, or Punjab."
+        answer: "We use Edge Computing and globally distributed CDNs. This means your website's logic and content are served from the node closest to the user, ensuring fast load times whether your customer is in New York, London, or Pune."
     },
     {
         question: "What industries benefit most from Digital Marketing Services?",
@@ -123,7 +123,7 @@ const faqs = [
     },
     {
         question: "Where is Wloper located?",
-        answer: "Our main engineering hub is located in Punjab, India, but we operate globally with nodes and team members serving clients across North America, Europe, and Asia."
+        answer: "Our main engineering hub is located in Pune, India, but we operate globally with nodes and team members serving clients across North America, Europe, and Asia."
     },
     {
         question: "Does Wloper work with startups?",

@@ -3,8 +3,8 @@ import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
     title: 'Contact Wloper | Get a Free Website Development & SEO Quote',
-    description: 'Contact Wloper — India\'s best IT company in Mohali, Punjab. Get a free quote for website development, SEO, Google Ads, Meta Ads and mobile app development. Call +91-9034197787 or email sales@wloper.com.',
-    keywords: ['contact Wloper', 'website development quote', 'free SEO audit', 'IT company Mohali', 'digital marketing consultation India'],
+    description: 'Contact Wloper — India\'s best IT company in Kharadi, Pune. Get a free quote for website development, SEO, Google Ads, Meta Ads and mobile app development. Call +91-9034197787 or email sales@wloper.com.',
+    keywords: ['contact Wloper', 'website development quote', 'free SEO audit', 'IT company Pune', 'digital marketing consultation India'],
     openGraph: {
         title: 'Contact Wloper | Free Quote for Website Development & Digital Marketing',
         description: 'Get a free quote from Wloper. Website development, SEO, Google Ads, Meta Ads & AI solutions. Call +91-9034197787.',

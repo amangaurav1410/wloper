@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         "AI Based Web Development Company",
         "Digital Marketing Company",
         "Best Digital Marketing Services",
-        "IT Company Mohali",
+        "IT Company Pune",
         "Software Development Company India",
         "AI product development",
         "AI interview platform",
@@ -170,16 +170,16 @@ export default function RootLayout({
                                 },
                                 "address": {
                                     "@type": "PostalAddress",
-                                    "streetAddress": "Phase 8B, Industrial Area",
-                                    "addressLocality": "Mohali",
-                                    "addressRegion": "Punjab",
-                                    "postalCode": "160055",
+                                    "streetAddress": "SHUBH SHAGUN, B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi",
+                                    "addressLocality": "Pune",
+                                    "addressRegion": "Maharashtra",
+                                    "postalCode": "411014",
                                     "addressCountry": "IN"
                                 },
                                 "geo": {
                                     "@type": "GeoCoordinates",
-                                    "latitude": 30.7046,
-                                    "longitude": 76.7179
+                                    "latitude": 18.5515,
+                                    "longitude": 73.9439
                                 },
                                 "contactPoint": [
                                     {
@@ -200,8 +200,8 @@ export default function RootLayout({
                                 ],
                                 "sameAs": [
                                     "https://www.linkedin.com/company/wloper",
-                                    "https://twitter.com/wloper",
-                                    "https://www.instagram.com/wloper",
+                                    "https://x.com/wlopers",
+                                    "https://www.instagram.com/wlopertechnologies/",
                                     "https://www.facebook.com/wloper",
                                     "https://github.com/varsha-varanasi/wloper",
                                     "https://github.com/amangaurav1410/wloper"
@@ -305,16 +305,16 @@ export default function RootLayout({
                                 "servesCuisine": null,
                                 "address": {
                                     "@type": "PostalAddress",
-                                    "streetAddress": "Phase 8B, Industrial Area",
-                                    "addressLocality": "Mohali",
-                                    "addressRegion": "Punjab",
-                                    "postalCode": "160055",
+                                    "streetAddress": "SHUBH SHAGUN, B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi",
+                                    "addressLocality": "Pune",
+                                    "addressRegion": "Maharashtra",
+                                    "postalCode": "411014",
                                     "addressCountry": "IN"
                                 },
                                 "geo": {
                                     "@type": "GeoCoordinates",
-                                    "latitude": 30.7046,
-                                    "longitude": 76.7179
+                                    "latitude": 18.5515,
+                                    "longitude": 73.9439
                                 },
                                 "openingHoursSpecification": {
                                     "@type": "OpeningHoursSpecification",
@@ -324,8 +324,8 @@ export default function RootLayout({
                                 },
                                 "sameAs": [
                                     "https://www.linkedin.com/company/wloper",
-                                    "https://twitter.com/wloper",
-                                    "https://www.instagram.com/wloper"
+                                    "https://x.com/wlopers",
+                                    "https://www.instagram.com/wlopertechnologies/"
                                 ]
                             }
                         ])

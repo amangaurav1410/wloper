@@ -194,7 +194,7 @@ export default function Footer() {
                     <div className="flex flex-wrap gap-x-12 gap-y-4">
                         <div className="flex items-center gap-3">
                             <MapPin className="w-4 h-4 text-wl-accent/40" />
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Punjab, India</span>
+                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest text-balance">SHUBH SHAGUN, B 1202, Kharadi, Pune, Maharashtra</span>
                         </div>
                         <div className="flex items-center gap-3">
                             <Phone className="w-4 h-4 text-wl-accent/40" />

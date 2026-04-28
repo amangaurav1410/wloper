@@ -10,7 +10,7 @@ export default function GoogleAdsPageClient() {
             headline="Maximum ROI from Every"
             headlineAccent="Google Ads Rupee"
             subtext="Our certified Google Ads specialists manage Search, Display, Shopping, YouTube and Performance Max campaigns that drive qualified leads and sales — not just clicks. Stop wasting budget on ads that don't convert."
-            ctaText="Get Free PPC Audit"
+            ctaText="Free Ad Account Audit"
             imageSrc="/images/envato-labs-ai-a4698812-b585-46ab-b841-f3ece58a93a5.jpg"
             imageAlt="Google Ads PPC Management Services"
             sectionLabel="⚡ Our Google Ads Services"

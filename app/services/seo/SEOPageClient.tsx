@@ -10,7 +10,7 @@ export default function SEOPageClient() {
             headline="Rank #1 on Google with"
             headlineAccent="Expert SEO Services"
             subtext="Wloper's SEO specialists use proven strategies — technical SEO, content marketing, and authoritative link building — to grow your organic traffic and crush your competition on search engines."
-            ctaText="Get Free SEO Audit"
+            ctaText="Free SEO Audit + 10 Quick Wins"
             imageSrc="/images/envato-labs-ai-fccc6df9-0659-4f2e-9c05-9c652f034c3f.jpg"
             imageAlt="SEO Services - Search Engine Optimization"
             sectionLabel="🎯 Our SEO Services"

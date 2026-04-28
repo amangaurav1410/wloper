@@ -131,6 +131,7 @@ export default function Header() {
                 },
             ]
         },
+        { name: 'Portfolio', href: '/portfolio' },
         { name: 'Blog', href: '/blog' },
         { name: 'Pricing', href: '/pricing' },
         { name: 'About', href: '/about-us' },

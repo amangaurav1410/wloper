@@ -189,26 +189,46 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Info Bar */}
-                <div className="grid md:grid-cols-2 gap-8 py-10 border-t border-white/5">
-                    <div className="flex flex-wrap gap-x-12 gap-y-4">
-                        <div className="flex items-center gap-3">
-                            <MapPin className="w-4 h-4 text-wl-accent/40" />
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest text-balance">SHUBH SHAGUN, B 1202, Kharadi, Pune, Maharashtra</span>
+                <div className="grid md:grid-cols-1 gap-8 py-10 border-t border-white/5">
+                    <div className="flex flex-wrap gap-x-12 gap-y-8">
+                        <div className="flex items-start gap-3 max-w-sm">
+                            <MapPin className="w-4 h-4 text-wl-accent/40 mt-1 shrink-0" />
+                            <div>
+                                <p className="text-[10px] font-black text-wl-accent uppercase tracking-widest mb-1">Pune Office</p>
+                                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest leading-relaxed">B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi, Pune, Maharashtra 411014</span>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-3">
-                            <Phone className="w-4 h-4 text-wl-accent/40" />
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest font-mono">+91 9034197787</span>
+                        <div className="flex items-start gap-3 max-w-sm">
+                            <MapPin className="w-4 h-4 text-wl-accent/40 mt-1 shrink-0" />
+                            <div>
+                                <p className="text-[10px] font-black text-wl-accent uppercase tracking-widest mb-1">London Office</p>
+                                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest leading-relaxed">38 Derwent Gardens, Ilford, East London. IG4 5NA</span>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-3">
-                            <Mail className="w-4 h-4 text-wl-accent/40" />
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest font-mono">sales@wloper.com</span>
+                        <div className="flex items-start gap-3 max-w-sm">
+                            <MapPin className="w-4 h-4 text-wl-accent/40 mt-1 shrink-0" />
+                            <div>
+                                <p className="text-[10px] font-black text-wl-accent uppercase tracking-widest mb-1">Delaware Office (USA)</p>
+                                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest leading-relaxed">651 N Broad St #206, Middletown, DE 19709, USA</span>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap md:justify-end gap-x-10 gap-y-4">
-                        <Link href="/faq" prefetch={false} className="text-[10px] font-bold text-wl-accent hover:text-white transition-colors uppercase tracking-widest">FAQ Protocol</Link>
-                        <Link href="/privacy" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Privacy Protocol</Link>
-                        <Link href="/terms" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Service Terms</Link>
+                    <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-4 pt-4 border-t border-white/5">
+                        <div className="flex flex-wrap gap-x-12 gap-y-4">
+                            <div className="flex items-center gap-3">
+                                <Phone className="w-4 h-4 text-wl-accent/40" />
+                                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest font-mono">+91 9034197787</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Mail className="w-4 h-4 text-wl-accent/40" />
+                                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest font-mono">sales@wloper.com</span>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap gap-x-10 gap-y-4">
+                            <Link href="/faq" prefetch={false} className="text-[10px] font-bold text-wl-accent hover:text-white transition-colors uppercase tracking-widest">FAQ Protocol</Link>
+                            <Link href="/privacy" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Privacy Protocol</Link>
+                            <Link href="/terms" prefetch={false} className="text-[10px] font-bold text-white/20 hover:text-wl-accent transition-colors uppercase tracking-widest">Service Terms</Link>
+                        </div>
                     </div>
                 </div>
 

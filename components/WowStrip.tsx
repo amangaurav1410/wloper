@@ -28,7 +28,7 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2 }: Counte
                 setCount(end);
                 clearInterval(timer);
             } else {
-                setCount(Math.floor(start));
+                setCount(Number(start.toFixed(1)));
             }
         }, interval);
 
@@ -57,10 +57,10 @@ export default function WowStrip() {
                 <div className="container-custom">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         {[
-                            { end: 200, suffix: '+', label: 'Websites Delivered' },
-                            { end: 50, suffix: '+', label: 'Happy Clients' },
-                            { end: 5, suffix: '★', label: 'Average Rating' },
-                            { end: 98, suffix: '%', label: 'Client Retention' },
+                            { end: 250, suffix: '+', label: 'Websites Delivered' },
+                            { end: 200, suffix: '+', label: 'Happy Clients' },
+                            { end: 4.9, suffix: '★', label: 'Google Rating' },
+                            { end: 99, suffix: '%', label: 'On-Time Delivery' },
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}

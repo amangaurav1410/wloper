@@ -25,6 +25,8 @@ export default function LeadCapture() {
         email: '',
         website: '',
         industry: 'ecommerce',
+        subject: 'General Inquiry',
+        budget: '$1,000 - $5,000',
         message: ''
     });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
@@ -40,14 +42,14 @@ export default function LeadCapture() {
                 body: JSON.stringify({
                     name: formData.name,
                     email: formData.email,
-                    subject: 'Free Audit Request',
-                    message: `Audit requested for: ${formData.website}\nIndustry: ${formData.industry}\nChallenge: ${formData.message}`
+                    subject: `Audit Request: ${formData.subject}`,
+                    message: `Audit requested for: ${formData.website}\nIndustry: ${formData.industry}\nSubject: ${formData.subject}\nBudget: ${formData.budget}\nChallenge: ${formData.message}`
                 }),
             });
 
             if (response.ok) {
                 setStatus('success');
-                setFormData({ name: '', email: '', website: '', industry: 'ecommerce', message: '' });
+                setFormData({ name: '', email: '', website: '', industry: 'ecommerce', subject: 'General Inquiry', budget: '$1,000 - $5,000', message: '' });
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
                 const data = await response.json();
@@ -158,17 +160,49 @@ export default function LeadCapture() {
                                     onSubmit={handleSubmit}
                                     className="space-y-6 relative z-10"
                                 >
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-bold uppercase tracking-widest text-wl-muted-dark ml-1">Your Industry</label>
+                                            <select
+                                                value={formData.industry}
+                                                onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                                                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-wl-accent/50 focus:bg-white/10 focus:outline-none transition-all font-medium appearance-none"
+                                            >
+                                                <option value="ecommerce" className="bg-wl-dark text-white">E-commerce</option>
+                                                <option value="saas" className="bg-wl-dark text-white">SaaS & Tech</option>
+                                                <option value="realestate" className="bg-wl-dark text-white">Real Estate</option>
+                                                <option value="other" className="bg-wl-dark text-white">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-bold uppercase tracking-widest text-wl-muted-dark ml-1">Project Budget</label>
+                                            <select
+                                                value={formData.budget}
+                                                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                                                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-wl-accent/50 focus:bg-white/10 focus:outline-none transition-all font-medium appearance-none"
+                                            >
+                                                <option value="$1,000 - $5,000" className="bg-wl-dark text-white">$1,000 - $5,000</option>
+                                                <option value="$5,000 - $10,000" className="bg-wl-dark text-white">$5,000 - $10,000</option>
+                                                <option value="$10,000 - $25,000" className="bg-wl-dark text-white">$10,000 - $25,000</option>
+                                                <option value="$25,000+" className="bg-wl-dark text-white">$25,000+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div className="space-y-2">
-                                        <label className="text-xs font-bold uppercase tracking-widest text-wl-muted-dark ml-1">Your Industry</label>
+                                        <label className="text-xs font-bold uppercase tracking-widest text-wl-muted-dark ml-1">What would you like to speak with us about?</label>
                                         <select
-                                            value={formData.industry}
-                                            onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                                            value={formData.subject}
+                                            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                             className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-wl-accent/50 focus:bg-white/10 focus:outline-none transition-all font-medium appearance-none"
                                         >
-                                            <option value="ecommerce" className="bg-wl-dark text-white">E-commerce</option>
-                                            <option value="saas" className="bg-wl-dark text-white">SaaS & Tech</option>
-                                            <option value="realestate" className="bg-wl-dark text-white">Real Estate</option>
-                                            <option value="other" className="bg-wl-dark text-white">Other</option>
+                                            <option value="Website Development" className="bg-wl-dark text-white">Website Development</option>
+                                            <option value="SEO Services" className="bg-wl-dark text-white">SEO Services</option>
+                                            <option value="Google/Meta Ads" className="bg-wl-dark text-white">Google/Meta Ads</option>
+                                            <option value="AI Solutions" className="bg-wl-dark text-white">AI Solutions</option>
+                                            <option value="Mobile App" className="bg-wl-dark text-white">Mobile App</option>
+                                            <option value="General Inquiry" className="bg-wl-dark text-white">General Inquiry</option>
                                         </select>
                                     </div>
 

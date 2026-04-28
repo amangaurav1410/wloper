@@ -115,7 +115,7 @@ export default function WebsiteDevelopmentClient() {
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button onClick={openDemoModal} className="btn-primary inline-flex items-center gap-3">
-                            Get Free Quote <ArrowRight className="w-5 h-5" />
+                            Free Website Audit (5-min report) <ArrowRight className="w-5 h-5" />
                         </button>
                         <Link href="/contact" className="border border-white/10 px-8 py-4 rounded-2xl font-bold text-sm hover:border-wl-accent/40 transition-all inline-flex items-center gap-2">
                             Talk to Developer

@@ -19,6 +19,7 @@ export default function ContactClient() {
         email: '',
         phone: '',
         message: '',
+        budget: '$1,000 - $5,000',
         honeypot: '', // hidden field — bots fill this, humans don't
     });
 
@@ -52,7 +53,7 @@ export default function ContactClient() {
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
-                    message: formData.message,
+                    message: `Budget: ${formData.budget}\n\n${formData.message}`,
                     subject: `Interest in ${interest}`
                 }),
             });
@@ -62,7 +63,7 @@ export default function ContactClient() {
             if (response.ok) {
                 setIsSuccess(true);
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#caf648', '#ffffff', '#000000'] });
-                setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+                setFormData({ name: '', email: '', phone: '', message: '', budget: '$1,000 - $5,000', honeypot: '' });
                 setTimeout(() => setIsSuccess(false), 5000);
             } else {
                 setStatusMessage(data.error || 'Something went wrong. Please try again.');
@@ -219,6 +220,25 @@ export default function ContactClient() {
                                                     }`}
                                             >
                                                 {cat}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <label className="text-[10px] font-black uppercase tracking-[0.4em] text-wl-accent">Estimated budget for project</label>
+                                    <div className="flex flex-wrap gap-3">
+                                        {['$1k-$5k', '$5k-$10k', '$10k-$25k', '$25k+'].map((b) => (
+                                            <button
+                                                key={b}
+                                                type="button"
+                                                onClick={() => setFormData({ ...formData, budget: b })}
+                                                className={`py-3 px-6 rounded-2xl font-black text-[10px] uppercase tracking-widest border transition-all ${formData.budget === b
+                                                    ? 'bg-wl-accent text-black border-wl-accent shadow-xl shadow-wl-accent/20'
+                                                    : 'bg-white/5 border-white/5 text-white/30 hover:border-white/10'
+                                                    }`}
+                                            >
+                                                {b}
                                             </button>
                                         ))}
                                     </div>

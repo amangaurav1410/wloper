@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { Zap, Mail, MessageSquare, Send, ShieldCheck, Clock, Layers, Loader2, CheckCircle2 } from 'lucide-react';
+import { Zap, Mail, MessageSquare, Send, ShieldCheck, Clock, Layers, Loader2, CheckCircle2, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import confetti from 'canvas-confetti';
 
@@ -164,6 +164,37 @@ export default function ContactClient() {
                                     <h4 className="font-bold text-white mb-2 uppercase tracking-widest text-xs">Direct Call</h4>
                                     <p className="text-sm text-wl-accent font-black tracking-tight">+91 9034197787</p>
                                 </motion.a>
+                            </div>
+
+                            {/* Office Locations */}
+                            <div className="space-y-6 pt-10">
+                                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-white/30 ml-4">Global Command Centers</h3>
+                                <div className="grid gap-6">
+                                    {[
+                                        {
+                                            name: 'Pune Office',
+                                            address: 'B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi, Pune, Maharashtra 411014'
+                                        },
+                                        {
+                                            name: 'London Office',
+                                            address: '38 Derwent Gardens, Ilford, East London. IG4 5NA'
+                                        },
+                                        {
+                                            name: 'Delaware Office (USA)',
+                                            address: '651 N Broad St #206, Middletown, DE 19709, USA'
+                                        }
+                                    ].map((office, idx) => (
+                                        <div key={idx} className="glass-strong p-8 rounded-3xl border border-white/5 flex items-start gap-6 hover:border-wl-accent/20 transition-all">
+                                            <div className="w-12 h-12 rounded-xl bg-wl-accent/5 flex items-center justify-center text-wl-accent shrink-0 mt-1">
+                                                <MapPin className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h4 className="text-sm font-black text-white uppercase tracking-widest mb-2">{office.name}</h4>
+                                                <p className="text-xs font-medium text-white/40 leading-relaxed">{office.address}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 

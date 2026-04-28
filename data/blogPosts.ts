@@ -1,4 +1,4 @@
-import { Bot, Code2, Megaphone, ShoppingCart, Search, Briefcase, TrendingUp, Cpu, ShieldCheck, Globe, Zap, Database, Layers, Rocket, Lock, Brain, LineChart, Sparkles, Network, Cloud, Smartphone, Users, Target, BookOpen, BarChart3, MessageSquare, Share2, Mail, Award, CheckCircle, Settings, FileCode, Blocks, LayoutGrid } from 'lucide-react';
+import { Bot, Code2, Megaphone, ShoppingCart, ShoppingBag, Activity, Search, Briefcase, TrendingUp, Cpu, ShieldCheck, Globe, Zap, Database, Layers, Rocket, Lock, Brain, LineChart, Sparkles, Network, Cloud, Smartphone, Users, Target, BookOpen, BarChart3, MessageSquare, Share2, Mail, Award, CheckCircle, Settings, FileCode, Blocks, LayoutGrid } from 'lucide-react';
 
 export const blogPosts = [
     {

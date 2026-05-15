@@ -91,17 +91,17 @@ export default function WhoWeAre() {
                                 The WLOPER Mindset
                             </div>
 
-                            <h2 className="heading-lg mb-10">
+                            <h2 className="heading-lg mb-6">
                                 Developers Who Think Like <br />
                                 <span className="heading-gradient">Marketers</span> and Build with <span className="text-wl-accent">AI</span>
                             </h2>
 
-                            <p className="subtitle-lg mb-12">
+                            <p className="subtitle-lg mb-8">
                                 Traditional agencies build to spec. We build to win. Wloper integrates strategic growth engineering into every line of code, ensuring your product doesn't just launch—it dominates.
                             </p>
 
                             {/* Traits Grid */}
-                            <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                            <div className="grid sm:grid-cols-3 gap-6 mb-8">
                                 {traits.map((trait, idx) => (
                                     <motion.div
                                         key={idx}

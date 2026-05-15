@@ -12,6 +12,8 @@ const AIProductShowcase = dynamic(() => import('@/components/AIProductShowcase')
 const Services = dynamic(() => import('@/components/Services'), { ssr: false, loading: () => null });
 const WhoWeAre = dynamic(() => import('@/components/WhoWeAre'), { ssr: false, loading: () => null });
 const BlogPreview = dynamic(() => import('@/components/BlogPreview'), { ssr: false, loading: () => null });
+const AROISimulator = dynamic(() => import('@/components/AROISimulator'), { ssr: false, loading: () => null });
+const LeadCapture = dynamic(() => import('@/components/LeadCapture'), { ssr: false, loading: () => null });
 
 export default function HomeClient() {
     const { openDemoModal } = useDemo();
@@ -27,11 +29,23 @@ export default function HomeClient() {
             {/* 3 — Who We Are (short) */}
             <WhoWeAre />
 
+            {/* 4 — All Services (Moved up) */}
+            <Services />
+
+            {/* AI ROI Simulator — Interactive engagement */}
+            <section className="section-padding overflow-hidden">
+                <div className="container-custom">
+                    <div className="text-center mb-16">
+                        <div className="tag-label mx-auto mb-4">Neural Analytics</div>
+                        <h2 className="heading-md mb-6">Simulate Your <span className="heading-gradient">AI Advantage</span></h2>
+                        <p className="subtitle-md mx-auto">Calculate the efficiency gains of transitioning your operations to WLOPER's AI Neural Flow.</p>
+                    </div>
+                    <AROISimulator />
+                </div>
+            </section>
+
             {/* 3 — AI Products + SkillytTalk */}
             <AIProductShowcase />
-
-            {/* 4 — All Services */}
-            <Services />
 
             {/* 5 — SkillytTalk CTA Banner */}
             <section className="section-padding pt-0">
@@ -68,6 +82,9 @@ export default function HomeClient() {
 
             {/* 6 — Blog Preview */}
             <BlogPreview />
+
+            {/* High Conversion Lead Magnet — Free Audit */}
+            <LeadCapture />
 
             {/* Final CTA — compact bar */}
             <section className="pb-20 px-4 md:px-6">

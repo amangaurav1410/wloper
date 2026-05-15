@@ -23,6 +23,8 @@ const manrope = Manrope({
 
 const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false, loading: () => null });
 const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup'), { ssr: false, loading: () => null });
+const WhatsAppFloat = dynamic(() => import('@/components/WhatsAppFloat'), { ssr: false, loading: () => null });
+const StickyLeadBar = dynamic(() => import('@/components/StickyLeadBar'), { ssr: false, loading: () => null });
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://wloper.com'),
@@ -44,25 +46,25 @@ export const metadata: Metadata = {
         "Website Development Company",
         "Website Development Company in India",
         "WordPress Development Company",
-        "Shopify Development Company",
-        "Next.js Development Company",
-        "Custom Website Development",
-        "Mobile App Development Company",
+        "Shopify Development Company India",
+        "Next.js Development Agency",
+        "Custom Website Development Services",
+        "Mobile App Development Company Pune",
         "SEO Company India",
-        "Best SEO Services",
-        "Google Ads Management",
+        "Best SEO Services for Business",
+        "Google Ads Management Agency",
         "PPC Agency India",
         "Meta Ads Agency",
         "Facebook Ads Management",
-        "Instagram Advertising",
+        "Instagram Advertising Services",
         "AI Based Web Development Company",
         "Digital Marketing Company",
         "Best Digital Marketing Services",
         "IT Company Pune",
         "Software Development Company India",
         "AI product development",
-        "AI interview platform",
-        "Blockchain engineering",
+        "AI interview platform SkillytTalk",
+        "Blockchain engineering services",
     ],
     authors: [{ name: "Wloper Team" }],
     creator: "Wloper",
@@ -327,6 +329,19 @@ export default function RootLayout({
                                     "https://x.com/wlopers",
                                     "https://www.instagram.com/wlopertechnologies/"
                                 ]
+                            },
+                            
+                            /* ── 5. BREADCRUMBLIST (Better Search Results) ── */
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
+                                    { "@type": "ListItem", "position": 3, "name": "Portfolio", "item": "https://wloper.com/portfolio" },
+                                    { "@type": "ListItem", "position": 4, "name": "About Us", "item": "https://wloper.com/about-us" },
+                                    { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://wloper.com/contact" }
+                                ]
                             }
                         ])
                     }}
@@ -340,6 +355,8 @@ export default function RootLayout({
                         <Header />
                         <AIAssistant />
                         <NewsletterPopup />
+                        <WhatsAppFloat />
+                        <StickyLeadBar />
                         <main className="min-h-screen">
                             {children}
                         </main>

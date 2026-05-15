@@ -12,12 +12,26 @@ export default function NewsletterPopup() {
 
     useEffect(() => {
         const hasSeenPopup = localStorage.getItem('wl-popup-seen');
-        if (!hasSeenPopup) {
-            const timer = setTimeout(() => {
+        if (hasSeenPopup) return;
+
+        // Show after 30 seconds as fallback
+        const timer = setTimeout(() => {
+            setIsOpen(true);
+        }, 30000);
+
+        // Exit-intent logic
+        const handleMouseLeave = (e: MouseEvent) => {
+            if (e.clientY <= 0) {
                 setIsOpen(true);
-            }, 3000); // Show after 3 seconds
-            return () => clearTimeout(timer);
-        }
+                localStorage.setItem('wl-popup-seen', 'true'); // Only show once per session
+            }
+        };
+
+        document.addEventListener('mouseleave', handleMouseLeave);
+        return () => {
+            clearTimeout(timer);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+        };
     }, []);
 
     const handleClose = () => {

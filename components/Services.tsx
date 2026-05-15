@@ -66,11 +66,11 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="pt-20 pb-24 md:pt-28 md:pb-32 bg-wl-dark relative overflow-hidden" id="services">
+        <section className="py-16 md:py-20 bg-wl-dark relative overflow-hidden" id="services">
             <div className="absolute top-1/4 left-0 w-1/3 h-1/2 bg-wl-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container-custom relative z-10">
-                <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24">
+                <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-16">
                     <div className="max-w-2xl text-left">
                         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }} className="tag-label">

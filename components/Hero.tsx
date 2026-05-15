@@ -35,7 +35,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wl-dark pt-32 pb-24 md:pb-20">
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-wl-dark pt-24 pb-12 md:pb-16">
             {/* Dot-grid overlay */}
             <div className="absolute inset-0 z-0 dot-grid opacity-40 pointer-events-none" />
 
@@ -93,7 +93,7 @@ export default function Hero() {
                     {/*
                      * LCP ELEMENT: plain <h1> — renders immediately in SSR.
                      */}
-                    <h1 className="heading-xl mb-10 max-w-6xl text-balance tracking-tighter leading-tight">
+                    <h1 className="heading-xl mb-6 max-w-6xl text-balance tracking-tighter leading-tight">
                         <span className="sr-only">Wloper: The Best IT Company, Leading Tech Company for website Development & AI based Web Development Company.</span>
                         <span className="heading-gradient">Building the Future of</span>
                         <br />
@@ -118,7 +118,7 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.15 }}
-                        className="text-white/50 max-w-2xl mb-14 text-sm md:text-xl font-medium leading-relaxed"
+                        className="text-white/50 max-w-2xl mb-8 text-sm md:text-xl font-medium leading-relaxed"
                     >
                         Website development, SEO, Google Ads, Meta Ads and AI solutions — everything your business needs to grow online, all under one roof.
                     </motion.p>
@@ -128,7 +128,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.25 }}
-                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16"
+                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10"
                     >
                         <MagneticWrapper strength={0.3}>
                             <CTAButton onClick={openDemoModal} variant="primary" className="w-full sm:w-auto py-5 sm:py-6 text-lg sm:text-base">

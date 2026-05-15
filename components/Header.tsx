@@ -11,9 +11,13 @@ import {
     Blocks, Smartphone as MobileIcon, ArrowRight, Phone, Search,
     Target, Share2, ExternalLink
 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import MagneticWrapper from './MagneticWrapper';
 
 export default function Header() {
+    const pathname = usePathname();
+    const isLandingPage = pathname === '/best-it-company-india';
+    
     const { openDemoModal } = useDemo();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,6 +33,8 @@ export default function Header() {
         document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
         return () => { document.body.style.overflow = 'unset'; };
     }, [isMobileMenuOpen]);
+
+    if (isLandingPage) return null;
 
     const menuItems = [
         { name: 'Home', href: '/' },

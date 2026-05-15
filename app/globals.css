@@ -267,7 +267,7 @@ h6,
   }
 
   .section-padding {
-    @apply py-16 md:py-20 lg:py-28;
+    @apply py-10 md:py-14 lg:py-16;
   }
 
   /* Consistent Headlines - Adjusted for reduction */
@@ -347,6 +347,15 @@ body.reading-mode-active h3 {
 .marquee-track:hover,
 .marquee-track-reverse:hover {
   animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee-left {

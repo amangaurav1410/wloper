@@ -20,24 +20,43 @@ export default function ContactPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://wloper.com"
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://wloper.com/contact" }
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "LocalBusiness",
+                            "name": "Wloper",
+                            "image": "https://wloper.com/images/loper__3_-removebg-preview-e1748296489675-r6eacdc8yg79qwd174wcap96495w22bgh5a75gm6tc.png",
+                            "url": "https://wloper.com/contact",
+                            "telephone": "+91-9034197787",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "streetAddress": "B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi",
+                                "addressLocality": "Pune",
+                                "addressRegion": "Maharashtra",
+                                "postalCode": "411014",
+                                "addressCountry": "IN"
                             },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Contact",
-                                "item": "https://wloper.com/contact"
+                            "geo": {
+                                "@type": "GeoCoordinates",
+                                "latitude": 18.5515,
+                                "longitude": 73.9439
+                            },
+                            "openingHoursSpecification": {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                                "opens": "09:00",
+                                "closes": "19:00"
                             }
-                        ]
-                    })
+                        }
+                    ])
                 }}
             />
             <ContactClient />

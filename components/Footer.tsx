@@ -17,7 +17,12 @@ const GlobalGlobe = dynamic(() => import('./GlobalGlobe'), {
     loading: () => <div className="w-full h-full bg-transparent" />
 });
 
+import { usePathname } from 'next/navigation';
+
 export default function Footer() {
+    const pathname = usePathname();
+    const isLandingPage = pathname === '/best-it-company-india';
+    
     const currentYear = new Date().getFullYear();
     const [isMobile, setIsMobile] = useState(false);
 
@@ -27,6 +32,9 @@ export default function Footer() {
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
+
+    if (isLandingPage) return null;
+
 
     const footerSections = [
         {

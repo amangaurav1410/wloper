@@ -52,35 +52,7 @@ const MARQUEE_ITEMS = [
 export default function WowStrip() {
     return (
         <section className="relative overflow-hidden py-0 bg-wl-dark">
-            {/* ── STATS COUNTER BAR ── */}
-            <div className="border-y border-white/5 bg-white/[0.02] py-10">
-                <div className="container-custom">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        {[
-                            { end: 250, suffix: '+', label: 'Websites Delivered' },
-                            { end: 200, suffix: '+', label: 'Happy Clients' },
-                            { end: 4.9, suffix: '★', label: 'Google Rating' },
-                            { end: 99, suffix: '%', label: 'On-Time Delivery' },
-                        ].map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="group"
-                            >
-                                <div className="text-4xl md:text-5xl font-black text-wl-accent mb-1 tabular-nums">
-                                    <AnimatedCounter end={stat.end} suffix={stat.suffix} />
-                                </div>
-                                <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+
 
             {/* ── INFINITE MARQUEE ── */}
             <div className="py-6 overflow-hidden border-b border-white/5 relative">

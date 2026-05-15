@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import HomeClient from './HomeClient';
 
 export const metadata: Metadata = {
-    title: 'Wloper | Best IT Company — Website Development, SEO & Digital Marketing',
-    description: 'Wloper is India\'s best IT company for website development (WordPress, Shopify, Next.js), mobile app development, SEO, Google Ads, Meta Ads and AI solutions. Get a free quote today.',
-    keywords: ['Best IT Company India', 'website development company', 'WordPress development', 'Shopify development', 'SEO company', 'Google Ads management', 'Meta Ads agency', 'AI web development', 'digital marketing company India'],
+    title: 'Wloper | #1 IT Company in India — Website Development, SEO & AI Solutions',
+    description: 'Wloper is India\'s top-rated IT company for custom website development (WordPress, Shopify, Next.js), mobile app development, SEO, and AI hiring solutions (SkillytTalk). Delivering 200+ global projects. Get a free consultation.',
+    keywords: ['Best IT Company India', 'Best Website Development Company', 'WordPress Development Services', 'Shopify Experts India', 'SEO Services for Tech Companies', 'Google Ads Agency Pune', 'AI Web Solutions', 'SkillytTalk AI Hiring', 'Custom Software Development'],
     openGraph: {
         title: 'Wloper | Best IT Company — Website Development, SEO & AI Solutions',
         description: 'India\'s best IT company for website development, SEO, Google Ads, Meta Ads and AI solutions. 200+ projects delivered. Get a free quote.',

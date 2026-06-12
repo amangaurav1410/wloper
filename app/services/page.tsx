@@ -8,9 +8,29 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Services | Best IT Company & Digital Growth Hub",
         description: "Institutional-grade tech for AI, Web3, and the best digital marketing strategies.",
-    }
+    },
+    alternates: { canonical: 'https://wloper.com/services' }
 };
 
 export default function ServicesPage() {
-    return <ServicesClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" }
+                            ]
+                        }
+                    ])
+                }}
+            />
+            <ServicesClient />
+        </>
+    );
 }

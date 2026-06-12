@@ -13,5 +13,25 @@ export const metadata: Metadata = {
 };
 
 export default function CustomWebDevPage() {
-    return <CustomWebDevClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
+                                { "@type": "ListItem", "position": 3, "name": "Custom Website Development", "item": "https://wloper.com/services/custom-website-development" }
+                            ]
+                        }
+                    ])
+                }}
+            />
+            <CustomWebDevClient />
+        </>
+    );
 }

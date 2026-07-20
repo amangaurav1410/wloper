@@ -27,6 +27,20 @@ export default function WebsiteDevelopmentPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Website Development", "item": "https://wloper.com/services/website-development" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Website Development Services",
+                            "serviceType": "Web Development",
+                            "provider": {
+                                "@type": "Organization",
+                                "name": "Wloper",
+                                "url": "https://wloper.com"
+                            },
+                            "description": "Professional website development services by Wloper. We build WordPress, Shopify, Next.js, Node.js, PHP, Python, Angular and .NET websites.",
+                            "url": "https://wloper.com/services/website-development",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"]
                         }
                     ])
                 }}

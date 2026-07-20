@@ -225,6 +225,14 @@ export default function Header() {
                             SkillytTalk
                         </a>
 
+                        <Link
+                            href="/hire-ai-employee"
+                            className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-bold text-white border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all whitespace-nowrap"
+                        >
+                            <Cpu className="w-4 h-4 text-wl-accent" />
+                            Hire An AI Employee
+                        </Link>
+
                         <MagneticWrapper strength={0.3}>
                             <button
                                 onClick={openDemoModal}
@@ -331,6 +339,14 @@ export default function Header() {
 
                                         {/* Mobile CTA area */}
                                         <div className="pt-4 pb-2 px-2 mt-2 border-t border-white/5 space-y-3">
+                                            <Link
+                                                href="/hire-ai-employee"
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="w-full flex items-center justify-center gap-2 p-3.5 rounded-2xl border border-white/20 text-white font-bold text-sm hover:bg-white/5 transition-all"
+                                            >
+                                                <Cpu className="w-4 h-4 text-wl-accent" />
+                                                Hire An AI Employee
+                                            </Link>
                                             <button
                                                 onClick={() => { openDemoModal(); setIsMobileMenuOpen(false); }}
                                                 className="w-full flex items-center justify-center gap-3 p-4 bg-wl-accent text-black font-black uppercase tracking-widest text-sm rounded-2xl shadow-[0_8px_24px_rgba(202,246,72,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all"

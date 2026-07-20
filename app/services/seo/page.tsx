@@ -13,5 +13,44 @@ export const metadata: Metadata = {
 };
 
 export default function SEOPage() {
-    return <SEOPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
+                                { "@type": "ListItem", "position": 3, "name": "SEO Services", "item": "https://wloper.com/services/seo" }
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "SEO Services",
+                            "serviceType": "Search Engine Optimization",
+                            "provider": {
+                                "@type": "Organization",
+                                "name": "Wloper",
+                                "url": "https://wloper.com"
+                            },
+                            "description": "Dominate Google search rankings with Wloper's expert SEO services. Technical SEO, on-page optimization, link building, and content strategy that drives organic traffic and real revenue.",
+                            "url": "https://wloper.com/services/seo",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": {
+                                "@type": "Offer",
+                                "url": "https://wloper.com/services/seo",
+                                "availability": "https://schema.org/InStock"
+                            }
+                        }
+                    ])
+                }}
+            />
+            <SEOPageClient />
+        </>
+    );
 }

@@ -36,9 +36,9 @@ export default function HomeClient() {
             <section className="section-padding overflow-hidden">
                 <div className="container-custom">
                     <div className="text-center mb-16">
-                        <div className="tag-label mx-auto mb-4">Neural Analytics</div>
-                        <h2 className="heading-md mb-6">Simulate Your <span className="heading-gradient">AI Advantage</span></h2>
-                        <p className="subtitle-md mx-auto">Calculate the efficiency gains of transitioning your operations to WLOPER's AI Neural Flow.</p>
+                        <div className="tag-label mx-auto mb-4">ROI Calculator</div>
+                        <h2 className="heading-md mb-6">Calculate Your <span className="heading-gradient">AI Savings</span></h2>
+                        <p className="subtitle-md mx-auto">See how much time and money you can save by using our AI solutions.</p>
                     </div>
                     <AROISimulator />
                 </div>

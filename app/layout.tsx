@@ -304,7 +304,6 @@ export default function RootLayout({
                                 "telephone": "+91-9034197787",
                                 "email": "sales@wloper.com",
                                 "priceRange": "₹₹",
-                                "servesCuisine": null,
                                 "address": {
                                     "@type": "PostalAddress",
                                     "streetAddress": "SHUBH SHAGUN, B 1202, opposite Bollywood Multiplex Theatre, Tukaram Nagar, Kharadi",

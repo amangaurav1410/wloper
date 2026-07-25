@@ -14,5 +14,24 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-    return <PricingPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://wloper.com/pricing" }
+                            ]
+                        }
+                    ])
+                }}
+            />
+            <PricingPageClient />
+        </>
+    );
 }

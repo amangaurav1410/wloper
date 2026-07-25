@@ -328,19 +328,6 @@ export default function RootLayout({
                                     "https://x.com/wlopers",
                                     "https://www.instagram.com/wlopertechnologies/"
                                 ]
-                            },
-                            
-                            /* ── 5. BREADCRUMBLIST (Better Search Results) ── */
-                            {
-                                "@context": "https://schema.org",
-                                "@type": "BreadcrumbList",
-                                "itemListElement": [
-                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
-                                    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
-                                    { "@type": "ListItem", "position": 3, "name": "Portfolio", "item": "https://wloper.com/portfolio" },
-                                    { "@type": "ListItem", "position": 4, "name": "About Us", "item": "https://wloper.com/about-us" },
-                                    { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://wloper.com/contact" }
-                                ]
                             }
                         ])
                     }}

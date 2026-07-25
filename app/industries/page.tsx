@@ -14,5 +14,24 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
-    return <IndustriesPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wloper.com" },
+                                { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://wloper.com/industries" }
+                            ]
+                        }
+                    ])
+                }}
+            />
+            <IndustriesPageClient />
+        </>
+    );
 }

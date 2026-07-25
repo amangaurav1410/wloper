@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Google Ads Management | PPC Agency — Wloper',
         description: 'Expert Google Ads PPC management. Search, Display, Shopping & Performance Max campaigns that drive real conversions at the lowest cost.',
+        url: 'https://wloper.com/services/google-ads',
     },
     alternates: { canonical: 'https://wloper.com/services/google-ads' }
 };
@@ -27,6 +28,17 @@ export default function GoogleAdsPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Google Ads", "item": "https://wloper.com/services/google-ads" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Google Ads Management Services",
+                            "serviceType": "Pay-Per-Click Advertising",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Certified PPC specialists managing Search, Display, Shopping, and Performance Max campaigns for businesses in India and globally.",
+                            "url": "https://wloper.com/services/google-ads",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/google-ads", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

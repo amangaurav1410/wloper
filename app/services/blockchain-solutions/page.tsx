@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Blockchain Engineering & Web3 Solutions | Wloper — Best IT Company',
         description: 'Secure smart contract development, layer-2 scalability, and decentralized finance architectures.',
+        url: 'https://wloper.com/services/blockchain-solutions',
     },
     alternates: { canonical: 'https://wloper.com/services/blockchain-solutions' }
 };
@@ -27,6 +28,17 @@ export default function BlockchainSolutionsPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Blockchain Solutions", "item": "https://wloper.com/services/blockchain-solutions" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Blockchain Engineering & Web3 Solutions",
+                            "serviceType": "Blockchain Development",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Smart contracts (Solidity, Rust), DeFi infrastructure, NFT marketplaces, and enterprise blockchain networks.",
+                            "url": "https://wloper.com/services/blockchain-solutions",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/blockchain-solutions", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

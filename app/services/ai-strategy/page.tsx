@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'AI Strategy & Consulting | Wloper — Best IT Company',
         description: 'Elite AI consulting and architectural blueprints for integrating LLMs and autonomous agents into enterprise workflows.',
+        url: 'https://wloper.com/services/ai-strategy',
     },
     alternates: { canonical: 'https://wloper.com/services/ai-strategy' }
 };
@@ -27,6 +28,17 @@ export default function AIStrategyPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "AI Strategy & Consulting", "item": "https://wloper.com/services/ai-strategy" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "AI Strategy & Consulting",
+                            "serviceType": "AI Consulting",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Elite AI consulting — workflow audits, model fine-tuning roadmaps, and enterprise AI deployment strategies.",
+                            "url": "https://wloper.com/services/ai-strategy",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/ai-strategy", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Custom Website Development | Enterprise Web Solutions — Wloper',
         description: 'Fully bespoke web development — no templates, no shortcuts. Built precisely to your business requirements with scalable, maintainable code.',
+        url: 'https://wloper.com/services/custom-website-development',
     },
     alternates: { canonical: 'https://wloper.com/services/custom-website-development' }
 };
@@ -27,6 +28,17 @@ export default function CustomWebDevPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Custom Website Development", "item": "https://wloper.com/services/custom-website-development" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Custom Website Development",
+                            "serviceType": "Web Development",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Bespoke custom website development — enterprise portals, SaaS platforms, booking systems, and complex web applications built from scratch.",
+                            "url": "https://wloper.com/services/custom-website-development",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/custom-website-development", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

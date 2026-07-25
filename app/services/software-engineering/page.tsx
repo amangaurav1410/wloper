@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Software Engineering & Cloud Architectures | Wloper — Best IT Company',
         description: 'Scalable backend engines, high-performance UI systems, and continuous delivery platforms.',
+        url: 'https://wloper.com/services/software-engineering',
     },
     alternates: { canonical: 'https://wloper.com/services/software-engineering' }
 };
@@ -27,6 +28,17 @@ export default function SoftwareEngineeringPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Software Engineering", "item": "https://wloper.com/services/software-engineering" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Custom Software Engineering & Cloud Architectures",
+                            "serviceType": "Software Engineering",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Elite custom software engineering — microservices (Go, Node, Rust), Next.js SaaS platforms, and cloud-native architectures.",
+                            "url": "https://wloper.com/services/software-engineering",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/software-engineering", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

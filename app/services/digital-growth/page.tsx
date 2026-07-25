@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Digital Marketing & Growth Services | Wloper — Best IT Company',
         description: 'Revenue acceleration through technical SEO, performance advertising, and behavior-driven conversion optimization.',
+        url: 'https://wloper.com/services/digital-growth',
     },
     alternates: { canonical: 'https://wloper.com/services/digital-growth' }
 };
@@ -27,6 +28,17 @@ export default function DigitalGrowthPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Digital Growth", "item": "https://wloper.com/services/digital-growth" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Digital Marketing & Growth Services",
+                            "serviceType": "Digital Marketing",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Data-driven growth campaigns across search engines, social channels, and CRO architectures to accelerate business revenue.",
+                            "url": "https://wloper.com/services/digital-growth",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/digital-growth", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

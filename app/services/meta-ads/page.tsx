@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Meta Ads Management | Facebook & Instagram Ads — Wloper',
         description: 'Facebook & Instagram ad campaigns that convert. Expert Meta Ads management for e-commerce, lead generation, and brand awareness.',
+        url: 'https://wloper.com/services/meta-ads',
     },
     alternates: { canonical: 'https://wloper.com/services/meta-ads' }
 };
@@ -27,6 +28,17 @@ export default function MetaAdsPage() {
                                 { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wloper.com/services" },
                                 { "@type": "ListItem", "position": 3, "name": "Meta Ads", "item": "https://wloper.com/services/meta-ads" }
                             ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "name": "Meta Ads Management",
+                            "serviceType": "Social Media Advertising",
+                            "provider": { "@type": "Organization", "name": "Wloper", "url": "https://wloper.com" },
+                            "description": "Facebook and Instagram advertising campaigns designed to maximise ROAS, reduce CPL, and grow your brand across social media.",
+                            "url": "https://wloper.com/services/meta-ads",
+                            "areaServed": ["India", "United States", "United Kingdom", "UAE"],
+                            "offers": { "@type": "Offer", "url": "https://wloper.com/services/meta-ads", "availability": "https://schema.org/InStock" }
                         }
                     ])
                 }}

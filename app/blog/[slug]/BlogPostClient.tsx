@@ -102,7 +102,9 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
 
                         <div className="container-custom relative z-10">
                             <button
+                                type="button"
                                 onClick={() => router.back()}
+                                aria-label="Back to blog library"
                                 className="inline-flex items-center gap-2 text-wl-muted-dark hover:text-white transition-colors mb-12 group"
                             >
                                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

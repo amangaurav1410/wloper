@@ -96,13 +96,16 @@ export default function BlogListClient() {
                         className="glass-strong p-4 rounded-[2rem] border border-white/5 flex flex-col md:flex-row gap-4 items-center"
                     >
                         <div className="relative flex-1 group w-full">
+                            <label htmlFor="blog-search" className="sr-only">Search blog posts</label>
                             <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 group-focus-within:text-wl-accent transition-colors" />
                             <input
+                                id="blog-search"
                                 type="text"
                                 placeholder="Search the archive..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full bg-white/5 border border-white/5 rounded-2xl pl-14 pr-6 py-4 text-sm focus:border-wl-accent/30 focus:outline-none transition-all"
+                                aria-label="Search blog posts"
                             />
                         </div>
 
@@ -110,7 +113,10 @@ export default function BlogListClient() {
                             {categories.map((cat) => (
                                 <button
                                     key={cat}
+                                    type="button"
                                     onClick={() => setSelectedCategory(cat)}
+                                    aria-pressed={selectedCategory === cat}
+                                    aria-label={`Filter by ${cat}`}
                                     className={`whitespace-nowrap px-6 py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all border ${selectedCategory === cat
                                         ? 'bg-wl-accent text-black border-wl-accent'
                                         : 'bg-white/5 border-transparent text-white/40 hover:bg-white/10'
@@ -121,15 +127,21 @@ export default function BlogListClient() {
                             ))}
                         </div>
 
-                        <div className="hidden lg:flex items-center gap-1 bg-white/5 p-1 rounded-xl">
+                        <div className="hidden lg:flex items-center gap-1 bg-white/5 p-1 rounded-xl" role="group" aria-label="View mode">
                             <button
+                                type="button"
                                 onClick={() => setViewMode('grid')}
+                                aria-label="Grid view"
+                                aria-pressed={viewMode === 'grid'}
                                 className={`p-3 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-wl-accent text-black' : 'text-white/40 hover:text-white'}`}
                             >
                                 <LayoutGrid className="w-4 h-4" />
                             </button>
                             <button
+                                type="button"
                                 onClick={() => setViewMode('list')}
+                                aria-label="List view"
+                                aria-pressed={viewMode === 'list'}
                                 className={`p-3 rounded-lg transition-all ${viewMode === 'list' ? 'bg-wl-accent text-black' : 'text-white/40 hover:text-white'}`}
                             >
                                 <List className="w-4 h-4" />
@@ -230,7 +242,9 @@ export default function BlogListClient() {
                     {filteredPosts.length > currentPosts.length && (
                         <div className="mt-20 text-center">
                             <button
+                                type="button"
                                 onClick={() => setCurrentPage(prev => prev + 1)}
+                                aria-label="Load more blog posts"
                                 className="group inline-flex items-center gap-4 bg-white/5 border border-white/10 px-12 py-6 rounded-2xl hover:border-wl-accent/50 transition-all"
                             >
                                 <span className="text-sm font-black uppercase tracking-widest">Access More Data</span>

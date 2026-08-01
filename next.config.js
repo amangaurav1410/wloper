@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     compress: true,
+
+    // Target modern browsers only — eliminates legacy Babel polyfills (~12 KiB savings)
+    // This removes transforms for Array.at, Object.fromEntries, etc. that are natively supported
+    experimental: {
+        browsersListForSwc: true,
+    },
+
     images: {
         formats: ['image/avif', 'image/webp'],
         minimumCacheTTL: 604800, // 1 week
@@ -27,6 +34,13 @@ const nextConfig = {
     async headers() {
         return [
             {
+                // Cache static assets for 1 year
+                source: '/images/(.*)',
+                headers: [
+                    { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+                ]
+            },
+            {
                 source: '/(.*)',
                 headers: [
                     {
@@ -48,6 +62,10 @@ const nextConfig = {
                     {
                         key: 'Referrer-Policy',
                         value: 'origin-when-cross-origin'
+                    },
+                    {
+                        key: 'Permissions-Policy',
+                        value: 'camera=(), microphone=(), geolocation=()'
                     }
                 ]
             }
@@ -56,4 +74,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-

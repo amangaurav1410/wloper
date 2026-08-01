@@ -120,20 +120,22 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
             <head>
-                {/* dns-prefetch for analytics — fonts handled by next/font at build time */}
+                {/* Preconnect to critical origins — speeds up first requests */}
+                <link rel="preconnect" href="https://www.googletagmanager.com" />
+                <link rel="preconnect" href="https://www.google-analytics.com" />
                 <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-                {/* Google Analytics */}
+                {/* Google Analytics — lazyOnload defers past LCP for better performance */}
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-BPJND5P97V`}
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                 />
-                <Script id="google-analytics" strategy="afterInteractive">
+                <Script id="google-analytics" strategy="lazyOnload">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                        gtag('config', 'G-BPJND5P97V');
+                        gtag('config', 'G-BPJND5P97V', { send_page_view: true });
                     `}
                 </Script>
                 {/* ================================================================

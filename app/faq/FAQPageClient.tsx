@@ -236,15 +236,18 @@ export default function FAQPageClient() {
                         transition={{ delay: 0.2 }}
                         className="relative mb-16"
                     >
+                        <label htmlFor="faq-search" className="sr-only">Search FAQs</label>
                         <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
                             <Search className="w-5 h-5 text-white/20" />
                         </div>
                         <input
+                            id="faq-search"
                             type="text"
                             placeholder="Query the database..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-2xl pl-16 pr-6 py-6 text-xl focus:outline-none focus:border-wl-accent/30 transition-all placeholder:text-white/10"
+                            aria-label="Search frequently asked questions"
                         />
                     </motion.div>
 
@@ -259,8 +262,12 @@ export default function FAQPageClient() {
                                 className={`glass-strong rounded-2xl border transition-all duration-300 ${openIndex === index ? 'border-wl-accent/30 bg-wl-accent/5' : 'border-white/5 hover:border-white/10'}`}
                             >
                                 <button
+                                    type="button"
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                     className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                                    aria-expanded={openIndex === index}
+                                    aria-controls={`faq-answer-${index}`}
+                                    id={`faq-question-${index}`}
                                 >
                                     <span className={`text-lg font-bold transition-colors ${openIndex === index ? 'text-wl-accent' : 'text-white/80 group-hover:text-white'}`}>
                                         {faq.question}
@@ -270,7 +277,12 @@ export default function FAQPageClient() {
                                     </div>
                                 </button>
                                 {openIndex === index && (
-                                    <div className="px-8 pb-8">
+                                    <div
+                                        id={`faq-answer-${index}`}
+                                        role="region"
+                                        aria-labelledby={`faq-question-${index}`}
+                                        className="px-8 pb-8"
+                                    >
                                         <div className="h-px bg-white/5 mb-6" />
                                         <p className="text-white/50 leading-relaxed text-lg font-medium">
                                             {faq.answer}
@@ -307,9 +319,9 @@ export default function FAQPageClient() {
                         <MessageSquare className="w-12 h-12 text-wl-accent mx-auto mb-6" />
                         <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
                         <p className="text-white/40 mb-10 max-w-sm mx-auto">Our engineering specialists are ready to discuss your unique technical requirements.</p>
-                        <button className="bg-wl-accent hover:bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm transition-all">
+                        <a href="/contact" className="bg-wl-accent hover:bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm transition-all inline-block">
                             Initialize Protocol
-                        </button>
+                        </a>
                     </motion.div>
                 </div>
             </div>

@@ -234,9 +234,10 @@ export default function Header() {
                         </Link>
 
                         <MagneticWrapper strength={0.3}>
-                            <button
+                             <button
                                 onClick={openDemoModal}
                                 className="group relative px-6 py-3 bg-wl-accent text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_25px_rgba(202,246,72,0.4)] whitespace-nowrap text-sm"
+                                aria-label="Get a Demo"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     Get a Demo
@@ -251,6 +252,7 @@ export default function Header() {
                         <button
                             onClick={openDemoModal}
                             className="p-2.5 bg-wl-accent text-black rounded-full shadow-lg"
+                            aria-label="Get a Free Demo"
                         >
                             <Sparkles className="w-4 h-4" />
                         </button>
